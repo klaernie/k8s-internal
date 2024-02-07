@@ -1,0 +1,27 @@
+resources:
+  - 00_ns.yaml
+
+secretGenerator:
+- name: age-key
+  files:
+  - key.txt
+
+helmCharts:
+- name: sops-secrets-operator
+  repo: https://isindir.github.io/sops-secrets-operator/
+  releaseName: sops
+  namespace: sops
+  version: 0.17.4
+  includeCRDs: true
+  valuesInline:
+    securityContext:
+      enabled: true
+    extraEnv:
+      - name: SOPS_AGE_KEY_FILE
+        value: /etc/sops-age-key-file/key.txt
+    secretsAsFiles:
+      - mountPath: /etc/sops-age-key-file
+        name: sops-age-key-file
+        secretName: age-key
+
+namespace: sops

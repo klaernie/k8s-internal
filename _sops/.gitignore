@@ -1,0 +1,5 @@
+# under no circumstances publish a key that decrypts the secrets encrypted in this repo...
+key.txt
+
+# the charts directory contains the downloaded charts - which we do not need to store ourselves
+charts/
