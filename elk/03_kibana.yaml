@@ -1,0 +1,30 @@
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: kibana
+  namespace: elk
+spec:
+  version: 8.10.4
+  count: 1
+  elasticsearchRef:
+    name: elasticsearch
+  http:
+    tls:
+      certificate:
+        secretName: kibana-cert
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kibana
+  namespace: elk
+spec:
+  secretName: kibana-cert
+  dnsNames:
+  - kibana.elk.k8s.ak-online.be
+  - kibana-kb-http.elk.k8s.ak-online.be
+  issuerRef:
+    name: letsencrypt-prod
+    # We can reference ClusterIssuers by changing the kind here.
+    # The default value is Issuer (i.e. a locally namespaced Issuer)
+    kind: ClusterIssuer

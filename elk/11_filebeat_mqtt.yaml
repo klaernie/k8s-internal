@@ -1,0 +1,58 @@
+apiVersion: beat.k8s.elastic.co/v1beta1
+kind: Beat
+metadata:
+  name: mqtt-esphome
+  namespace: elk
+spec:
+  type: filebeat
+  version: 8.10.4
+  config:
+    filebeat.inputs:
+      - type: mqtt
+        hosts:
+          - tcp://mqtt.ak-online.be:1883
+        topics:
+          - esphome/+/debug
+
+    processors:
+      - add_fields:
+          target: ''
+          fields:
+            data_stream.type: logs
+            data_stream.dataset: esphome
+            data_stream.namespace: default
+      - replace:
+          fields:
+            - field: "message"
+              pattern: '\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])'
+              replacement: ""
+          ignore_missing: false
+          fail_on_error: true
+
+    setup.template.enabled: false
+    setup.ilm.enabled: false
+    output.logstash:
+      hosts:
+        - beats-ls-beats
+
+  deployment:
+    replicas: 1
+    podTemplate:
+      spec:
+        volumes:
+          - name: beat-data
+            persistentVolumeClaim:
+              claimName: mqtt-beat-data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mqtt-beat-data
+  namespace: elk
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: zfs-bulk

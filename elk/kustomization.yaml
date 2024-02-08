@@ -1,0 +1,15 @@
+resources:
+  - 00_ns.yaml
+  - 00_runtimeclass.yaml
+  - https://download.elastic.co/downloads/eck/2.9.0/crds.yaml
+  - https://download.elastic.co/downloads/eck/2.9.0/operator.yaml
+  - 02_elasticsearch.yaml
+  - 03_kibana.yaml
+  - 04_kibana_lb_svc.yaml
+  - 05_beats-ls.yaml
+  - 06_syslog_fw-ls.yaml
+  - 07_syslog_aruba-ls.yaml
+  - 08_syslog_hosts.yaml
+  - 09_syslog_switches.yaml
+  - 10_filebeat_k8s_int.yaml
+  - 11_filebeat_mqtt.yaml

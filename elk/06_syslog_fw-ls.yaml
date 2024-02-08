@@ -1,0 +1,167 @@
+apiVersion: logstash.k8s.elastic.co/v1alpha1
+kind: Logstash
+metadata:
+  name: firewalls
+  namespace: elk
+spec:
+  count: 1
+  elasticsearchRefs:
+    - name: elasticsearch
+      clusterName: qs
+  version: 8.10.4
+  pipelines:
+    - pipeline.id: main
+      config.string: |
+        input {
+          syslog {
+            port => 9514
+            timezone => "Europe/Berlin"
+          }
+        }
+
+        filter {
+          if [process][name] == "filterlog" {
+            mutate {
+              add_field => { "[data_stream][namespace]" => "filterlog" }
+            }
+
+            grok {
+              match => { "message" => "%{GREEDYDATA:[@metadata][filterlog_csv]}"}
+            }
+
+            mutate {
+              split => {"[@metadata][filterlog_csv]" => "," }
+            }
+
+            mutate {
+              add_field => {
+                "[filter][rulenr]"      => "%{[@metadata][filterlog_csv][0]}"
+                "[filter][subrulenr]"   => "%{[@metadata][filterlog_csv][1]}"
+                "[filter][anchorname]"  => "%{[@metadata][filterlog_csv][2]}"
+                "[filter][label]"       => "%{[@metadata][filterlog_csv][3]}"
+                "[filter][interface]"   => "%{[@metadata][filterlog_csv][4]}"
+                "[filter][reason]"      => "%{[@metadata][filterlog_csv][5]}"
+                "[filter][action]"      => "%{[@metadata][filterlog_csv][6]}"
+                "[filter][dir]"         => "%{[@metadata][filterlog_csv][7]}"
+                "[filter][ipversion]"   => "%{[@metadata][filterlog_csv][8]}"
+              }
+            }
+            if [filter][ipversion] == "4" {
+              mutate {
+                add_field => {
+                  "[filter][tos]"              => "%{[@metadata][filterlog_csv][9]}"
+                  "[filter][ecn]"              => "%{[@metadata][filterlog_csv][10]}"
+                  "[filter][hop_limit]"        => "%{[@metadata][filterlog_csv][11]}"
+                  "[filter][aid]"              => "%{[@metadata][filterlog_csv][12]}"
+                  "[filter][myoffset]"         => "%{[@metadata][filterlog_csv][13]}"
+                  "[filter][flags]"            => "%{[@metadata][filterlog_csv][14]}"
+                  "[filter][protocol_id]"      => "%{[@metadata][filterlog_csv][15]}"
+                  "[filter][protocol]"         => "%{[@metadata][filterlog_csv][16]}"
+                  "[filter][length]"           => "%{[@metadata][filterlog_csv][17]}"
+                  "[filter][source][ip]"       => "%{[@metadata][filterlog_csv][18]}"
+                  "[filter][destination][ip]"  => "%{[@metadata][filterlog_csv][19]}"
+                }
+              }
+              if [filter][protocol] == "tcp" or [filter][protocol] == "udp" {
+                mutate {
+                  add_field => {
+                    "[filter][source][port]"       => "%{[@metadata][filterlog_csv][20]}"
+                    "[filter][destination][port]"  => "%{[@metadata][filterlog_csv][21]}"
+                    "[filter][datalen]"            => "%{[@metadata][filterlog_csv][22]}"
+                  }
+                }
+              }
+
+              if [filter][protocol] == "tcp" {
+                mutate {
+                  add_field => {
+                    "[filter][tcp][flags]"    => "%{[@metadata][filterlog_csv][23]}"
+                    "[filter][tcp][seq]"      => "%{[@metadata][filterlog_csv][24]}"
+                    "[filter][tcp][ack]"      => "%{[@metadata][filterlog_csv][25]}"
+                    "[filter][tcp][window]"   => "%{[@metadata][filterlog_csv][26]}"
+                    "[filter][tcp][urg]"      => "%{[@metadata][filterlog_csv][27]}"
+                    "[filter][tcp][options]"  => "%{[@metadata][filterlog_csv][28]}"
+                  }
+                }
+              }
+            } # ipv4
+            if [filter][ipversion] == "6" {
+              mutate {
+                add_field => {
+                  "[filter][klass]"            => "%{[@metadata][filterlog_csv][9]}"
+                  "[filter][flow_label]"       => "%{[@metadata][filterlog_csv][10]}"
+                  "[filter][hop_limit]"        => "%{[@metadata][filterlog_csv][11]}"
+                  "[filter][protocol]"         => "%{[@metadata][filterlog_csv][12]}"
+                  "[filter][protocol_id]"      => "%{[@metadata][filterlog_csv][13]}"
+                  "[filter][length]"           => "%{[@metadata][filterlog_csv][14]}"
+                  "[filter][source][ip]"       => "%{[@metadata][filterlog_csv][15]}"
+                  "[filter][destination][ip]"  => "%{[@metadata][filterlog_csv][16]}"
+                }
+              }
+              if [filter][protocol] == "tcp" or [filter][protocol] == "udp" {
+                mutate {
+                  add_field => {
+                    "[filter][source][port]"       => "%{[@metadata][filterlog_csv][17]}"
+                    "[filter][destination][port]"  => "%{[@metadata][filterlog_csv][18]}"
+                    "[filter][datalen]"            => "%{[@metadata][filterlog_csv][19]}"
+                  }
+                }
+              }
+
+              if [filter][protocol] == "tcp" {
+                mutate {
+                  add_field => {
+                    "[filter][tcp][flags]"    => "%{[@metadata][filterlog_csv][20]}"
+                    "[filter][tcp][seq]"      => "%{[@metadata][filterlog_csv][21]}"
+                    "[filter][tcp][ack]"      => "%{[@metadata][filterlog_csv][22]}"
+                    "[filter][tcp][window]"   => "%{[@metadata][filterlog_csv][23]}"
+                    "[filter][tcp][urg]"      => "%{[@metadata][filterlog_csv][24]}"
+                    "[filter][tcp][options]"  => "%{[@metadata][filterlog_csv][25]}"
+                  }
+                }
+              }
+            } # ipv6
+            #mutate {
+            #  remove_field => [ "filterlog_csv" ]
+            #}
+          }
+        }
+
+        output {
+          elasticsearch {
+            hosts => [ "${QS_ES_HOSTS}" ]
+            user => "${QS_ES_USER}"
+            password => "${QS_ES_PASSWORD}"
+            ssl_certificate_authorities => "${QS_ES_SSL_CERTIFICATE_AUTHORITY}"
+            data_stream => "true"
+            data_stream_type => "logs"
+            data_stream_dataset => "firewall"
+            data_stream_auto_routing => true
+          }
+        }
+  services:
+    - name: syslog
+      service:
+        spec:
+          type: LoadBalancer
+          ports:
+            - port: 9514
+              name: "syslog-tcp"
+              protocol: TCP
+              targetPort: 9514
+            - port: 9514
+              name: "syslog-udp"
+              protocol: UDP
+              targetPort: 9514
+
+  volumeClaimTemplates:
+    - metadata:
+        name: logstash-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+        storageClassName: zfs-bulk
+

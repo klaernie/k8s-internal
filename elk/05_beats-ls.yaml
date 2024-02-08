@@ -1,0 +1,106 @@
+apiVersion: logstash.k8s.elastic.co/v1alpha1
+kind: Logstash
+metadata:
+  name: beats
+  namespace: elk
+spec:
+  count: 1
+  elasticsearchRefs:
+    - name: elasticsearch
+      clusterName: qs
+  version: 8.9.2
+  podTemplate:
+    spec:
+      containers:
+      - name: logstash
+        volumeMounts:
+        - mountPath: /usr/share/logstash/dlq
+          name: dlq
+          readOnly: false
+  volumeClaimTemplates:
+    - metadata:
+        name: dlq
+      spec:
+        storageClassName: zfs-bulk
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
+    - metadata:
+        name: logstash-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+        storageClassName: zfs-bulk
+
+
+  pipelines:
+    - pipeline.id: main
+    #  dead_letter_queue.enable: true
+    #  path.dead_letter_queue: /usr/share/logstash/dlq
+      config.string: |
+        input {
+          beats {
+            port => 5044
+          }
+        }
+        filter {
+          #json {
+          #  source => "message"
+          #  target => "parsed_data"
+          #  skip_on_invalid_json => true
+          #  add_tag => ["json_parsed"]
+          #}
+          mutate {
+            remove_field => [ "[event][original]" ]
+          }
+        }
+        output {
+          elasticsearch {
+            hosts => [ "${QS_ES_HOSTS}" ]
+            user => "${QS_ES_USER}"
+            password => "${QS_ES_PASSWORD}"
+            ssl_certificate_authorities => "${QS_ES_SSL_CERTIFICATE_AUTHORITY}"
+            data_stream => "true"
+            data_stream_type => "logs"
+            data_stream_dataset => "hosts"
+            data_stream_auto_routing => true
+          }
+        }
+    #- pipeline.id: dlq
+    #  dead_letter_queue.enable: false
+    #  config.string: |
+    #    input {
+    #      dead_letter_queue {
+    #        path => "/usr/share/logstash/dlq"
+    #        commit_offsets => true
+    #        pipeline_id => "beats"
+    #        clean_consumed => true
+    #      }
+    #    }
+    #    output {
+    #      #elasticsearch {
+    #      #  hosts => [ "${QS_ES_HOSTS}" ]
+    #      #  user => "${QS_ES_USER}"
+    #      #  password => "${QS_ES_PASSWORD}"
+    #      #  ssl_certificate_authorities => "${QS_ES_SSL_CERTIFICATE_AUTHORITY}"
+    #      #}
+    #      stdout {}
+    #    }
+
+
+  services:
+    - name: beats
+      service:
+        spec:
+          type: ClusterIP
+          ports:
+            - port: 5044
+              name: "filebeat"
+              protocol: TCP
+              targetPort: 5044
+

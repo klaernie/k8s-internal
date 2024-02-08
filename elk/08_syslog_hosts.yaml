@@ -1,0 +1,71 @@
+apiVersion: logstash.k8s.elastic.co/v1alpha1
+kind: Logstash
+metadata:
+  name: hosts
+  namespace: elk
+spec:
+  count: 1
+  elasticsearchRefs:
+    - name: elasticsearch
+      clusterName: qs
+  version: 8.10.4
+  pipelines:
+    - pipeline.id: main
+      config.string: |
+        input {
+          syslog {
+            port => 9514
+            timezone => "Europe/Berlin"
+          }
+        }
+
+        filter {
+        }
+
+        output {
+          elasticsearch {
+            hosts => [ "${QS_ES_HOSTS}" ]
+            user => "${QS_ES_USER}"
+            password => "${QS_ES_PASSWORD}"
+            ssl_certificate_authorities => "${QS_ES_SSL_CERTIFICATE_AUTHORITY}"
+            data_stream => "true"
+            data_stream_type => "logs"
+            data_stream_dataset => "hosts"
+            data_stream_auto_routing => true
+          }
+        }
+  services:
+    - name: syslog
+      service:
+        spec:
+          type: LoadBalancer
+          ports:
+            - port: 514
+              name: "syslog-tcp-low"
+              protocol: TCP
+              targetPort: 9514
+            - port: 514
+              name: "syslog-udp-low"
+              protocol: UDP
+              targetPort: 9514
+
+            - port: 9514
+              name: "syslog-tcp"
+              protocol: TCP
+              targetPort: 9514
+            - port: 9514
+              name: "syslog-udp"
+              protocol: UDP
+              targetPort: 9514
+
+  volumeClaimTemplates:
+    - metadata:
+        name: logstash-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+        storageClassName: zfs-bulk
+
