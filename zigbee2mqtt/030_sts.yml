@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: zigbee2mqtt
+  namespace: zigbee2mqtt
+spec:
+  replicas: 1
+  updateStrategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: zigbee2mqtt
+  serviceName: zigbee2mqtt-app
+  template:
+    metadata:
+      labels:
+        app: zigbee2mqtt
+    spec:
+      terminationGracePeriodSeconds: 300
+      containers:
+      - name: zigbee2mqtt
+        imagePullPolicy: Always
+        image: koenkk/zigbee2mqtt:1.35.3
+        ports:
+          - containerPort: 8080
+            name: web
+        volumeMounts:
+          - name: datadir
+            mountPath: /app/data
+        env:
+          - name: TZ
+            value: "Europe/Berlin"
+      volumes:
+        - name: datadir
+          persistentVolumeClaim:
+            claimName: zigbee2mqtt-data

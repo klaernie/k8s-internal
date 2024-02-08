@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: zigbee2mqtt.zigbee2mqtt.k8s.ak-online.be
+    external-dns.alpha.kubernetes.io/ttl: "60"
+  labels:
+    app: zigbee2mqtt
+  name: zigbee2mqtt
+  namespace: zigbee2mqtt
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: web
+    port: 80
+    protocol: TCP
+    targetPort: web
+  selector:
+    app: zigbee2mqtt
+  sessionAffinity: None
+  type: LoadBalancer
+

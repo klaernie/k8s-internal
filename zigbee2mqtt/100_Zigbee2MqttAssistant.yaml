@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: zigbee2mqttassistant
+  name: zigbee2mqttassistant
+  namespace: zigbee2mqtt
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zigbee2mqttassistant
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: zigbee2mqttassistant
+    spec:
+      containers:
+      - image: carldebilly/zigbee2mqttassistant
+        imagePullPolicy: Always
+        name: zigbee2mqttassistant
+        resources: {}
+        env:
+          - name: TZ
+            value: "Europe/Berlin"
+          - name: Z2MA_SETTINGS__MQTTSERVER
+            value: "172.16.0.248"
+        ports:
+          - name: web
+            containerPort: 80
+status: {}
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: zigbee2mqttassistant.zigbee2mqtt.k8s.ak-online.be
+    external-dns.alpha.kubernetes.io/ttl: "60"
+  labels:
+    app: zigbee2mqttassistant
+  name: zigbee2mqttassistant
+  namespace: zigbee2mqtt
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: "80"
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: zigbee2mqttassistant
+  sessionAffinity: None
+  type: LoadBalancer
