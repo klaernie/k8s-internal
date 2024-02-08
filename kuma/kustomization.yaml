@@ -1,0 +1,5 @@
+resources:
+  - 00_ns.yaml
+  - 01_svc.yaml
+  - 02_pvc.yaml
+  - 03_sts.yaml

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: uptime-kuma
+  namespace: kuma
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  replicas: 1
+  serviceName: uptime
+  selector:
+    matchLabels:
+      app: uptime-kuma
+  updateStrategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: uptime-kuma
+    spec:
+      containers:
+        - name: uptime-kuma
+          image: louislam/uptime-kuma:1.23.11
+          env:
+            - name: UPTIME_KUMA_PORT
+              value: "3001"
+            - name: PORT
+              value: "3001"
+          ports:
+            - name: uptime-kuma
+              containerPort: 3001
+              protocol: TCP
+          volumeMounts:
+            - name: kuma-data
+              mountPath: /app/data
+
+  volumeClaimTemplates:
+    - metadata:
+        name: kuma-data
+      spec:
+        accessModes: ["ReadWriteMany"]
+        volumeMode: Filesystem
+        resources:
+          requests:
+            storage: 5Gi
+        storageClassName: zfs-quick
