@@ -1,0 +1,3 @@
+resources:
+  - 00_ns.yaml
+  - 01_xclock-bb.yaml
