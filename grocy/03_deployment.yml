@@ -1,0 +1,50 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grocy
+  namespace: grocy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: grocy
+  template:
+    metadata:
+      labels:
+        name: grocy
+    spec:
+      containers:
+      - name: grocy
+        imagePullPolicy: Always
+        image: ghcr.io/linuxserver/grocy:v4.0.3-ls230
+        ports:
+          - containerPort: 9283
+        volumeMounts:
+          - name: db
+            mountPath: /var/www/data
+            subPath: data
+          - name: db
+            mountPath: /config
+            subPath: config
+          - name: tls
+            mountPath: /config/keys
+        env:
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: TZ
+            value: "Europe/Berlin"
+      volumes:
+        - name: db
+          persistentVolumeClaim:
+            claimName: grocy-nfs
+        - name: tls
+          secret:
+            secretName: grocy-tls
+            items:
+              - key: tls.key
+                path: cert.key
+              - key: tls.crt
+                path: cert.crt

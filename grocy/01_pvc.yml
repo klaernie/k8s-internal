@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grocy-nfs
+  namespace: grocy
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: zfs-quick
+  resources:
+    requests:
+      storage: 5Gi

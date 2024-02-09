@@ -1,0 +1,8 @@
+resources:
+  - 00_ns.yaml
+  - 01_pvc.yml
+  - 02_certificate.yaml
+  - 03_deployment.yml
+  - 04_service.yml
+  # not done actually building the ingress yet
+  #- 05_ingress.yml
