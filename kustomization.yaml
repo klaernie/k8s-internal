@@ -1,0 +1,14 @@
+resources:
+  - _cert-manager
+  - _metallb-system
+  - _reloader
+  - _sops
+  - _zfs-provisioner
+  - elk
+  - grafana
+  - grocy
+  - kube-system
+  - kuma
+  - magicmirror
+  - x11
+  - zigbee2mqtt
