@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: grafana-config
+  namespace: grafana
+data:
+  grafana.ini: |
+    [server]
+    domain = grafana.grafana.k8s.ak-online.be
+    root_url = %(protocol)s://%(domain)s/
+
+    [database]
+    type = postgres
+    host = postgres.ak-online.be
+    name = grafana
+
+    user = grafana
+    # If the password contains # or ; you have to wrap it with triple quotes. Ex """#password;"""
+    password = maintained-in-k8s-secret
+
+    [security]
+    secret_key = maintained-in-k8s-secret
+
+    # we want this for hosting the graphs in MagicMirror
+    allow_embedding = true
+
+    # keep this around for longer than Grafana might like
+    # - the state transition panel still uses Angular
+    angular_support_enabled = true
+
+    [smtp]
+    enabled = true
+    host = debs.ak-online.be:587
+    from_address = admin@grafana.ak-online.be
+    ehlo_identity = grafana.ak-online.be
+
+    [feature_toggles]
+    publicDashboards = true
+
+    [date_formats]
+    default_timezone = Europe/Berlin
+
+    [auth.anonymous]
+    enabled = true
+    org_name = Main Org.
+    org_role = Viewer
