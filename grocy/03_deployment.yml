@@ -17,7 +17,7 @@ spec:
       containers:
       - name: grocy
         imagePullPolicy: Always
-        image: ghcr.io/linuxserver/grocy:v4.0.3-ls230
+        image: ghcr.io/linuxserver/grocy:v4.2.0-ls248
         ports:
           - containerPort: 9283
         volumeMounts:
