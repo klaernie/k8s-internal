@@ -5,7 +5,7 @@ metadata:
   namespace: elk
 spec:
   type: filebeat
-  version: 8.10.4
+  version: 8.13.4
   config:
     filebeat.inputs:
       - type: mqtt

@@ -1,8 +1,8 @@
 resources:
   - 00_ns.yaml
   - 00_runtimeclass.yaml
-  - https://download.elastic.co/downloads/eck/2.9.0/crds.yaml
-  - https://download.elastic.co/downloads/eck/2.9.0/operator.yaml
+  - https://download.elastic.co/downloads/eck/2.12.1/crds.yaml
+  - https://download.elastic.co/downloads/eck/2.12.1/operator.yaml
   - 02_elasticsearch.yaml
   - 03_kibana.yaml
   - 04_kibana_lb_svc.yaml

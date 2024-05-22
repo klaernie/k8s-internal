@@ -8,7 +8,7 @@ spec:
   elasticsearchRefs:
     - name: elasticsearch
       clusterName: qs
-  version: 8.9.2
+  version: 8.13.4
   podTemplate:
     spec:
       containers:
