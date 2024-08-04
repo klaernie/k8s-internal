@@ -3,6 +3,22 @@ resources:
   - secrets.enc.yaml
 
 helmCharts:
+  - name: redis
+    repo: oci://registry-1.docker.io/bitnamicharts
+    releaseName: netbox-redis
+    namespace: netbox
+    version: 19.6.4
+    skipTests: true
+    valuesInline:
+      architecture: standalone
+      auth:
+        enabled: true
+        existingSecret: netbox-redis
+        existingSecretPasswordKey: redis-password
+      master:
+        persistence:
+          storageClass: zfs-quick
+
   - name: netbox
     repo: oci://ghcr.io/netbox-community/netbox-chart
     releaseName: netbox
