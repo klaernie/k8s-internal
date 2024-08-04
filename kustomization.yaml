@@ -11,5 +11,6 @@ resources:
   - kube-system
   - kuma
   - magicmirror
+  - netbox
   - x11
   - zigbee2mqtt

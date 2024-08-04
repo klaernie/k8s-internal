@@ -1,0 +1,14 @@
+resources:
+  - netbox-namespace.yaml
+  - secrets.enc.yaml
+
+helmCharts:
+  - name: netbox
+    repo: oci://ghcr.io/netbox-community/netbox-chart
+    releaseName: netbox
+    namespace: netbox
+    version: 5.0.0-beta.65
+    valuesFile: values.yaml
+    skipTests: true
+
+namespace: netbox
