@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: vdirsyncer
+  name: vdirsyncer
+  namespace: magicmirror
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vdirsyncer
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: vdirsyncer
+    spec:
+      containers:
+      - image: ghcr.io/klaernie/vdirsyncer:latest
+        imagePullPolicy: Always
+        name: vdirsyncer
+        resources: {}
+        env:
+          - name: TZ
+            value: "Europe/Berlin"
+          - name: VDIRSYNCER_INTERVAL
+            value: "300"
+        volumeMounts:
+          - name: config
+            mountPath: "/home/vds/.config/vdirsyncer"
+          - name: config
+            mountPath: "/home/vds/post-sync-hook.sh"
+            subPath: "post-sync-hook.sh"
+          - name: nfs
+            mountPath: "/home/vds/nfs"
+        #args: ["-v", "debug"]
+      volumes:
+      - name: nfs
+        persistentVolumeClaim:
+          claimName: magicmirror-data
+      - name: config
+        configMap:
+          name: vdirsyncer
+          items:
+            - key: config
+              path: config
+            - key: post-sync-hook.sh
+              path: post-sync-hook.sh
+              mode: 0777
+status: {}
