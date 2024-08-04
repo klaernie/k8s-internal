@@ -1,0 +1,41 @@
+resources:
+  - 00_ns.yaml
+  - secret.enc.yaml
+
+helmCharts:
+  - name: kubernetes-zfs-provisioner
+    repo: https://ccremer.github.io/kubernetes-zfs-provisioner
+    version: 2.2.1
+    namespace: zfs-provisioner
+    valuesInline:
+      env:
+        ZFS_MOD: a=rwx
+      storageClass:
+        create: true
+        classes:
+          - name: zfs-quick
+            hostName: zfs-nfs-quick.ak-online.be
+            parentDataset: rpool/k8s-quick
+            policy: Retain
+            type: nfs
+            reserveSpace: true
+            shareProperties: rw,no_root_squash,sync,no_subtree_check,nohide,rw=@172.16.0.0/22:[2a02:8106:253:1c00::]/56
+            annotations:
+              storageclass.kubernetes.io/is-default-class: "false"
+          - name: zfs-bulk
+            hostName: zfs-nfs-bulk.ak-online.be
+            parentDataset: rpool/k8s-bulk
+            policy: Retain
+            type: nfs
+            reserveSpace: false
+            shareProperties: no_root_squash,sync,no_subtree_check,nohide,rw=@172.16.0.0/22:[2a02:8106:253:1c00::]/56
+            annotations:
+              storageclass.kubernetes.io/is-default-class: "false"
+      ssh:
+        externalSecretName: zfs-ssh
+      rbac:
+        create: true
+      podSecurityContext:
+        fsGroup: 100
+
+namespace: zfs-provisioner
