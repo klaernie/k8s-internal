@@ -1,0 +1,22 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: openldap
+  namespace: ldap
+spec:
+  secretName: openldap-tls
+  dnsNames:
+  - openldap.ldap.k8s.ak-online.be
+  - ldap.ak-online.be
+  # acme:
+  #   config:
+  #   - http01:
+  #       ingressClass: nginx
+  #     domains:
+  #       - openldap.ldap.k8s.ak-online.be
+  #       - ldap.ak-online.be
+  issuerRef:
+    name: letsencrypt-prod
+    # We can reference ClusterIssuers by changing the kind here.
+    # The default value is Issuer (i.e. a locally namespaced Issuer)
+    kind: ClusterIssuer
