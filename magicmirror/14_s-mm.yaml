@@ -29,12 +29,16 @@ spec:
         env:
           - name: TZ
             value: "Europe/Berlin"
+        envFrom:
+          - secretRef:
+              name: secrets
         ports:
           - name: web
             containerPort: 80
         volumeMounts:
             - name: config
-              mountPath: "/opt/magic_mirror/config"
+              mountPath: "/opt/magic_mirror/config/config.js.template"
+              subPath: config.js.template
             - name: config
               mountPath: "/opt/magic_mirror/css/custom.css"
               subPath: "custom.css"
@@ -49,7 +53,7 @@ spec:
           name: s
           items:
             - key: config
-              path: config.js
+              path: config.js.template
             - key: css-custom
               path: custom.css
 status: {}

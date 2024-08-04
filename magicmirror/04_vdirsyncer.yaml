@@ -43,8 +43,8 @@ spec:
         persistentVolumeClaim:
           claimName: magicmirror-data
       - name: config
-        configMap:
-          name: vdirsyncer
+        secret:
+          secretName: vdirsyncer
           items:
             - key: config
               path: config
