@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: influx
+  name: telegraf
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  selector:
+    matchLabels:
+      app: telegraf
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: telegraf
+    spec:
+      containers:
+        - image: telegraf:1.26.0
+          name: telegraf
+          envFrom:
+            - secretRef:
+                name: telegraf
+          ports:
+            - name: influxv1tcp
+              containerPort: 8089
+              protocol: TCP
+            - name: influxv1udp
+              containerPort: 8089
+              protocol: UDP
+            - name: collectd
+              containerPort: 25826
+              protocol: UDP
+            - name: collectd-signed
+              containerPort: 25827
+              protocol: UDP
+          volumeMounts:
+            - name: telegraf-config-volume
+              mountPath: /etc/telegraf/telegraf.conf
+              subPath: telegraf.conf
+              readOnly: true
+            - name: telegraf-config-volume
+              mountPath: /etc/telegraf/collectd_auth
+              subPath: collectd_auth
+              readOnly: true
+            - name: telegraf-config-volume
+              mountPath: /etc/telegraf/collectd_stock_types.db
+              subPath: collectd_stock_types.db
+              readOnly: true
+            - name: telegraf-config-volume
+              mountPath: /etc/telegraf/collectd_additional_types.db
+              subPath: collectd_additional_types.db
+              readOnly: true
+      volumes:
+        - name: telegraf-config-volume
+          configMap:
+            name: telegraf

@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db
+  namespace: influx
+  labels:
+    app: influxdb
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: influxdb
+  serviceName: db
+  template:
+    metadata:
+      labels:
+        app: influxdb
+    spec:
+      containers:
+        - image: docker.io/library/influxdb:2.7.4
+          name: influxdb
+          envFrom:
+            - secretRef:
+                name: influx-admin-token
+          ports:
+            - containerPort: 8086
+              name: influxdb
+          volumeMounts:
+            - mountPath: /var/lib/influxdb2
+              name: data
+          resources:
+            limits:
+              memory: 16Gi
+            requests:
+              memory: 10Gi
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: influx-data
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 10
+              preference:
+                matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                      - talos-w02
