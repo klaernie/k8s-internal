@@ -1,0 +1,9 @@
+resources:
+  - 01_ns.yaml
+  - 02_schema.yaml
+  - 04_certificate.yaml
+  - 05_deployment.yaml
+  - 06_svc.yaml
+  - secret.enc.yaml
+
+namespace: ldap
