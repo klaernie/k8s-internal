@@ -4,6 +4,7 @@ resources:
   - _reloader
   - _sops
   - _zfs-provisioner
+  - redis
   - elk
   - grafana
   - grocy

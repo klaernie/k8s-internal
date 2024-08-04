@@ -1,0 +1,14 @@
+resources:
+  - 00_ns.yaml
+
+helmCharts:
+- name: redis-operator
+  repo: https://ot-container-kit.github.io/helm-charts/
+  releaseName: redis
+  namespace: redis
+  version: 0.18.0
+  includeCRDs: true
+  valuesInline: {}
+
+
+namespace: redis
