@@ -1,0 +1,2 @@
+# ignore all Kustomize generated charts directories
+**/charts/
