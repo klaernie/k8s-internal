@@ -1,5 +1,6 @@
 resources:
   - _cert-manager
+  - _external-dns
   - _metallb-system
   - _reloader
   - _sops

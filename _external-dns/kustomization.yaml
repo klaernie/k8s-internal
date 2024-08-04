@@ -1,0 +1,6 @@
+resources:
+  - rbac.yaml
+  - rfc2136.yaml
+  - secret.enc.yaml
+
+namespace: external-dns
