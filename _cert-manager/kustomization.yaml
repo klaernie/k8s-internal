@@ -1,0 +1,4 @@
+resources:
+  - cert-manager-1.11.0.yaml
+  - tsig-secret.yaml
+  - cluster-issuer.yaml
