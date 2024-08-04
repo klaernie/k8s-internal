@@ -2,7 +2,6 @@ resources:
   - 00_ns.yaml
   - 01_pvc.yaml
   - 02_calserv.yaml
-  - 03_vdirsyncer-config.yaml
   - 04_vdirsyncer.yaml
   - 13_s-config.yaml
   - 14_s-mm.yaml
@@ -10,3 +9,6 @@ resources:
   - 21_xl-config.yaml
   - 22_xl-mm.yaml
   - 23_xl-svc.yaml
+  - secrets.enc.yaml
+
+namespace: magicmirror
