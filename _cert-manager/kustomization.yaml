@@ -1,4 +1,22 @@
 resources:
-  - cert-manager-1.11.0.yaml
+  - namespace.yaml
   - cluster-issuer.yaml
   - secret.enc.yaml
+
+helmCharts:
+  - name: cert-manager
+    repo: https://charts.jetstack.io
+    releaseName: cert-manager
+    namespace: cert-manager
+    version: v1.15.2
+    skipTests: true
+    valuesInline:
+      crds:
+        enabled: true
+      # make sure leader-election happens in cert-manager namespace, not kube-system
+      # the latter get's fouled by the kustomize namespace setting, see https://github.com/cert-manager/cert-manager/issues/6716
+      global:
+        leaderElection:
+          namespace: cert-manager
+
+namespace: cert-manager
