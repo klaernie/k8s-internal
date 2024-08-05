@@ -22,7 +22,7 @@ spec:
           - 0
       containers:
         - name: grafana
-          image: grafana/grafana:11.0.0
+          image: grafana/grafana:11.1.3
           imagePullPolicy: IfNotPresent
           env:
             - name: GF_DATABASE_PASSWORD
