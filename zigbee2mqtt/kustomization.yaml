@@ -4,5 +4,3 @@ resources:
   - 020_pvc.yaml
   - 030_sts.yml
   - 040_svc.yaml
-  # no longer deployed, since the offical dashboard is better
-  #- 100_Zigbee2MqttAssistant.yaml
