@@ -1,6 +1,6 @@
 resources:
   - 000_ns.yaml
-  - 010_headless_svc.yml
+  - 010_headless_svc.yaml
   - 020_pvc.yaml
-  - 030_sts.yml
+  - 030_sts.yaml
   - 040_svc.yaml
