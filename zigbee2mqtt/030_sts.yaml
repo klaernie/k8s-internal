@@ -20,6 +20,7 @@ spec:
       containers:
       - name: zigbee2mqtt
         imagePullPolicy: Always
+        # renovate: datasource=github-tags depName=koenkk/zigbee2mqtt
         image: ghcr.io/koenkk/zigbee2mqtt:1.37.1
         ports:
           - containerPort: 8080
