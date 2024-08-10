@@ -1,0 +1,23 @@
+version: v1alpha1
+machine:
+    certSANs:
+      - talos.ak-online.be
+    network:
+      interfaces:
+        - interface: eth0
+          dhcp: true
+          dhcpOptions:
+            ipv4: true
+            ipv6: true
+          vip:
+            ip: 172.16.0.120
+
+cluster:
+    apiServer:
+        admissionControl:
+            - name: PodSecurity
+              configuration:
+                exemptions:
+                    runtimeClasses:
+                      - host-access-granted
+

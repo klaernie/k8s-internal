@@ -1,0 +1,9 @@
+version: v1alpha1
+machine:
+    network:
+      interfaces:
+        - interface: eth0
+          dhcp: true
+          dhcpOptions:
+            ipv4: true
+            ipv6: true

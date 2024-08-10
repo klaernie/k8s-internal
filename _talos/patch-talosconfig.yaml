@@ -1,0 +1,2 @@
+.contexts.talos.endpoints = [ "talos.ak-online.be" ,"talos-api01.ak-online.be" ,"talos-api02.ak-online.be" ,"talos-api03.ak-online.be" ]
+| .contexts.talos.nodes = [ "talos-api01.ak-online.be" ,"talos-api02.ak-online.be" ,"talos-api03.ak-online.be" ,"talos-w01.ak-online.be" ,"talos-w02.ak-online.be" ,"talos-w03.ak-online.be" ,"talos-w04.ak-online.be" ,"talos-w05.ak-online.be" ]
