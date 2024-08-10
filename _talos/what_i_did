@@ -1,0 +1,10 @@
+talosctl gen secrets -o secrets.yaml
+talosctl gen config --with-secrets secrets.yaml talos https://talos.ak-online.be:6443
+vi controlplane.yaml
+vi worker.yaml
+talosctl apply-config --insecure --nodes talos-api01.ak-online.be  --file controlplane.yaml
+talosctl apply-config --insecure --nodes talos-api02.ak-online.be  --file controlplane.yaml
+talosctl apply-config --insecure --nodes talos-api03.ak-online.be  --file controlplane.yaml
+talosctl apply-config --insecure --nodes talos-w01.ak-online.be  --file worker.yaml
+talosctl apply-config --insecure --nodes talos-w02.ak-online.be  --file worker.yaml
+talosctl apply-config --insecure --nodes talos-w03.ak-online.be  --file worker.yaml

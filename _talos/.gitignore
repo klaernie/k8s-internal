@@ -1,0 +1,9 @@
+# it would be dangerous to post the talos secrets on the internet
+secrets.yaml
+
+# the generated machineconfigs also contain secrets
+controlplane.yaml
+worker.yaml
+
+# and so obviously does talosconfig
+talosconfig
