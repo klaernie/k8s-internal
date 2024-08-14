@@ -7,7 +7,7 @@ helmCharts:
     repo: oci://registry-1.docker.io/bitnamicharts
     releaseName: netbox-redis
     namespace: netbox
-    version: 20.0.1
+    version: 20.0.2
     skipTests: true
     valuesInline:
       architecture: standalone
