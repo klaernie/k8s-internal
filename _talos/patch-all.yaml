@@ -9,3 +9,7 @@ machine:
             - fw1.ak-online.be
             - fw2.ak-online.be
         bootTimeout: 2m0s # Specifies the timeout when the node time is considered to be in sync unlocking the boot sequence.
+    features:
+        hostDNS:
+            enabled: true
+            forwardKubeDNSToHost: true
