@@ -271,7 +271,7 @@ data:
                       module: "MMM-GooglePhotos",
                       position: "top_center",
                       config: {
-                          glbums: ["MagicMirror"],
+                          albums: ["MagicMirror"],
                           updateInterval: 1000 * 30,
                           sort: "random",
                           showWidth: 1800,
@@ -445,7 +445,7 @@ data:
 
     #GPHOTO_BACK.animated {
       animation-name: trans;
-      animation-duration: 2s;
+      animation-duration: 0.5s;
     }
 
     #GPHOTO_INFO {
