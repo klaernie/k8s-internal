@@ -7,7 +7,7 @@ spec:
   version: 8.13.4
   nodeSets:
 
-  - name: gen1
+  - name: gen2
     count: 3
     config:
       node.store.allow_mmap: false
@@ -19,5 +19,5 @@ spec:
         - ReadWriteOnce
         resources:
           requests:
-            storage: 45Gi
+            storage: 75Gi
         storageClassName: zfs-bulk
