@@ -4,6 +4,7 @@ metadata:
   name: elasticsearch
   namespace: elk
 spec:
+  # renovate: datasource=github-releases depName=elasticsearch packageName=elastic/elasticsearch
   version: 8.13.4
   nodeSets:
 
