@@ -4,6 +4,7 @@ metadata:
   name: kibana
   namespace: elk
 spec:
+  # renovate: datasource=github-releases depName=kibana packageName=elastic/kibana
   version: 8.13.4
   count: 1
   elasticsearchRef:

@@ -5,6 +5,7 @@ metadata:
   namespace: elk
 spec:
   type: filebeat
+  # renovate: datasource=github-releases depName=beats packageName=elastic/beats
   version: 8.13.4
   config:
     filebeat.inputs:
