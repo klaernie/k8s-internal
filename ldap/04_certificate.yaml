@@ -7,7 +7,6 @@ spec:
   secretName: openldap-tls
   dnsNames:
   - openldap.ldap.k8s.ak-online.be
-  - ldap.ak-online.be
   # acme:
   #   config:
   #   - http01:
