@@ -17,5 +17,16 @@
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
+  ],
+  "packageRules": [
+    {
+      "groupName": "elk-stack",
+      "matchPackageNames": [
+        "elasticsearch",
+        "logstash",
+        "kibana",
+        "beats"
+      ]
+    }
   ]
 }
