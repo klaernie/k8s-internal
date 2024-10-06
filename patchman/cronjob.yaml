@@ -22,5 +22,5 @@ spec:
                 value: "6379"
             envFrom:
               - secretRef:
-                  name: secret
+                  name: patchman
           restartPolicy: OnFailure
