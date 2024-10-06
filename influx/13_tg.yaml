@@ -18,9 +18,12 @@ spec:
       containers:
         - image: telegraf:1.32.0
           name: telegraf
-          envFrom:
-            - secretRef:
-                name: telegraf
+          env:
+            - name: INFLUX_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: telegraf
+                  key: INFLUX_TOKEN
           ports:
             - name: influxv1tcp
               containerPort: 8089
@@ -39,7 +42,7 @@ spec:
               mountPath: /etc/telegraf/telegraf.conf
               subPath: telegraf.conf
               readOnly: true
-            - name: telegraf-config-volume
+            - name: telegraf-secret-volume
               mountPath: /etc/telegraf/collectd_auth
               subPath: collectd_auth
               readOnly: true
@@ -55,3 +58,6 @@ spec:
         - name: telegraf-config-volume
           configMap:
             name: telegraf
+        - name: telegraf-secret-volume
+          secret:
+            secretName: telegraf

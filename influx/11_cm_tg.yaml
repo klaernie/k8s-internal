@@ -88,11 +88,6 @@ data:
       bucket_tag = "bucket"
       exclude_bucket_tag = true
 
-  collectd_auth: |
-    nmia: PuwruprAfrUtrlfreDuspOTr8nucheqlraMl
-    mia:  pePheBiXobUjiw9SPeDawruClbUgaqitrEfr
-    macy: puDxqVeDxdAQrV5ZaCkqErsgkaTnZ5pUBVt6sPNjYaNHA
-
   collectd_additional_types.db: |
     stations		value:GAUGE:0:256
     dns			NXDOMAIN:DERIVE:0:U NOERROR:DERIVE:0:U
