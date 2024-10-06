@@ -37,6 +37,10 @@ spec:
               mountPath: /app/data
             - name: ca-bundle-cm
               mountPath: /certs
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities.drop: ["ALL"]
+            seccompProfile.type: RuntimeDefault
       volumes:
       - name: ca-bundle-cm
         configMap:
