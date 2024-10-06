@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: patchman
+    role: server
+  name: patchman-server
+  namespace: patchman
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  selector:
+    matchLabels:
+      app: patchman
+      role: server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: patchman
+        role: server
+    spec:
+      containers:
+        - name: patchman-server
+          image: ghcr.io/klaernie/patchman:3.0.10
+          imagePullPolicy: Always
+          env:
+            - name: CELERY_REDIS_HOST
+              value: redis-master
+            - name: CELERY_REDIS_PORT
+              value: "6379"
+          envFrom:
+            - secretRef:
+                name: patchman
+          args:
+            - server
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 2
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 80
+            timeoutSeconds: 1
+          resources:
+            requests:
+              cpu: 250m
+              memory: 750Mi

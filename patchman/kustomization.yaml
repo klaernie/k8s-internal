@@ -1,0 +1,28 @@
+namespace: patchman
+
+resources:
+  - namespace.yaml
+  - secret.enc.yaml
+  - server.yaml
+  - worker.yaml
+  - cronjob.yaml
+  - service.yaml
+
+helmCharts:
+  - name: redis
+    repo: oci://registry-1.docker.io/bitnamicharts
+    releaseName: redis
+    namespace: patchman
+    version: 19.6.4
+    skipTests: true
+    valuesInline:
+      architecture: standalone
+      auth:
+        enabled: false
+      master:
+        persistence:
+          storageClass: zfs-quick
+
+images:
+  - name: ghcr.io/klaernie/patchman
+    newTag: 3.0.10@sha256:ac7c875b7bd2414dcefdbd2e3749447acc6b6c9b3adfa19a3e0cbedad344ace1

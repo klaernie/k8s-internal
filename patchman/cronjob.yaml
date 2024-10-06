@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: patchman-maintenance
+  namespace: patchman
+spec:
+  schedule: "@hourly"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: maintainer
+            image: ghcr.io/klaernie/patchman:3.0.10
+            imagePullPolicy: Always
+            args:
+            - maintenance
+            env:
+              - name: CELERY_REDIS_HOST
+                value: redis-master
+              - name: CELERY_REDIS_PORT
+                value: "6379"
+            envFrom:
+              - secretRef:
+                  name: secret
+          restartPolicy: OnFailure

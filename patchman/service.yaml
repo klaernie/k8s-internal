@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ui
+  namespace: patchman
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: http
+  selector:
+    app: patchman
+    role: server
+  sessionAffinity: None
+  type: LoadBalancer

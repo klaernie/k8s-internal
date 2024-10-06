@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: patchman
+    role: worker
+  name: patchman-worker
+  namespace: patchman
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  selector:
+    matchLabels:
+      app: patchman
+      role: worker
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: patchman
+        role: worker
+    spec:
+      containers:
+        - name: patchman-worker
+          image: ghcr.io/klaernie/patchman:3.0.10
+          imagePullPolicy: Always
+          env:
+            - name: CELERY_REDIS_HOST
+              value: redis-master
+            - name: CELERY_REDIS_PORT
+              value: "6379"
+          envFrom:
+            - secretRef:
+                name: patchman
+          args:
+            - worker
+          resources:
+            requests:
+              cpu: 250m
+              memory: 750Mi
