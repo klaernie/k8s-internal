@@ -19,4 +19,9 @@ helmCharts:
         leaderElection:
           namespace: cert-manager
 
+      # make sure the propagation checks are done using an external nameserver, since the internal nameserver will not find the
+      # challenge responses, as they are hosted on the external side of the split DNS
+      dns01RecursiveNameservers: "8.8.8.8:53"
+      dns01RecursiveNameserversOnly: true
+
 namespace: cert-manager
