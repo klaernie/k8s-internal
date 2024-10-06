@@ -1,6 +1,6 @@
 resources:
   - 00_ns.yaml
-  - 01_pv_db.yaml
+  - 01_pvc.yaml
   - 04_sts_db.yaml
   - 05_ext_svc.yaml
   - 11_cm_tg.yaml
