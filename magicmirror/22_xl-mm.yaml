@@ -22,7 +22,7 @@ spec:
         kind: magic-mirror
     spec:
       containers:
-      - image: ghcr.io/klaernie/docker-magicmirror:latest
+      - image: ghcr.io/klaernie/docker-magicmirror:v.2.29.0
         imagePullPolicy: Always
         name: mm
         resources: {}
