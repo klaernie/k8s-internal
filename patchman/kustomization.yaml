@@ -13,7 +13,7 @@ helmCharts:
     repo: oci://registry-1.docker.io/bitnamicharts
     releaseName: redis
     namespace: patchman
-    version: 19.6.4
+    version: 20.2.1
     skipTests: true
     valuesInline:
       architecture: standalone
