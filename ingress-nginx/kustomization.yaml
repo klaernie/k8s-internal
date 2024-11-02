@@ -1,0 +1,107 @@
+resources:
+  - namespace.yaml
+
+namespace: ingress-nginx
+
+helmCharts:
+  - name: ingress-nginx
+    repo: https://kubernetes.github.io/ingress-nginx
+    releaseName: external
+    namespace: ingress-nginx
+    version: 4.11.3
+    skipTests: true
+    valuesInline:
+      controller:
+        name: external
+        replicaCount: 2
+        minAvailable: 1
+        resources:
+          limits:
+            cpu: 120m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 90Mi
+        service:
+          enabled: true
+        publishService:
+          enabled: true
+        metrics:
+          enabled: true
+        config:
+          use-forwarded-headers: "true"
+        enableAnnotationValidations: true
+        topologySpreadConstraints:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/name: ingress-nginx
+                app.kubernetes.io/instance: ingress-nginx
+                app.kubernetes.io/component: controller
+            topologyKey: topology.kubernetes.io/zone
+            maxSkew: 1
+            whenUnsatisfiable: ScheduleAnyway
+            matchLabelKeys:
+              - pod-template-hash
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/name: ingress-nginx
+                app.kubernetes.io/instance: ingress-nginx
+                app.kubernetes.io/component: controller
+            topologyKey: kubernetes.io/hostname
+            maxSkew: 1
+            whenUnsatisfiable: ScheduleAnyway
+            matchLabelKeys:
+              - pod-template-hash
+        ingressClassResource:
+          name: external
+
+  - name: ingress-nginx
+    repo: https://kubernetes.github.io/ingress-nginx
+    releaseName: internal
+    namespace: ingress-nginx
+    version: 4.11.3
+    skipTests: true
+    valuesInline:
+      controller:
+        name: internal
+        replicaCount: 2
+        minAvailable: 1
+        resources:
+          limits:
+            cpu: 120m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 90Mi
+        service:
+          enabled: true
+        publishService:
+          enabled: true
+        metrics:
+          enabled: true
+        config:
+          use-forwarded-headers: "true"
+        enableAnnotationValidations: true
+        topologySpreadConstraints:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/name: ingress-nginx
+                app.kubernetes.io/instance: ingress-nginx
+                app.kubernetes.io/component: controller
+            topologyKey: topology.kubernetes.io/zone
+            maxSkew: 1
+            whenUnsatisfiable: ScheduleAnyway
+            matchLabelKeys:
+              - pod-template-hash
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/name: ingress-nginx
+                app.kubernetes.io/instance: ingress-nginx
+                app.kubernetes.io/component: controller
+            topologyKey: kubernetes.io/hostname
+            maxSkew: 1
+            whenUnsatisfiable: ScheduleAnyway
+            matchLabelKeys:
+              - pod-template-hash
+        ingressClassResource:
+          name: internal
