@@ -5,8 +5,11 @@ metadata:
   namespace: patchman
 spec:
   schedule: "@hourly"
+  concurrencyPolicy: Forbid
   jobTemplate:
     spec:
+      parallelism: 1
+      completions: 1
       template:
         spec:
           containers:
