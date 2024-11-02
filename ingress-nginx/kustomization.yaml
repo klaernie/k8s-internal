@@ -1,5 +1,7 @@
 resources:
   - namespace.yaml
+  - proxy-backuppc.yaml
+  - proxy-pve.yaml
 
 namespace: ingress-nginx
 
