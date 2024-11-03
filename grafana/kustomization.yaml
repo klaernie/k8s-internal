@@ -5,3 +5,4 @@ resources:
   - 02_grafana-secrets.enc.yaml
   - 03_deployment.yaml
   - 04_svc.yaml
+  - 05_ingress.yaml
