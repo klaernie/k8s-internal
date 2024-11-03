@@ -26,6 +26,8 @@ helmCharts:
             memory: 90Mi
         service:
           enabled: true
+          externalTrafficPolicy: Local
+          ipFamilyPolicy: PreferDualStack
         publishService:
           enabled: true
         metrics:
@@ -77,6 +79,8 @@ helmCharts:
             memory: 90Mi
         service:
           enabled: true
+          externalTrafficPolicy: Local
+          ipFamilyPolicy: PreferDualStack
         publishService:
           enabled: true
         metrics:

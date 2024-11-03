@@ -13,3 +13,4 @@ spec:
     app: grafana
   sessionAffinity: None
   type: LoadBalancer
+  externalTrafficPolicy: Local
