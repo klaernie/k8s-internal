@@ -19,36 +19,36 @@ spec:
         app: xclock
     spec:
       containers:
-      - image: sshipway/xclock:latest
-        name: xclock
-        resources: {}
-        # Usage: /usr/bin/xclock [-analog] [-bw <pixels>] [-digital] [-brief]
-        #        [-utime] [-strftime <fmt-str>]
-        #        [-fg <color>] [-bg <color>] [-hd <color>]
-        #        [-hl <color>] [-bd <color>]
-        #        [-fn <font_name>] [-help] [-padding <pixels>]
-        #        [-rv] [-update <seconds>] [-display displayname]
-        #        [-[no]render] [-face <face name>] [-sharp]
-        #        [-geometry geom] [-twelve] [-twentyfour]
-        #
-        command: ["/usr/bin/xclock"]
-        args:
-          - "-digital"
-          - "-update"
-          - "1"
-          - "-strftime"
-          - "%H:%M:%S"
-          - "-fg"
-          - "white"
-          - "-bg"
-          - "black"
-          - "-face"
-          - "'fixed black-135:bold'"
-        env:
-          - name: TZ
-            value: "Europe/Berlin"
-          - name: DISPLAY
-            value: "172.16.2.100:0"
-        securityContext:
-          allowPrivilegeEscalation: false
+        - image: ghcr.io/klaernie/docker-x11-apps:latest
+          name: xclock
+          resources: {}
+          # Usage: /usr/bin/xclock [-analog] [-bw <pixels>] [-digital] [-brief]
+          #        [-utime] [-strftime <fmt-str>]
+          #        [-fg <color>] [-bg <color>] [-hd <color>]
+          #        [-hl <color>] [-bd <color>]
+          #        [-fn <font_name>] [-help] [-padding <pixels>]
+          #        [-rv] [-update <seconds>] [-display displayname]
+          #        [-[no]render] [-face <face name>] [-sharp]
+          #        [-geometry geom] [-twelve] [-twentyfour]
+          #
+          command: ["/usr/bin/xclock"]
+          args:
+            - "-digital"
+            - "-update"
+            - "1"
+            - "-strftime"
+            - "%H:%M:%S"
+            - "-fg"
+            - "white"
+            - "-bg"
+            - "black"
+            - "-face"
+            - "'fixed black-135:bold'"
+          env:
+            - name: TZ
+              value: "Europe/Berlin"
+            - name: DISPLAY
+              value: "172.16.2.100:0"
+          securityContext:
+            allowPrivilegeEscalation: false
 status: {}
