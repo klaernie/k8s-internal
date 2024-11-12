@@ -15,7 +15,7 @@ helmCharts:
     valuesInline:
       controller:
         name: external
-        replicaCount: 2
+        replicaCount: 1
         minAvailable: 1
         resources:
           limits:
@@ -68,7 +68,7 @@ helmCharts:
     valuesInline:
       controller:
         name: internal
-        replicaCount: 2
+        replicaCount: 1
         minAvailable: 1
         resources:
           limits:
