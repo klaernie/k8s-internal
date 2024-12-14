@@ -9,7 +9,7 @@ spec:
     - name: elasticsearch
       clusterName: qs
   # renovate: datasource=github-releases depName=logstash packageName=elastic/logstash
-  version: 8.15.3
+  version: 8.17.0
   podTemplate:
     spec:
       containers:
