@@ -1,7 +1,9 @@
 resources:
   - 00_ns.yaml
   - 00_runtimeclass.yaml
+  # renovate: datasource=github-releases depName=cloud-on-k8s packageName=elastic/cloud-on-k8s
   - https://download.elastic.co/downloads/eck/2.12.1/crds.yaml
+  # renovate: datasource=github-releases depName=cloud-on-k8s packageName=elastic/cloud-on-k8s
   - https://download.elastic.co/downloads/eck/2.12.1/operator.yaml
   - 02_elasticsearch.yaml
   - 03_kibana.yaml
