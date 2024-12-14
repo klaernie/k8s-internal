@@ -61,7 +61,7 @@ data:
                                                     name: "upcoming",
                                                     mode: "upcoming",
                                                     position: "top_right",
-                                                    maxDays: 2,
+                                                    maxDays: 3,
                                                     locale: "en",
                                                     hideOverflow: false,
                                                     filterPassedEvent: true,
