@@ -19,7 +19,7 @@ spec:
         app: influxdb
     spec:
       containers:
-        - image: docker.io/library/influxdb:2.7.10
+        - image: docker.io/library/influxdb:2.7.11
           name: influxdb
           envFrom:
             - secretRef:
