@@ -34,6 +34,8 @@ helmCharts:
           enabled: true
         config:
           use-forwarded-headers: "true"
+          enable-real-ip: true
+          forwarded-for-header: proxy_protocol
         enableAnnotationValidations: true
         topologySpreadConstraints:
           - labelSelector:
