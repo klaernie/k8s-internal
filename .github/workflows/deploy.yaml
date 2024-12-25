@@ -24,7 +24,9 @@ jobs:
         run:
           echo '${{ secrets.SOPS_KEY }}' > _sops/key.txt
 
-      - uses: azure/k8s-bake@v3
+      - name: generate manifests
+        id: bake
+        uses: azure/k8s-bake@v3
         with:
           renderEngine: 'kustomize'
           kustomizationPath: '.'
