@@ -4,7 +4,7 @@ metadata:
   name: grafana
   namespace: grafana
   annotations:
-    nginx.ingress.kubernetes.io/force-ssl-redirect: true
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: external
