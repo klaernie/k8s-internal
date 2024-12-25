@@ -1,6 +1,7 @@
 version: v1alpha1
 machine:
     certSANs:
+      - talos
       - talos.ak-online.be
     network:
       interfaces:
