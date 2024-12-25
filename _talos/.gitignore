@@ -7,3 +7,6 @@ worker.yaml
 
 # and so obviously does talosconfig
 talosconfig
+
+# it's nice to have the kubeconfig used for github available for testing, but it may never be committed
+github-kubeconfig.yaml
