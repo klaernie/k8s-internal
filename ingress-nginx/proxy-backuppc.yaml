@@ -31,4 +31,3 @@ spec:
                 name: backuppc
                 port:
                   number: 443
-

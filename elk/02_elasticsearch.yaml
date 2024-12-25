@@ -7,18 +7,17 @@ spec:
   # renovate: datasource=github-releases depName=elasticsearch packageName=elastic/elasticsearch
   version: 8.17.0
   nodeSets:
-
-  - name: gen2
-    count: 3
-    config:
-      node.store.allow_mmap: false
-    volumeClaimTemplates:
-    - metadata:
-        name: elasticsearch-data
-      spec:
-        accessModes:
-        - ReadWriteOnce
-        resources:
-          requests:
-            storage: 75Gi
-        storageClassName: zfs-bulk
+    - name: gen2
+      count: 3
+      config:
+        node.store.allow_mmap: false
+      volumeClaimTemplates:
+        - metadata:
+            name: elasticsearch-data
+          spec:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 75Gi
+            storageClassName: zfs-bulk

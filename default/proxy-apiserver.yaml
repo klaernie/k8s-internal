@@ -24,4 +24,3 @@ spec:
                 name: kubernetes
                 port:
                   number: 443
-

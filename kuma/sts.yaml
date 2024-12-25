@@ -42,9 +42,9 @@ spec:
             capabilities.drop: ["ALL"]
             seccompProfile.type: RuntimeDefault
       volumes:
-      - name: ca-bundle-cm
-        configMap:
-          name: ca-bundle
+        - name: ca-bundle-cm
+          configMap:
+            name: ca-bundle
 
   volumeClaimTemplates:
     - metadata:

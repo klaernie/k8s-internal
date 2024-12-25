@@ -1,15 +1,15 @@
 version: v1alpha1
 machine:
-    install:
-        disk: /dev/vda # The disk used for installations.
+  install:
+    disk: /dev/vda # The disk used for installations.
 
-    time:
-        disabled: false # Indicates if the time service is disabled for the machine.
-        servers:
-            - fw1.ak-online.be
-            - fw2.ak-online.be
-        bootTimeout: 2m0s # Specifies the timeout when the node time is considered to be in sync unlocking the boot sequence.
-    features:
-        hostDNS:
-            enabled: true
-            forwardKubeDNSToHost: true
+  time:
+    disabled: false # Indicates if the time service is disabled for the machine.
+    servers:
+      - fw1.ak-online.be
+      - fw2.ak-online.be
+    bootTimeout: 2m0s # Specifies the timeout when the node time is considered to be in sync unlocking the boot sequence.
+  features:
+    hostDNS:
+      enabled: true
+      forwardKubeDNSToHost: true

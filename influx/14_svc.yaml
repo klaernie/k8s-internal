@@ -1,50 +1,50 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: telegraf
-    namespace: influx
+  name: telegraf
+  namespace: influx
 spec:
-    ports:
-      - name: tg-influxv1tcp-collectd
-        port: 8089
-        targetPort: 8089
-        protocol: TCP
-      - name: tg-influxv1udp-collectd
-        port: 8089
-        targetPort: 8089
-        protocol: UDP
-      - name: tg-collectd
-        port: 25826
-        targetPort: 25826
-        protocol: UDP
-      - name: tg-collectd-signed
-        port: 25827
-        targetPort: 25827
-        protocol: UDP
-      - name: tg-syslog-aruba
-        port: 514
-        targetPort: 514
-        protocol: UDP
-      - name: tg-syslog-firewall
-        port: 6514
-        targetPort: 6514
-        protocol: UDP
-      - name: tg-syslog-pc
-        port: 7514
-        targetPort: 7514
-        protocol: UDP
-      - name: influxv1tcp-homeassistant
-        port: 8090
-        targetPort: 8090
-        protocol: TCP
-      - name: influxv1tcp-proxmox
-        port: 8091
-        targetPort: 8091
-        protocol: TCP
-      - name: influxv1tcp-tgmachines
-        port: 8092
-        targetPort: 8092
-        protocol: TCP
-    selector:
-        app: telegraf
-    type: LoadBalancer
+  ports:
+    - name: tg-influxv1tcp-collectd
+      port: 8089
+      targetPort: 8089
+      protocol: TCP
+    - name: tg-influxv1udp-collectd
+      port: 8089
+      targetPort: 8089
+      protocol: UDP
+    - name: tg-collectd
+      port: 25826
+      targetPort: 25826
+      protocol: UDP
+    - name: tg-collectd-signed
+      port: 25827
+      targetPort: 25827
+      protocol: UDP
+    - name: tg-syslog-aruba
+      port: 514
+      targetPort: 514
+      protocol: UDP
+    - name: tg-syslog-firewall
+      port: 6514
+      targetPort: 6514
+      protocol: UDP
+    - name: tg-syslog-pc
+      port: 7514
+      targetPort: 7514
+      protocol: UDP
+    - name: influxv1tcp-homeassistant
+      port: 8090
+      targetPort: 8090
+      protocol: TCP
+    - name: influxv1tcp-proxmox
+      port: 8091
+      targetPort: 8091
+      protocol: TCP
+    - name: influxv1tcp-tgmachines
+      port: 8092
+      targetPort: 8092
+      protocol: TCP
+  selector:
+    app: telegraf
+  type: LoadBalancer

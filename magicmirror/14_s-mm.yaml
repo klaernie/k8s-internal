@@ -22,20 +22,20 @@ spec:
         kind: magic-mirror
     spec:
       containers:
-      - image: ghcr.io/klaernie/docker-magicmirror:v2.29.0
-        imagePullPolicy: Always
-        name: mm
-        resources: {}
-        env:
-          - name: TZ
-            value: "Europe/Berlin"
-        envFrom:
-          - secretRef:
-              name: secrets
-        ports:
-          - name: web
-            containerPort: 80
-        volumeMounts:
+        - image: ghcr.io/klaernie/docker-magicmirror:v2.29.0
+          imagePullPolicy: Always
+          name: mm
+          resources: {}
+          env:
+            - name: TZ
+              value: "Europe/Berlin"
+          envFrom:
+            - secretRef:
+                name: secrets
+          ports:
+            - name: web
+              containerPort: 80
+          volumeMounts:
             - name: config
               mountPath: "/opt/magic_mirror/config/config.js.template"
               subPath: config.js.template
@@ -45,15 +45,15 @@ spec:
             - name: nfs
               mountPath: "/opt/magic_mirror/modules"
       volumes:
-      - name: nfs
-        persistentVolumeClaim:
-          claimName: magicmirror-data
-      - name: config
-        configMap:
-          name: s
-          items:
-            - key: config
-              path: config.js.template
-            - key: css-custom
-              path: custom.css
+        - name: nfs
+          persistentVolumeClaim:
+            claimName: magicmirror-data
+        - name: config
+          configMap:
+            name: s
+            items:
+              - key: config
+                path: config.js.template
+              - key: css-custom
+                path: custom.css
 status: {}

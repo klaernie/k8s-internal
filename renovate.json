@@ -1,8 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
   "kubernetes": {
     "fileMatch": ["\\.yaml$"]
   },
@@ -21,12 +19,7 @@
   "packageRules": [
     {
       "groupName": "elk-stack",
-      "matchPackageNames": [
-        "elasticsearch",
-        "logstash",
-        "kibana",
-        "beats"
-      ]
+      "matchPackageNames": ["elasticsearch", "logstash", "kibana", "beats"]
     }
   ]
 }

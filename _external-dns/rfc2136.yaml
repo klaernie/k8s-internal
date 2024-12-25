@@ -14,26 +14,26 @@ spec:
     spec:
       serviceAccountName: external-dns
       containers:
-      - name: external-dns
-        image: registry.k8s.io/external-dns/external-dns:v0.15.0
-        env:
-          - name: TSIG_SECRET
-            valueFrom:
-              secretKeyRef:
-                name: tsig-secret
-                key: key
-        args:
-        - --txt-owner-id=k8s
-        - --provider=rfc2136
-        - --rfc2136-host=dns-main.ak-online.be
-        - --rfc2136-port=53
-        - --rfc2136-zone=k8s.ak-online.be
-        - --rfc2136-tsig-secret=$(TSIG_SECRET)
-        - --rfc2136-tsig-secret-alg=hmac-sha256
-        - --rfc2136-tsig-keyname=k8s-externaldns
-        - --rfc2136-tsig-axfr
-        - --rfc2136-min-ttl=30s
-        - --source=ingress
-        - --source=service
-        - --fqdn-template={{.Name}}.{{.Namespace}}.k8s.ak-online.be
-        - --domain-filter=k8s.ak-online.be
+        - name: external-dns
+          image: registry.k8s.io/external-dns/external-dns:v0.15.0
+          env:
+            - name: TSIG_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: tsig-secret
+                  key: key
+          args:
+            - --txt-owner-id=k8s
+            - --provider=rfc2136
+            - --rfc2136-host=dns-main.ak-online.be
+            - --rfc2136-port=53
+            - --rfc2136-zone=k8s.ak-online.be
+            - --rfc2136-tsig-secret=$(TSIG_SECRET)
+            - --rfc2136-tsig-secret-alg=hmac-sha256
+            - --rfc2136-tsig-keyname=k8s-externaldns
+            - --rfc2136-tsig-axfr
+            - --rfc2136-min-ttl=30s
+            - --source=ingress
+            - --source=service
+            - --fqdn-template={{.Name}}.{{.Namespace}}.k8s.ak-online.be
+            - --domain-filter=k8s.ak-online.be

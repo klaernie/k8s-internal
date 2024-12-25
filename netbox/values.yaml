@@ -18,11 +18,11 @@ skipStartupScripts: true
 banner:
   # Optionally display a persistent banner at the top and/or bottom of every
   # page. HTML is allowed.
-  top: ''
-  bottom: ''
+  top: ""
+  bottom: ""
 
   # Text to include on the login page above the login form. HTML is allowed.
-  login: ''
+  login: ""
 
 # Display full traceback of errors that occur when applying database
 # migrations.
@@ -31,7 +31,7 @@ dbWaitDebug: false
 # Email settings
 email:
   server: debs.ak-online.be
-  from: 'netbox@netbox.ak-online.be'
+  from: "netbox@netbox.ak-online.be"
 
 # Exempt certain models from the enforcement of view permissions. Models listed
 # here will be viewable by all users and by anonymous users. List models in the
@@ -41,12 +41,11 @@ exemptViewPermissions: []
 #  - dcim.region
 #  - ipam.prefix
 
-
 # Determine how many objects to display per page within a list. (Default: 50)
 paginateCount: 50
 
 # Enable installed plugins. Add the name of each plugin to the list.
-plugins: ['netbox_topology_views', 'netbox_proxbox']
+plugins: ["netbox_topology_views", "netbox_proxbox"]
 
 # Plugins configuration settings. These settings are used by various plugins
 # that the user may have installed. Each key in the dictionary is the name of
@@ -58,21 +57,21 @@ pluginsConfig:
     allow_coordinates_saving: true
   netbox_proxbox:
     proxmox:
-      domain: 'pve3.ak-online.be'
+      domain: "pve3.ak-online.be"
       http_port: 8006
-      user: 'root@pam'
+      user: "root@pam"
       token:
-        name: 'netbox-proxbox'
+        name: "netbox-proxbox"
         # token value is provided by the secret
       ssl: True
     # netbox is extended by token
     netbox:
-      domain: 'netbox.netbox.svc.cluster.local'
+      domain: "netbox.netbox.svc.cluster.local"
       http_port: 80
       ssl: False
       settings:
-        virtualmachine_role_id : 19
-        node_role_id : 20
+        virtualmachine_role_id: 19
+        node_role_id: 20
         site_id: 1
 
 # Time zone (default: UTC)
@@ -89,7 +88,6 @@ extraConfig:
         - key: proxbox.yaml
           path: proxbox.yaml
       optional: false
-
 
 existingSecret: netbox-app
 
@@ -137,7 +135,6 @@ cachingRedis:
   existingSecretName: netbox-redis
   existingSecretKey: redis-password
 
-
 ## Storage configuration for media
 persistence:
   enabled: true
@@ -155,14 +152,14 @@ podSecurityContext:
   fsGroup: 1000
   runAsNonRoot: true
 
-
 service:
   type: LoadBalancer
   port: 80
 ingress:
   enabled: false
   className: ""
-  annotations: {}
+  annotations:
+    {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:

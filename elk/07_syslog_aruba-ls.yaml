@@ -71,4 +71,3 @@ spec:
               name: "syslog-udp"
               protocol: UDP
               targetPort: 9514
-

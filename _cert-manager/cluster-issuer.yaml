@@ -13,11 +13,11 @@ spec:
       - dns01:
           # see https://docs.cert-manager.io/en/release-0.11/tasks/issuers/setup-acme/dns01/rfc2136.html
           rfc2136:
-              nameserver: ns1.ak-online.be
-              tsigKeyName: k8s.ak-online.be
-              tsigAlgorithm: HMACSHA256
+            nameserver: ns1.ak-online.be
+            tsigKeyName: k8s.ak-online.be
+            tsigAlgorithm: HMACSHA256
 
-              # create with kubectl -n cert-manager create secret generic tsig-secret --from-literal=key=
-              tsigSecretSecretRef:
-                name: tsig-secret
-                key: key
+            # create with kubectl -n cert-manager create secret generic tsig-secret --from-literal=key=
+            tsigSecretSecretRef:
+              name: tsig-secret
+              key: key

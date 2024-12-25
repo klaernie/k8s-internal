@@ -1,4 +1,4 @@
-name: 'deployment'
+name: "deployment"
 
 on:
   push:
@@ -21,18 +21,17 @@ jobs:
           kubeconfig: ${{ secrets.KUBECONFIG }}
 
       - name: create sops/key.txt
-        run:
-          echo '${{ secrets.SOPS_KEY }}' > _sops/key.txt
+        run: echo '${{ secrets.SOPS_KEY }}' > _sops/key.txt
 
       - name: generate manifests
         id: bake
         uses: azure/k8s-bake@v3
         with:
-          renderEngine: 'kustomize'
-          kustomizationPath: '.'
+          renderEngine: "kustomize"
+          kustomizationPath: "."
           arguments: |
             --enable-helm
-          kubectl-version: 'latest'
+          kubectl-version: "latest"
 
       - name: deploy
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'

@@ -23,12 +23,11 @@ spec:
               mountPath: "/usr/share/nginx/html"
               subPath: calendars
       volumes:
-      - name: nfs
-        persistentVolumeClaim:
-          claimName: magicmirror-data
+        - name: nfs
+          persistentVolumeClaim:
+            claimName: magicmirror-data
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -38,10 +37,10 @@ metadata:
   namespace: magicmirror
 spec:
   ports:
-  - name: "80"
-    port: 80
-    protocol: TCP
-    targetPort: 80
+    - name: "80"
+      port: 80
+      protocol: TCP
+      targetPort: 80
   selector:
     app: calserv
   sessionAffinity: None

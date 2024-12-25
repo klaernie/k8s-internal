@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: grocy-tls
   dnsNames:
-  - grocy.grocy.k8s.ak-online.be
+    - grocy.grocy.k8s.ak-online.be
   # acme:
   #   config:
   #   - http01:

@@ -44,7 +44,7 @@ spec:
       #        has_fields:
       #          - message
       - add_fields:
-          target: ''
+          target: ""
           fields:
             data_stream.type: logs
             data_stream.dataset: k8s
@@ -103,21 +103,21 @@ kind: ClusterRole
 metadata:
   name: filebeat
 rules:
-- apiGroups: [""] # "" indicates the core API group
-  resources:
-  - namespaces
-  - pods
-  - nodes
-  verbs:
-  - get
-  - watch
-  - list
-- apiGroups: ["apps"]
-  resources: ["replicasets"]
-  verbs: ["get", "list", "watch"]
-- apiGroups: ["batch"]
-  resources: ["jobs"]
-  verbs: ["get", "list", "watch"]
+  - apiGroups: [""] # "" indicates the core API group
+    resources:
+      - namespaces
+      - pods
+      - nodes
+    verbs:
+      - get
+      - watch
+      - list
+  - apiGroups: ["apps"]
+    resources: ["replicasets"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["batch"]
+    resources: ["jobs"]
+    verbs: ["get", "list", "watch"]
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -130,9 +130,9 @@ kind: ClusterRoleBinding
 metadata:
   name: filebeat
 subjects:
-- kind: ServiceAccount
-  name: filebeat
-  namespace: elk
+  - kind: ServiceAccount
+    name: filebeat
+    namespace: elk
 roleRef:
   kind: ClusterRole
   name: filebeat

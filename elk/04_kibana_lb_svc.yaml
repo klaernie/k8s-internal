@@ -5,14 +5,14 @@ metadata:
   namespace: elk
 spec:
   ports:
-  - name: https
-    port: 443
-    protocol: TCP
-    targetPort: 5601
-  - name: https-5601
-    port: 5601
-    protocol: TCP
-    targetPort: 5601
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 5601
+    - name: https-5601
+      port: 5601
+      protocol: TCP
+      targetPort: 5601
   selector:
     common.k8s.elastic.co/type: kibana
     kibana.k8s.elastic.co/name: kibana

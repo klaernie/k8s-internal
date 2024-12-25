@@ -67,5 +67,3 @@ spec:
         - name: tls
           secret:
             secretName: openldap-tls
-
-

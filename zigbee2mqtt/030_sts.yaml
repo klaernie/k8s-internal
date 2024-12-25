@@ -18,19 +18,19 @@ spec:
     spec:
       terminationGracePeriodSeconds: 300
       containers:
-      - name: zigbee2mqtt
-        imagePullPolicy: Always
-        # renovate: datasource=github-tags depName=koenkk/zigbee2mqtt
-        image: ghcr.io/koenkk/zigbee2mqtt:1.42.0
-        ports:
-          - containerPort: 8080
-            name: web
-        volumeMounts:
-          - name: datadir
-            mountPath: /app/data
-        env:
-          - name: TZ
-            value: "Europe/Berlin"
+        - name: zigbee2mqtt
+          imagePullPolicy: Always
+          # renovate: datasource=github-tags depName=koenkk/zigbee2mqtt
+          image: ghcr.io/koenkk/zigbee2mqtt:1.42.0
+          ports:
+            - containerPort: 8080
+              name: web
+          volumeMounts:
+            - name: datadir
+              mountPath: /app/data
+          env:
+            - name: TZ
+              value: "Europe/Berlin"
       volumes:
         - name: datadir
           persistentVolumeClaim:

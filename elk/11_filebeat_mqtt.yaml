@@ -17,7 +17,7 @@ spec:
 
     processors:
       - add_fields:
-          target: ''
+          target: ""
           fields:
             data_stream.type: logs
             data_stream.dataset: esphome
@@ -52,7 +52,7 @@ metadata:
   namespace: elk
 spec:
   accessModes:
-  - ReadWriteMany
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi

@@ -13,18 +13,18 @@ spec:
   podTemplate:
     spec:
       containers:
-      - name: logstash
-        volumeMounts:
-        - mountPath: /usr/share/logstash/dlq
-          name: dlq
-          readOnly: false
+        - name: logstash
+          volumeMounts:
+            - mountPath: /usr/share/logstash/dlq
+              name: dlq
+              readOnly: false
   volumeClaimTemplates:
     - metadata:
         name: dlq
       spec:
         storageClassName: zfs-bulk
         accessModes:
-        - ReadWriteOnce
+          - ReadWriteOnce
         resources:
           requests:
             storage: 10Gi
@@ -38,11 +38,10 @@ spec:
             storage: 1Gi
         storageClassName: zfs-bulk
 
-
   pipelines:
     - pipeline.id: main
-    #  dead_letter_queue.enable: true
-    #  path.dead_letter_queue: /usr/share/logstash/dlq
+      #  dead_letter_queue.enable: true
+      #  path.dead_letter_queue: /usr/share/logstash/dlq
       config.string: |
         input {
           beats {
@@ -93,7 +92,6 @@ spec:
     #      stdout {}
     #    }
 
-
   services:
     - name: beats
       service:
@@ -104,4 +102,3 @@ spec:
               name: "filebeat"
               protocol: TCP
               targetPort: 5044
-

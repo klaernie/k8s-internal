@@ -22,8 +22,8 @@ metadata:
 spec:
   secretName: kibana-cert
   dnsNames:
-  - kibana.elk.k8s.ak-online.be
-  - kibana-kb-http.elk.k8s.ak-online.be
+    - kibana.elk.k8s.ak-online.be
+    - kibana-kb-http.elk.k8s.ak-online.be
   issuerRef:
     name: letsencrypt-prod
     # We can reference ClusterIssuers by changing the kind here.
