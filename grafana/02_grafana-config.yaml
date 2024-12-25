@@ -17,10 +17,10 @@ data:
 
     user = grafana
     # If the password contains # or ; you have to wrap it with triple quotes. Ex """#password;"""
-    password = maintained-in-k8s-secret
+    password = in-k8s-secret
 
     [security]
-    secret_key = maintained-in-k8s-secret
+    secret_key = in-k8s-secret
 
     # we want this for hosting the graphs in MagicMirror
     allow_embedding = true
