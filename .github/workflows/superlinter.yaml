@@ -3,6 +3,10 @@ name: Super-Linter
 # Run this workflow every time a new commit pushed to your repository
 on: push
 
+permissions:
+  content: read
+  status: write
+
 jobs:
   # Set the job key. The key is displayed as the job name
   # when a job name is not provided
@@ -25,3 +29,6 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # the standard config conflicts heavily with the upstream config.js
+          # hence I opted to disable it
+          VALIDATE_JAVASCRIPT_STANDARD: false
