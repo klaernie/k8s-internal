@@ -36,7 +36,7 @@ jobs:
       - name: deploy
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: |
-          kubectl apply --server-side -f '${{ steps.bake.outputs.manifestsBundle }}'
+          kubectl apply --server-side --force-conflicts -f '${{ steps.bake.outputs.manifestsBundle }}'
 
       #- uses: Azure/k8s-deploy@v4
       #  with:
