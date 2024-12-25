@@ -1,10 +1,10 @@
 # my talos machine deployment
 
-# first try ever
+## first try ever
 
 According to quickstart this was fairly simple:
 
-```
+```sh
 talosctl gen secrets -o secrets.yaml
 talosctl gen config --with-secrets secrets.yaml talos https://talos.ak-online.be:6443
 vi controlplane.yaml
@@ -17,7 +17,7 @@ talosctl apply-config --insecure --nodes talos-w02.ak-online.be  --file worker.y
 talosctl apply-config --insecure --nodes talos-w03.ak-online.be  --file worker.yaml
 ```
 
-# the proper way
+## the proper way
 
 having migrated all secrets in this directory into sops-encrypted secret files,
 I wanted to complete this for talos as well. Combined with the fact that my
