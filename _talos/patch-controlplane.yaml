@@ -14,6 +14,9 @@ machine:
 
 cluster:
     apiServer:
+        certSANs:
+            - talos.ak-online.be
+            - apiserver.k8s.ak-online.be
         admissionControl:
             - name: PodSecurity
               configuration:

@@ -58,6 +58,8 @@ helmCharts:
               - pod-template-hash
         ingressClassResource:
           name: external
+        extraArgs:
+          enable-ssl-passthrough: ""
 
   - name: ingress-nginx
     repo: https://kubernetes.github.io/ingress-nginx
