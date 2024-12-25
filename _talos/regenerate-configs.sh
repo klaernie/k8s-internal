@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $(dirname "$0") || exit 255
+cd "$(dirname "$0")" || exit 255
 
 if ! which sops >/dev/null 2>&1 ; then
 	echo "no sops available - aborting"
