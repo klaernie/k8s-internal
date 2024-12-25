@@ -1,3 +1,4 @@
+#!/bin/bash
 docker run --detach --rm --name openldap \
 	--env LDAP_ADMIN_USERNAME=admin \
 	--env LDAP_ADMIN_PASSWORD=testpassword \
