@@ -1,6 +1,8 @@
 #!/bin/bash
 set -x -e
 
+targetVersion=v1.9.0
+
 for host in \
 	talos-api01.ak-online.be. \
 	talos-api02.ak-online.be. \
@@ -11,5 +13,9 @@ for host in \
 	talos-w04.ak-online.be. \
 	talos-w05.ak-online.be.
 do
-	talosctl upgrade --nodes $host --wait --image factory.talos.dev/installer/94114f5dbe67331c4f9b2be0eac92deb1575d3edd3cd2a59ec1731c2ad430d78:v1.8.4
+	currentVersion="$(talosctl -n $host version --short |grep Tag | awk '{print $2}')"
+	if [ "$currentVersion" = "$targetVersion" ]; then
+		continue;
+	fi
+	talosctl upgrade --nodes $host --wait --image factory.talos.dev/installer/94114f5dbe67331c4f9b2be0eac92deb1575d3edd3cd2a59ec1731c2ad430d78:$targetVersion
 done
