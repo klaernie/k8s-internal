@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x -e
 
-targetVersion=v1.9.0
+targetVersion=v1.9.1
 
 for host in \
 	talos-api01.ak-online.be. \
