@@ -23,10 +23,12 @@ fi
 echo "deleting controlplane.yaml, worker.yaml and talosconfig"
 rm controlplane.yaml worker.yaml talosconfig
 
+kubernetesVersion=1.30.3
+
 talosctl gen config \
 	"$@" \
 	--with-secrets secrets.yaml \
-	--kubernetes-version 1.30.3 \
+	--kubernetes-version $kubernetesVersion \
 	--config-patch @patch-all.yaml \
 	--config-patch-control-plane @patch-controlplane.yaml \
 	--config-patch-worker @patch-worker.yaml \
