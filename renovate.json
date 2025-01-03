@@ -7,7 +7,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["\\.yaml$"],
+      "fileMatch": ["\\.yaml$", "\\.sh$"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) packageName=(?<packageName>.+?)\\s*\\S+?:\\s*(?<currentValue>\\S+)",
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) packageName=(?<packageName>.+?)( versioning=(?<versioning>.*?))?\\s\\S+?:(?<currentValue>\\S+)\\s+\\S+:.+",
