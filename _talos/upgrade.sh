@@ -1,6 +1,7 @@
 #!/bin/bash
 set -x -e
 
+# renovate: datasource=github-releases depName=talos packageName=siderolabs/talos
 targetVersion=v1.9.1
 
 for host in \

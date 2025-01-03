@@ -23,6 +23,7 @@ fi
 echo "deleting controlplane.yaml, worker.yaml and talosconfig"
 rm controlplane.yaml worker.yaml talosconfig
 
+# renovate: datasource=github-releases depName=talos-k8s packageName=siderolabs/kubelet
 kubernetesVersion=1.30.3
 
 talosctl gen config \
