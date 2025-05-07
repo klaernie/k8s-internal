@@ -2,7 +2,7 @@
 set -e
 
 # renovate: datasource=github-releases depName=talos packageName=siderolabs/talos
-talosVersion=1.9.1
+talosVersion=1.10.1
 
 wget https://github.com/siderolabs/talos/releases/download/v$talosVersion/talosctl-linux-amd64 -O "$HOME/bin/installs/talosctl-$talosVersion"
 chmod +x "$HOME/bin/installs/talosctl-$talosVersion"

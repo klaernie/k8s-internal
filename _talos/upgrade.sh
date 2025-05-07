@@ -2,7 +2,7 @@
 set -x -e
 
 # renovate: datasource=github-releases depName=talos packageName=siderolabs/talos
-targetVersion=v1.9.1
+targetVersion=v1.10.1
 
 for host in \
 	talos-api01.ak-online.be. \
