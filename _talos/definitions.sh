@@ -14,7 +14,6 @@ export worker_nodes=(
 	"talos-w05"
 )
 
-
 # renovate: datasource=github-releases depName=talos packageName=siderolabs/talos
 export talosVersion=1.10.1
 

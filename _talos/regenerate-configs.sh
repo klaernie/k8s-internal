@@ -2,22 +2,22 @@
 
 cd "$(dirname "$0")" || exit 255
 
-if ! which sops >/dev/null 2>&1 ; then
+if ! which sops >/dev/null 2>&1; then
 	echo "no sops available - aborting"
 	exit 1
 fi
-if ! which talosctl >/dev/null 2>&1 ; then
+if ! which talosctl >/dev/null 2>&1; then
 	echo "no talosctl available - aborting"
 	exit 1
 fi
-if ! which yq >/dev/null 2>&1 ; then
+if ! which yq >/dev/null 2>&1; then
 	echo "no yq available - aborting"
 	exit 1
 fi
 
 if test ! -f secrets.yaml; then
 	echo "decrypting secrets.enc.yaml with sops..."
-	sops -d secrets.enc.yaml > secrets.yaml
+	sops -d secrets.enc.yaml >secrets.yaml
 fi
 
 source "definitions.sh" || exit 254
