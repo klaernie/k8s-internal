@@ -5,14 +5,14 @@ set -x -e
 targetVersion=v1.9.6
 
 for host in \
-	talos-api01.ak-online.be. \
-	talos-api02.ak-online.be. \
-	talos-api03.ak-online.be. \
-	talos-w01.ak-online.be. \
-	talos-w02.ak-online.be. \
-	talos-w03.ak-online.be. \
-	talos-w04.ak-online.be. \
-	talos-w05.ak-online.be.
+	talos-api01 \
+	talos-api02 \
+	talos-api03 \
+	talos-w01 \
+	talos-w02 \
+	talos-w03 \
+	talos-w04 \
+	talos-w05
 do
 	currentVersion="$(talosctl -n $host version --short |grep Tag | awk '{print $2}')"
 	if [ "$currentVersion" = "$targetVersion" ]; then
