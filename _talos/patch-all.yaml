@@ -9,6 +9,14 @@ machine:
       - fw1.ak-online.be
       - fw2.ak-online.be
     bootTimeout: 2m0s # Specifies the timeout when the node time is considered to be in sync unlocking the boot sequence.
+
+  network:
+    nameservers:
+      - 172.16.0.2
+      - 172.16.0.3
+    searchDomains:
+      - ak-online.be
+
   features:
     hostDNS:
       enabled: true
