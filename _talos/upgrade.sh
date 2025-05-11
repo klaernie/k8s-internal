@@ -5,11 +5,8 @@ source "$(dirname "$0")/definitions.sh" || exit 254
 
 targetVersion=v${talosVersion}
 
-for host in \
-	"${cp_nodes[@]}" \
-	"${worker_nodes[@]}"
-do
-	currentVersion="$(talosctl -n $host version --short |grep Tag | awk '{print $2}')"
+for host in "${cp_nodes[@]}" "${worker_nodes[@]}"; do
+	currentVersion="$(talosctl -n "$host" version --short |grep Tag | awk '{print $2}')"
 	if [ "$currentVersion" = "$targetVersion" ]; then
 		continue;
 	fi
