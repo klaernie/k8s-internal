@@ -20,11 +20,10 @@ if test ! -f secrets.yaml; then
 	sops -d secrets.enc.yaml > secrets.yaml
 fi
 
+source "definitions.sh" || exit 254
+
 echo "deleting controlplane.yaml, worker.yaml and talosconfig"
 rm controlplane.yaml worker.yaml talosconfig
-
-# renovate: datasource=github-releases depName=talos-k8s packageName=siderolabs/kubelet
-kubernetesVersion=1.32.0
 
 talosctl gen config \
 	"$@" \

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# renovate: datasource=github-releases depName=talos-k8s packageName=siderolabs/kubelet
-kubernetesVersion=1.32.0
+source "$(dirname "$0")/definitions.sh" || exit 254
 
-talosctl upgrade-k8s -n talos-api01 -e talos-api01 --to $kubernetesVersion
+talosctl upgrade-k8s -n $cp_nodes -e $cp_nodes --to $kubernetesVersion

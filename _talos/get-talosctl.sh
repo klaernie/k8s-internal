@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-# renovate: datasource=github-releases depName=talos packageName=siderolabs/talos
-talosVersion=1.10.1
+source "$(dirname "$0")/definitions.sh" || exit 254
 
 wget https://github.com/siderolabs/talos/releases/download/v$talosVersion/talosctl-linux-amd64 -O "$HOME/bin/installs/talosctl-$talosVersion"
 chmod +x "$HOME/bin/installs/talosctl-$talosVersion"

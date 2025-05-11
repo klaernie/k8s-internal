@@ -1,18 +1,13 @@
 #!/bin/bash
 set -x -e
 
-# renovate: datasource=github-releases depName=talos packageName=siderolabs/talos
-targetVersion=v1.10.1
+source "$(dirname "$0")/definitions.sh" || exit 254
+
+targetVersion=v${talosVersion}
 
 for host in \
-	talos-api01 \
-	talos-api02 \
-	talos-api03 \
-	talos-w01 \
-	talos-w02 \
-	talos-w03 \
-	talos-w04 \
-	talos-w05
+	${cp_nodes[@]} \
+	${worker_nodes[@]}
 do
 	currentVersion="$(talosctl -n $host version --short |grep Tag | awk '{print $2}')"
 	if [ "$currentVersion" = "$targetVersion" ]; then
