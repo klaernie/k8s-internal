@@ -1,13 +1,19 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": [
+    "config:recommended"
+  ],
   "kubernetes": {
-    "fileMatch": ["\\.yaml$"]
+    "managerFilePatterns": [
+      "/\\.yaml$/"
+    ]
   },
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["\\.yaml$"],
+      "managerFilePatterns": [
+        "/\\.yaml$/"
+      ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) packageName=(?<packageName>.+?)\\s*\\S+?:\\s*(?<currentValue>\\S+)",
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) packageName=(?<packageName>.+?)( versioning=(?<versioning>.*?))?\\s\\S+?:(?<currentValue>\\S+)\\s+\\S+:.+",
@@ -17,7 +23,9 @@
     },
     {
       "customType": "regex",
-      "fileMatch": ["\\.sh$"],
+      "managerFilePatterns": [
+        "/\\.sh$/"
+      ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) packageName=(?<packageName>.+?)\\s*\\S+?=\\s*(?<currentValue>\\S+)",
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) packageName=(?<packageName>.+?)( versioning=(?<versioning>.*?))?\\s\\S+?=(?<currentValue>\\S+)\\s+\\S+:.+"
@@ -28,7 +36,12 @@
   "packageRules": [
     {
       "groupName": "elk-stack",
-      "matchPackageNames": ["elasticsearch", "logstash", "kibana", "beats"]
+      "matchPackageNames": [
+        "elasticsearch",
+        "logstash",
+        "kibana",
+        "beats"
+      ]
     }
   ]
 }
