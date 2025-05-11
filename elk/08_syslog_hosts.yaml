@@ -9,7 +9,7 @@ spec:
     - name: elasticsearch
       clusterName: qs
   # renovate: datasource=github-releases depName=logstash packageName=elastic/logstash
-  version: 8.17.0
+  version: 9.0.1
   pipelines:
     - pipeline.id: main
       config.string: |
