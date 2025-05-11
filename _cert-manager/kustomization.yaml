@@ -24,4 +24,7 @@ helmCharts:
       dns01RecursiveNameservers: "8.8.8.8:53"
       dns01RecursiveNameserversOnly: true
 
+      startupapicheck:
+        enabled: false
+
 namespace: cert-manager
