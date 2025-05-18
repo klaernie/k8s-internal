@@ -1,0 +1,3 @@
+[submodule "ldap/schema/openldap-extra-schemas"]
+	path = ldap/schema/openldap-extra-schemas
+	url = git@github.com:OpenMandrivaAssociation/openldap-extra-schemas.git

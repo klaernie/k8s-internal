@@ -1,0 +1,11 @@
+configMapGenerator:
+  - name: openldap-schema
+    files:
+      - openssh.ldif
+      - sudo.ldif
+      - apple.ldif
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+namespace: ldap

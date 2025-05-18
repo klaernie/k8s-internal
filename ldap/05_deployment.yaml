@@ -43,6 +43,9 @@ spec:
               value: "/opt/bitnami/openldap/certs/tls.key"
             - name: LDAP_TLS_CA_FILE
               value: "/opt/bitnami/openldap/certs/tls.crt"
+
+            - name: LDAP_CUSTOM_SCHEMA_DIR
+              value: "/schema"
           ports:
             - name: tcp-ldap
               containerPort: 1389
