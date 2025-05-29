@@ -1,10 +1,12 @@
 resources:
   - _cert-manager
+  - _cnpg
   - _external-dns
   - _metallb-system
   - _reloader
   - _sops
   - _zfs-provisioner
+  - auth
   - elk
   - grafana
   - grocy

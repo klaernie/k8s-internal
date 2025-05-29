@@ -1,0 +1,6 @@
+resources:
+  - cluster-keycloak.yaml
+  - service-keycloak-discovery.yaml
+  - service-keycloak.yaml
+  #- statefulset-keycloak.yaml
+  #- ingress-keycloak.yaml
