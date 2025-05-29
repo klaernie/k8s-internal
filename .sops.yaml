@@ -2,3 +2,6 @@ creation_rules:
   - encrypted_regex: "^(data|stringData)$"
     pgp: 6528912C6687A3E2
     age: age1pfxd6zqm4x755qpxd2h4fl5uqnu07hrpyv2cstdey0lg5lc5x47qzsvrn5
+stores:
+  yaml:
+    indent: 2
