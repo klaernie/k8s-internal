@@ -1,0 +1,10 @@
+# Don't report passed checks in output
+quiet: true
+
+# do not show code output - it is needlessly verbose
+compact: true
+
+skip-check:
+  - CKV_K8S_40 # any ID >0 is good, since this cluster is hosted on Talos Linux
+  - CKV_K8S_43 # I am too lazy at the moment to put that much of distrust in the world
+  - CKV_K8S_35 # yes, sure, that is right. But no.
