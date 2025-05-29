@@ -1,4 +1,5 @@
 resources:
+  - namespace-auth.yaml
   - cluster-keycloak.yaml
   #- service-keycloak-discovery.yaml
   #- service-keycloak.yaml
