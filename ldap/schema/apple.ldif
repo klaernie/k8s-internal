@@ -104,7 +104,7 @@ olcAttributeTypes: {0}( 1.3.6.1.4.1.63.1000.1.1.1.8.3 NAME 'mountOption' DESC 'm
 olcAttributeTypes: {0}( 1.3.6.1.4.1.63.1000.1.1.1.8.4 NAME 'mountDumpFrequency' DESC 'mount dump frequency' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE )
 olcAttributeTypes: {0}( 1.3.6.1.4.1.63.1000.1.1.1.8.5 NAME 'mountPassNo' DESC 'mount passno' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE )
 # Alternative to using 'cn' when adding mount record schema to other LDAP servers
-#olcAttributeTypes: {0}( 
+#olcAttributeTypes: {0}(
 #       1.3.6.1.4.1.63.1000.1.1.1.8.100
 #       NAME ( 'apple-mount-name' )
 #       DESC 'mount name'
