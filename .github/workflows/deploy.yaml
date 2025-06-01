@@ -32,6 +32,7 @@ jobs:
           arguments: |
             --enable-helm
           kubectl-version: "latest"
+          helm-version: v3.17.3
 
       - name: deploy
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
