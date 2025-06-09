@@ -1,7 +1,7 @@
 resources:
   - namespace-auth.yaml
-  - cluster-keycloak.yaml
-  #- service-keycloak-discovery.yaml
-  #- service-keycloak.yaml
+  - cluster-pg-keycloak.yaml
+  - service-keycloak-discovery.yaml
+  - service-keycloak.yaml
   #- statefulset-keycloak.yaml
   #- ingress-keycloak.yaml
