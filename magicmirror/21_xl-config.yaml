@@ -112,10 +112,6 @@ data:
                                                     name: "DEFAULT",
                                                     views: ["current","upcoming","Overview Private"],
                                             },
-                                            {
-                                                    name: "WorkMode",
-                                                    views: ["current","upcoming","Overview Work"],
-                                            },
                                     ],
                                     views:[
                                             {
@@ -169,18 +165,6 @@ data:
                                                             "Tobi|Tobi Shared",
                                                     ],
                                             },
-                                            {
-                                                    name: "Overview Work",
-                                                    title: "Work Calendars",
-                                                    mode: "daily",
-                                                    type: "row",
-                                                    position: "bottom_bar",
-                                                    slotCount: 7,
-                                                    locale: "en",
-                                                    hideOverflow: false,
-                                                    filterPassedEvent: true,
-                                                    calendars: ["Anja Work","Andre Work","Andre Work|Anja Work","Tobi Lernsax"],
-                                            },
                                     ],
                                     calendars: [
                                             {
@@ -188,55 +172,8 @@ data:
                                                     url: "http://calserv/AnjaPrivate.ics",
                                             },
                                             {
-                                                    name: "Anja Work",
-                                                    url: "http://calserv/O365_Anja.ics",
-                                                    filter: (event) => {
-                                                            if (event.ms_busystatus == "TENTATIVE") {
-                                                                    return false
-                                                            }
-                                                            if (event.title == "Blocker") {
-                                                                    return false
-                                                            }
-                                                            if (event.title == "Need to be home") {
-                                                                    return false
-                                                            }
-                                                            if (event.title == "Vacation") {
-                                                                    return false
-                                                            }
-                                                            if (event.title == "OoO") {
-                                                                    return false
-                                                            }
-                                                            if (event.title.startsWith("Canceled:")) {
-                                                                    return false
-                                                            }
-                                                            return true
-                                                    },
-                                            },
-                                            {
                                                     name: "Andre",
                                                     url: "http://calserv/AndrePrivate.ics",
-                                            },
-                                            {
-                                                    name: "Andre Work",
-                                                    url: "http://calserv/O365_Andre.ics",
-                                                    filter: (event) => {
-                                                            if (event.title == "Blocker") {
-                                                                    return false
-                                                            }
-                                                            if (event.title == "Need to be home") {
-                                                                    return false
-                                                            }
-                                                            if (event.title == "Vacation") {
-                                                                    return false
-                                                            }
-                                                            if (event.title == "OoO") {
-                                                                    return false
-                                                            }
-                                                            if (event.title.startsWith("Canceled:")) {
-                                                                    return false
-                                                            }
-                                                            return true
-                                                    },
                                             },
                                             {
                                                     name: "Family",
