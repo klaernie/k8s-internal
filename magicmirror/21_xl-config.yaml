@@ -307,14 +307,13 @@ data:
                             },
                     },
                     {
-                      module: "MMM-GooglePhotos",
+                      module: "MMM-ImagesPhotos",
                       position: "top_center",
                       config: {
-                          albums: ["MagicMirror"],
                           updateInterval: 1000 * 30,
-                          sort: "random",
-                          showWidth: 1800,
-                          showHeight: 1000,
+                          maxWidth: "1800px",
+                          maxHeight: "1000px",
+                          opacity: 1.0,
                           timeFormat: "relative",
                       }
                     },
