@@ -10,6 +10,7 @@ resources:
   - elk
   - grafana
   - grocy
+  - immich
   - influx
   - kube-system
   - kuma

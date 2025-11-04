@@ -1,0 +1,14 @@
+resources:
+  - namespace.yaml
+  - storage.yaml
+  - db.yaml
+
+namespace: immich
+
+helmCharts:
+  - releaseName: immich
+    repo: oci://ghcr.io/immich-app/immich-charts
+    name: immich
+    version: 0.10.1
+    valuesFile: values.yaml
+    skipTests: true
