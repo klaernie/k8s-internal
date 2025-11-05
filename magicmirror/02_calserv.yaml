@@ -25,7 +25,7 @@ spec:
           readinessProbe:
             failureThreshold: 3
             httpGet:
-              path: /
+              path: /health
               port: 80
               scheme: HTTP
             initialDelaySeconds: 10
