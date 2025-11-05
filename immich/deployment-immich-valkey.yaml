@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/controller: main
+    app.kubernetes.io/instance: immich
+    app.kubernetes.io/name: valkey
+  name: immich-valkey
+  namespace: immich
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app.kubernetes.io/controller: main
+      app.kubernetes.io/instance: immich
+      app.kubernetes.io/name: valkey
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/controller: main
+        app.kubernetes.io/instance: immich
+        app.kubernetes.io/name: valkey
+    spec:
+      automountServiceAccountToken: true
+      containers:
+      - env:
+        - name: IMMICH_MACHINE_LEARNING_URL
+          value: http://immich-machine-learning:3003
+        - name: REDIS_HOSTNAME
+          value: immich-valkey
+        image: docker.io/valkey/valkey:9.0-alpine@sha256:73f3aa08d95879525aa0dc84ebf6b82b59b898a24e8067a37d6250c31ee2c4d4
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - valkey-cli ping | grep PONG
+          failureThreshold: 3
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+        name: main
+        ports:
+        - containerPort: 6379
+          name: redis
+          protocol: TCP
+        readinessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - valkey-cli ping | grep PONG
+          failureThreshold: 3
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          timeoutSeconds: 5
+        startupProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - valkey-cli ping | grep PONG
+          failureThreshold: 30
+          initialDelaySeconds: 0
+          periodSeconds: 10
+          timeoutSeconds: 5
+        volumeMounts:
+        - mountPath: /data
+          name: data
+      dnsPolicy: ClusterFirst
+      enableServiceLinks: false
+      hostIPC: false
+      hostNetwork: false
+      hostPID: false
+      serviceAccountName: default
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: immich-valkey

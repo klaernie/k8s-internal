@@ -1,14 +1,19 @@
 resources:
-  - namespace.yaml
-  - storage.yaml
+  - namespace-immich.yaml
   - db.yaml
 
-namespace: immich
+  - deployment-immich-server.yaml
+  - persistentvolume-immich-pv.yaml
+  - persistentvolumeclaim-immich-pvc.yaml
+  - persistentvolumeclaim-immich-valkey.yaml
+  - service-immich-server.yaml
 
-helmCharts:
-  - releaseName: immich
-    repo: oci://ghcr.io/immich-app/immich-charts
-    name: immich
-    version: 0.10.1
-    valuesFile: values.yaml
-    skipTests: true
+  - deployment-immich-machine-learning.yaml
+  - service-immich-machine-learning.yaml
+
+  - deployment-immich-valkey.yaml
+  - service-immich-valkey.yaml
+
+  - ingress-immich-server.yaml
+
+namespace: immich
