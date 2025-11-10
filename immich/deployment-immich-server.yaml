@@ -93,5 +93,6 @@ spec:
       serviceAccountName: default
       volumes:
       - name: data
-        persistentVolumeClaim:
-          claimName: immich-pvc
+        nfs:
+          path: /media/Seven/Immich
+          server: mainframe.ak-online.be

@@ -3,8 +3,6 @@ resources:
   - db.yaml
 
   - deployment-immich-server.yaml
-  - persistentvolume-immich-pv.yaml
-  - persistentvolumeclaim-immich-pvc.yaml
   - persistentvolumeclaim-immich-valkey.yaml
   - service-immich-server.yaml
 
