@@ -1,6 +1,8 @@
 resources:
   - namespace-immich.yaml
   - db.yaml
+  - secrets.enc.yaml
+  - db-backup-store.yaml
 
   - deployment-immich-server.yaml
   - service-immich-server.yaml
