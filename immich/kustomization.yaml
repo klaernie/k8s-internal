@@ -5,6 +5,7 @@ resources:
   - deployment-immich-server.yaml
   - service-immich-server.yaml
 
+  - deployment-immich-worker.yaml
   - deployment-immich-machine-learning.yaml
   - service-immich-machine-learning.yaml
 
