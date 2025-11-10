@@ -3,13 +3,13 @@ resources:
   - db.yaml
 
   - deployment-immich-server.yaml
-  - persistentvolumeclaim-immich-valkey.yaml
   - service-immich-server.yaml
 
   - deployment-immich-machine-learning.yaml
   - service-immich-machine-learning.yaml
 
   - deployment-immich-valkey.yaml
+  - persistentvolumeclaim-immich-valkey.yaml
   - service-immich-valkey.yaml
 
   - ingress-immich-server.yaml
