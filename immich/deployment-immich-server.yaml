@@ -27,6 +27,8 @@ spec:
       automountServiceAccountToken: true
       containers:
       - env:
+        - name: IMMICH_LOG_LEVEL
+          value: debug
         - name: DB_DATABASE_NAME
           valueFrom:
             secretKeyRef:
