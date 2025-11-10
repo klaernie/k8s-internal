@@ -85,6 +85,8 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: data
+        - mountPath: /extlib/Bilder
+          name: extlib-bilder
       dnsPolicy: ClusterFirst
       enableServiceLinks: false
       hostIPC: false
@@ -95,4 +97,8 @@ spec:
       - name: data
         nfs:
           path: /media/Seven/Immich
+          server: mainframe.ak-online.be
+      - name: extlib-bilder
+        nfs:
+          path: /media/Seven/Bilder
           server: mainframe.ak-online.be
