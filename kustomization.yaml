@@ -12,6 +12,7 @@ resources:
   - grocy
   - immich
   - influx
+  - ingress-nginx/
   - kube-system
   - kuma
   - ldap
