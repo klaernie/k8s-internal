@@ -17,5 +17,6 @@ resources:
   - ldap
   - magicmirror
   - netbox
+  - patchman
   - x11
   - zigbee2mqtt
