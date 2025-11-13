@@ -9,6 +9,8 @@ spec:
   imageName: ghcr.io/tensorchord/cloudnative-vectorchord:16.9-0.4.3
 
   postgresql:
+    parameters:
+      max_connections: "500"
     shared_preload_libraries:
       - "vchord.so"
 
