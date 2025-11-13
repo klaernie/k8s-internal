@@ -3,6 +3,7 @@ resources:
   - db.yaml
   - secrets.enc.yaml
   - db-backup-store.yaml
+  - db-scheduledbackup.yaml
 
   - deployment-immich-server.yaml
   - service-immich-server.yaml
