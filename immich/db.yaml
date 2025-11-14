@@ -36,3 +36,7 @@ spec:
         requests:
           storage: 10Gi
       storageClassName: zfs-quick
+
+  managed:
+    services:
+      disabledDefaultServices: ["ro", "r"]
