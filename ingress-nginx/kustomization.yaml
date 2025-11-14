@@ -64,6 +64,14 @@ helmCharts:
           name: external
         extraArgs:
           enable-ssl-passthrough: ""
+
+        # hopefully this means that the container no longer gets OOM killed when uploading big files
+        extraVolumeMounts:
+          - name: client-bodies
+            mountPath: /tmp/nginx/client-bodies
+        extraVolumes:
+          - name: client-bodies
+            emptyDir: {}
 #  - name: ingress-nginx
 #    repo: https://kubernetes.github.io/ingress-nginx
 #    releaseName: internal
