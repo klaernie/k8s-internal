@@ -17,4 +17,4 @@ spec:
     app.kubernetes.io/controller: main
     app.kubernetes.io/instance: immich
     app.kubernetes.io/name: server
-  type: ClusterIP
+  type: LoadBalancer
