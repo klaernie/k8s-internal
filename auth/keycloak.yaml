@@ -1,0 +1,25 @@
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: Keycloak
+metadata:
+  name: keycloak
+  namespace: auth
+spec:
+  db:
+    vendor: postgres
+    url: jdbc:postgresql://pg-keycloak-rw.auth:5432/keycloak
+    usernameSecret:
+      name: pg-keycloak-app
+      key: username
+    passwordSecret:
+      name: pg-keycloak-app
+      key: password
+  hostname:
+    admin: https://keycloak.ak-online.be
+    hostname: https://keycloak.ak-online.be
+  http:
+    tlsSecret: keycloak-tls
+  proxy:
+    headers: xforwarded
+  ingress:
+    className: external
+    tlsSecret: keycloak-tls

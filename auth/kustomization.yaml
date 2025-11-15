@@ -2,10 +2,10 @@ resources:
   - namespace-auth.yaml
   - cluster-pg-keycloak.yaml
   - certificate-keycloak.yaml
-  - secrets.enc.yaml
-  - service-keycloak-discovery.yaml
-  - statefulset-keycloak.yaml
-  - service-keycloak.yaml
-  #- ingress-keycloak.yaml
-
+  # deploy keycloak operator
+  - https://raw.githubusercontent.com/keycloak/keycloak-k8s-resources/26.4.5/kubernetes/keycloaks.k8s.keycloak.org-v1.yml
+  - https://raw.githubusercontent.com/keycloak/keycloak-k8s-resources/26.4.5/kubernetes/keycloakrealmimports.k8s.keycloak.org-v1.yml
+  - https://raw.githubusercontent.com/keycloak/keycloak-k8s-resources/26.4.5/kubernetes/kubernetes.yml
+  # deploy the custom resource
+  - keycloak.yaml
 namespace: auth

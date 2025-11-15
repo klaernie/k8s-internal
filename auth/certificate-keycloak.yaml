@@ -6,6 +6,7 @@ metadata:
 spec:
   secretName: keycloak-tls
   dnsNames:
+    - keycloak.ak-online.be
     - keycloak.auth.k8s.ak-online.be
   issuerRef:
     name: letsencrypt-prod
