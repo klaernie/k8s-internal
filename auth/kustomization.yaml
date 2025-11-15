@@ -7,3 +7,5 @@ resources:
   - statefulset-keycloak.yaml
   - service-keycloak.yaml
   #- ingress-keycloak.yaml
+
+namespace: auth
