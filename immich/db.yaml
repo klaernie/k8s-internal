@@ -10,7 +10,15 @@ spec:
 
   postgresql:
     parameters:
+      # support running 100 workers for a short while
       max_connections: "500"
+      # copied from pgtune tuning for 3GB and 3cpu
+      shared_buffers: 768MB
+      effective_cache_size: 2304MB
+      maintenance_work_mem: 192MB
+      # pgtune says this for SAN storage
+      effective_io_concurrency: "300"
+
     shared_preload_libraries:
       - "vchord.so"
 
@@ -31,6 +39,14 @@ spec:
       isWALArchiver: true
       parameters:
         barmanObjectName: rustfs
+
+  resources:
+    requests:
+      memory: 3Gi
+      cpu: 3
+    limits:
+      memory: 3Gi
+      cpu: 3
 
   storage:
     pvcTemplate:
