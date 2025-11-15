@@ -1,0 +1,2 @@
+# there is no point in committing the cronjob-generated etcd backup
+db
