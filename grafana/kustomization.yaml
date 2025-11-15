@@ -1,7 +1,7 @@
 resources:
   - 00_ns.yaml
   - 01_pvc.yaml
-  - 02_grafana-secrets.enc.yaml
+  - secrets.enc.yaml
   - 03_deployment.yaml
   - 04_svc.yaml
   - 05_ingress.yaml
