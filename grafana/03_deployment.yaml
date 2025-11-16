@@ -24,17 +24,9 @@ spec:
         - name: grafana
           image: grafana/grafana:12.2.1
           imagePullPolicy: IfNotPresent
-          env:
-            - name: GF_DATABASE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: grafana
-                  key: dbpassword
-            - name: GF_SECURITY_SECRET_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: grafana
-                  key: encsecret
+          envFrom:
+            - secretRef:
+                name: grafana-env-secrets
           ports:
             - containerPort: 3000
               name: http-grafana
