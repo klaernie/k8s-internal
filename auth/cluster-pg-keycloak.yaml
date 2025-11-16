@@ -13,12 +13,31 @@ spec:
   stopDelay: 300
 
   bootstrap:
-    initdb:
-      database: keycloak
-      owner: keycloak
+    # initdb:
+    #   database: keycloak
+    #   owner: keycloak
+    recovery:
+      source: origin
 
-  enableSuperuserAccess: true
+  plugins:
+    - name: barman-cloud.cloudnative-pg.io
+      isWALArchiver: true
+      parameters:
+        barmanObjectName: rustfs
+
 
   storage:
     storageClass: zfs-quick
     size: 2Gi
+
+  managed:
+    services:
+      disabledDefaultServices: ["ro", "r"]
+
+  externalClusters:
+    - name: origin
+      plugin:
+        name: barman-cloud.cloudnative-pg.io
+        parameters:
+          barmanObjectName: rustfs
+          serverName: pg-keycloak

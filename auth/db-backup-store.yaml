@@ -1,0 +1,19 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: rustfs
+  namespace: auth
+spec:
+  configuration:
+    destinationPath: s3://cnpg-auth/
+    endpointURL: http://mainframe.ak-online.be:9000
+    s3Credentials:
+      accessKeyId:
+        name: rustfs-cnpg-credentials
+        key: ACCESS_KEY_ID
+      secretAccessKey:
+        name: rustfs-cnpg-credentials
+        key: ACCESS_SECRET_KEY
+    wal:
+      compression: gzip
+  retentionPolicy: 10d
