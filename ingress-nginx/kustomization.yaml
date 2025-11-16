@@ -33,7 +33,8 @@ helmCharts:
         metrics:
           enabled: true
         config:
-          use-forwarded-headers: "true"
+          use-proxy-protocol: true
+          use-forwarded-headers: false
           enable-real-ip: true
           forwarded-for-header: proxy_protocol
           annotations-risk-level: Critical
