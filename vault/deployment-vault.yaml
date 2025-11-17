@@ -31,8 +31,11 @@ spec:
                 secretKeyRef:
                   name: pg-vault-app
                   key: uri
-            - name: DOMAIN
-              value: https://vault.ak-online.be
+          envFrom:
+            - configMapRef:
+                name: vault-config
+            - secretRef:
+                name: vault-secrets
           ports:
             - containerPort: 8000
               name: http

@@ -8,6 +8,7 @@ resources:
   - db-scheduledbackup.yaml
 
   - pvc-vault.yaml
+  - configmap-vault-config.yaml
   - deployment-vault.yaml
   - service-vault.yaml
 

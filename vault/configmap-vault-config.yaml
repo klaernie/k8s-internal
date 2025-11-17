@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vault-config
+  namespace: vault
+data:
+  DOMAIN: https://vault.ak-online.be
+
+  PUSH_ENABLED: "true"
+  PUSH_RELAY_URI: https://api.bitwarden.eu
+  PUSH_IDENTITY_URI: https://identity.bitwarden.eu
+
+  SMTP_HOST: debs.ak-online.be
+  SMTP_FROM: vaultwarden@ak-online.be
+  SMTP_PORT: "25"
+  HELO_NAME: vaultwarden.ak-online.be
+
+  SIGNUPS_DOMAINS_WHITELIST: ak-online.be,ak-online.net
+  SIGNUPS_VERIFY: "true"
+
+  PASSWORD_HINTS_ALLOWED: "false"
