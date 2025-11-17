@@ -16,7 +16,7 @@ helmCharts:
           - name: zfs-quick
             hostName: zfs-nfs-quick.ak-online.be
             parentDataset: rpool/k8s-quick
-            policy: Retain
+            policy: Delete
             type: nfs
             reserveSpace: true
             shareProperties: rw,no_root_squash,sync,no_subtree_check,nohide,rw=@172.16.0.0/22:[2a02:8106:253:1c00::]/56
@@ -25,7 +25,7 @@ helmCharts:
           - name: zfs-bulk
             hostName: zfs-nfs-bulk.ak-online.be
             parentDataset: rpool/k8s-bulk
-            policy: Retain
+            policy: Delete
             type: nfs
             reserveSpace: false
             shareProperties: no_root_squash,sync,no_subtree_check,nohide,rw=@172.16.0.0/22:[2a02:8106:253:1c00::]/56
