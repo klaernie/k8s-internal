@@ -1,0 +1,16 @@
+resources:
+  - namespace-vault.yaml
+
+  - secrets.enc.yaml
+
+  - cluster-pg-vault.yaml
+  - db-backup-store.yaml
+  - db-scheduledbackup.yaml
+
+  - pvc-vault.yaml
+  - deployment-vault.yaml
+  - service-vault.yaml
+
+  - ingress-vault.yaml
+
+namespace: vault

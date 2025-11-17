@@ -19,5 +19,6 @@ resources:
   - magicmirror
   - netbox
   - patchman
+  - vault
   - x11
   - zigbee2mqtt

@@ -1,0 +1,37 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: pg-vault
+  namespace: vault
+spec:
+  imageName: ghcr.io/cloudnative-pg/postgresql:18.0-minimal-trixie
+  instances: 1
+
+  bootstrap:
+    # initdb:
+    #   database: keycloak
+    #   owner: keycloak
+   # recovery:
+   #   source: origin
+
+  plugins:
+    - name: barman-cloud.cloudnative-pg.io
+      isWALArchiver: true
+      parameters:
+        barmanObjectName: rustfs
+
+  storage:
+    storageClass: zfs-quick
+    size: 2Gi
+
+  managed:
+    services:
+      disabledDefaultServices: ["ro", "r"]
+
+  externalClusters:
+    - name: origin
+      plugin:
+        name: barman-cloud.cloudnative-pg.io
+        parameters:
+          barmanObjectName: rustfs
+          serverName: pg-vault
