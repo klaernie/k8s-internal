@@ -67,7 +67,6 @@ spec:
           name: data
         - mountPath: /extlib/Bilder
           name: extlib-bilder
-          readOnly: true
       dnsPolicy: ClusterFirst
       enableServiceLinks: false
       hostIPC: false
