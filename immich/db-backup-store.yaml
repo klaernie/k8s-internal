@@ -5,7 +5,7 @@ metadata:
 spec:
   configuration:
     destinationPath: s3://cnpg-immich/
-    endpointURL: http://mainframe.ak-online.be:9000
+    endpointURL: https://mainframe.ak-online.be:9000
     s3Credentials:
       accessKeyId:
         name: rustfs-cnpg-credentials
