@@ -49,6 +49,14 @@ spec:
             tcpSocket:
               port: 3000
             timeoutSeconds: 1
+          startupProbe:
+            failureThreshold: 30
+            initialDelaySeconds: 30
+            periodSeconds: 20
+            successThreshold: 1
+            tcpSocket:
+              port: 3000
+            timeoutSeconds: 1
           resources:
             requests:
               cpu: 250m
