@@ -6,6 +6,7 @@ resources:
   - _reloader
   - _sops
   - _zfs-provisioner
+  - abs
   - auth
   - elk
   - grafana

@@ -1,0 +1,7 @@
+resources:
+  - namespace.yaml
+  - pvc-abs-config.yaml
+  - pvc-abs-metadata.yaml
+  - deployment-abs.yaml
+  - svc-abs.yaml
+  - ingress-abs.yaml

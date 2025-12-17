@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abs
+  namespace: abs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: abs
+  # recreate instead of rolling updates, since running multiples of the pod may result in parallism trashing the sqlite DB
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        name: abs
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        # group ID matches diskaccess group
+        runAsGroup: 2001
+      containers:
+        - name: abs
+          imagePullPolicy: Always
+          image: ghcr.io/advplyr/audiobookshelf:2.31.0
+          ports:
+            - name: http
+              containerPort: 80
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: metadata
+              mountPath: /metadata
+            - name: audiobooks
+              mountPath: /audiobooks
+            - name: books
+              mountPath: /books
+            - name: podcasts
+              mountPath: /podcasts
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault
+          env:
+            - name: TZ
+              value: "Europe/Berlin"
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: abs-config
+        - name: metadata
+          persistentVolumeClaim:
+            claimName: abs-metadata
+        - name: audiobooks
+          nfs:
+            server: mainframe.ak-online.be
+            path: /media/Seven/AudioBooks
+        - name: books
+          nfs:
+            server: mainframe.ak-online.be
+            path: /media/Seven/Books
+        - name: podcasts
+          nfs:
+            server: mainframe.ak-online.be
+            path: /media/Seven/Podcasts
