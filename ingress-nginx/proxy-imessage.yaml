@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: klaernie-mac-mini
+  namespace: ingress-nginx
+spec:
+  type: ExternalName
+  externalName: klaernie-mac-mini.ak-online.be
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: imessage
+  namespace: ingress-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: external
+  tls:
+    - hosts:
+        - klaernie-imessage-bridge.ak-online.be
+      secretName: tls-imessage-bridge
+  rules:
+    - host: klaernie-imessage-bridge.ak-online.be
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: klaernie-mac-mini
+                port:
+                  number: 21388
