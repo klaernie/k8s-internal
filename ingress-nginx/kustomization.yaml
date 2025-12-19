@@ -2,6 +2,7 @@ resources:
   - namespace.yaml
   - proxy-backuppc.yaml
   - proxy-imessage.yaml
+  - proxy-jellyfin.yaml
   - proxy-pve.yaml
 
 namespace: ingress-nginx

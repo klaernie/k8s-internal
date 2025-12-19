@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mainframe
+  namespace: ingress-nginx
+spec:
+  type: ExternalName
+  externalName: mainframe.ak-online.be
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jellyfin
+  namespace: ingress-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: external
+  tls:
+    - hosts:
+        - jellyfin.ak-online.be
+      secretName: tls-jellyfin
+  rules:
+    - host: jellyfin.ak-online.be
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mainframe
+                port:
+                  number: 8096
