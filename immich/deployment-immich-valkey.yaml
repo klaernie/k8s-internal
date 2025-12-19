@@ -31,7 +31,7 @@ spec:
           value: http://immich-machine-learning:3003
         - name: REDIS_HOSTNAME
           value: immich-valkey
-        image: docker.io/valkey/valkey:9.0.0-alpine
+        image: docker.io/valkey/valkey:9.0.1-alpine
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:
