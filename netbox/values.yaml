@@ -57,7 +57,7 @@ pluginsConfig:
     allow_coordinates_saving: true
   netbox_proxbox:
     proxmox:
-      domain: "pve3.ak-online.be"
+      domain: "pve.ak-online.be"
       http_port: 8006
       user: "root@pam"
       token:
