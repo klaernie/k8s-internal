@@ -28,7 +28,7 @@ spec:
       containers:
       - env:
         - name: IMMICH_LOG_LEVEL
-          value: debug
+          value: verbose
         - name: DB_DATABASE_NAME
           valueFrom:
             secretKeyRef:
@@ -79,12 +79,12 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 1
         startupProbe:
-          failureThreshold: 90
+          failureThreshold: 190
           httpGet:
             path: /api/server/ping
             port: http
           initialDelaySeconds: 0
-          periodSeconds: 10
+          periodSeconds: 45
           timeoutSeconds: 1
         volumeMounts:
         - mountPath: /data
