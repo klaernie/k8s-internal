@@ -4,8 +4,8 @@ metadata:
   labels:
     app.kubernetes.io/instance: immich
     app.kubernetes.io/name: valkey
-    app.kubernetes.io/service: immich-valkey
-  name: immich-valkey
+    app.kubernetes.io/service: valkey
+  name: valkey
   namespace: immich
 spec:
   ports:

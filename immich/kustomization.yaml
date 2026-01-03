@@ -12,9 +12,9 @@ resources:
   - deployment-immich-machine-learning.yaml
   - service-immich-machine-learning.yaml
 
-  - deployment-immich-valkey.yaml
-  - persistentvolumeclaim-immich-valkey.yaml
-  - service-immich-valkey.yaml
+  - deployment-valkey.yaml
+  - persistentvolumeclaim-valkey.yaml
+  - service-valkey.yaml
 
   - ingress-immich-server.yaml
 

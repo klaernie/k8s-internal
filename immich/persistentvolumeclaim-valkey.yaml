@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: immich
     app.kubernetes.io/name: valkey
-  name: immich-valkey
+  name: valkey
   namespace: immich
 spec:
   accessModes:

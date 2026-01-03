@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/controller: main
     app.kubernetes.io/instance: immich
     app.kubernetes.io/name: valkey
-  name: immich-valkey
+  name: valkey
   namespace: immich
 spec:
   replicas: 1
@@ -26,12 +26,7 @@ spec:
     spec:
       automountServiceAccountToken: true
       containers:
-      - env:
-        - name: IMMICH_MACHINE_LEARNING_URL
-          value: http://immich-machine-learning:3003
-        - name: REDIS_HOSTNAME
-          value: immich-valkey
-        image: docker.io/valkey/valkey:9.0.1-alpine
+      - image: docker.io/valkey/valkey:9.0.1-alpine
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:
@@ -80,4 +75,4 @@ spec:
       volumes:
       - name: data
         persistentVolumeClaim:
-          claimName: immich-valkey
+          claimName: valkey
