@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: ScheduledBackup
 metadata:
-  name: keycloak
+  name: vault
   namespace: vault
 spec:
   schedule: "0 0 0 * * *"
