@@ -33,7 +33,7 @@ spec:
           value: valkey
         - name: TRANSFORMERS_CACHE
           value: /cache
-        image: ghcr.io/immich-app/immich-machine-learning:v2.4.1
+        image: ghcr.io/immich-app/immich-machine-learning:v2.5.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
