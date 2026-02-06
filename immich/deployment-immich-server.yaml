@@ -55,7 +55,7 @@ spec:
           value: valkey
         - name: IMMICH_WORKERS_INCLUDE
           value: api
-        image: ghcr.io/immich-app/immich-server:v2.5.2
+        image: ghcr.io/immich-app/immich-server:v2.5.5
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
