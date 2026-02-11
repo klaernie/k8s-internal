@@ -55,7 +55,7 @@ spec:
           value: valkey
         - name: IMMICH_WORKERS_EXCLUDE
           value: api
-        image: ghcr.io/immich-app/immich-server:v2.5.5
+        image: ghcr.io/immich-app/immich-server:v2.5.6
         imagePullPolicy: IfNotPresent
         name: main
         ports:
