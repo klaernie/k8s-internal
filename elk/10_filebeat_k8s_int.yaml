@@ -6,7 +6,7 @@ metadata:
 spec:
   type: filebeat
   # renovate: datasource=github-releases depName=beats packageName=elastic/beats
-  version: 9.2.1
+  version: 9.3.0
   config:
     filebeat.autodiscover.providers:
       - node: ${NODE_NAME}
