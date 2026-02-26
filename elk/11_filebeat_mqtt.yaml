@@ -6,7 +6,7 @@ metadata:
 spec:
   type: filebeat
   # renovate: datasource=github-releases depName=beats packageName=elastic/beats
-  version: 9.3.0
+  version: 9.3.1
   config:
     filebeat.inputs:
       - type: mqtt
