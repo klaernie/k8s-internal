@@ -56,7 +56,7 @@ data:
                             module: 'MMM-GrafanaChart',
                             position: 'top_right',
                             config: {
-                                    url: "http://grafana.grafana.k8s.ak-online.be/d-solo/LunydlBWz/magic-mirror-graphs?orgId=1&refresh=5s&panelId=2",
+                                    url: "http://grafana.grafana.k8s.ak-online.be/d-solo/LunydlBWz/magic-mirror-graphs?orgId=1&refresh=5s&panelId=2&hideLogo=true",
                                     protocol: "http",
                                     host: "grafana.grafana.k8s.ak-online.be",
                                     port: 443,
@@ -72,7 +72,7 @@ data:
                             module: 'MMM-GrafanaChart',
                             position: 'top_right',
                             config: {
-                                    url: "http://grafana.grafana.k8s.ak-online.be/d-solo/LunydlBWz/magic-mirror-graphs?orgId=1&refresh=5s&panelId=4",
+                                    url: "http://grafana.grafana.k8s.ak-online.be/d-solo/LunydlBWz/magic-mirror-graphs?orgId=1&refresh=5s&panelId=4&hideLogo=true",
                                     protocol: "http",
                                     host: "grafana.grafana.k8s.ak-online.be",
                                     port: 443,
@@ -88,7 +88,7 @@ data:
                             module: 'MMM-GrafanaChart',
                             position: 'top_right',
                             config: {
-                                    url: "http://grafana.grafana.k8s.ak-online.be/d-solo/LunydlBWz/magic-mirror-graphs?orgId=1&refresh=5s&panelId=5",
+                                    url: "http://grafana.grafana.k8s.ak-online.be/d-solo/LunydlBWz/magic-mirror-graphs?orgId=1&refresh=5s&panelId=5&hideLogo=true",
                                     protocol: "http",
                                     host: "grafana.grafana.k8s.ak-online.be",
                                     port: 443,
