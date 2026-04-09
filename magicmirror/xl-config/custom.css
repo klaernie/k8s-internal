@@ -1,0 +1,146 @@
+/*****************************************************
+ * Magic Mirror                                      *
+ * Custom CSS                                        *
+ *                                                   *
+ * By Michael Teeuw http://michaelteeuw.nl           *
+ * MIT Licensed.                                     *
+ *                                                   *
+ * Add any custom CSS below.                         *
+ * Changes to this files will be ignored by GIT. *
+ *****************************************************/
+
+html {
+        background: #141619;
+        cursor: auto;
+}
+
+body {
+        margin: 10px;
+        height: calc(100% - 20px);
+        width: calc(100% - 30px);
+        background: inherit;
+}
+
+.region.top.right,
+.region.top.left,
+.region.top.center {
+        min-width: 700px;
+}
+
+.region.top.left .CX2 {
+        --column-max-width: 700px;
+}
+
+.region.top.left .CX2 .period .eventTitle {
+}
+
+.CX2 .period .eventTitle {
+        float: left;
+        max-width: var(--column-max-width);
+}
+
+.CX2 .period .eventTime {
+        float: right;
+}
+
+.CX2 .current .eventCount_0 {
+        display: none;
+}
+.CX2 .agenda .eventSub {
+        display:none;
+}
+.CX2 .daily .fullday .eventTime {
+        display:none;
+}
+.CX2 .slot > .slotContent {
+        background: none;
+}
+.CX2 .slot .event{
+        background: none;
+}
+.CX2 .slot .slotHeader{
+        background-color: inherit;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        border-bottom: 1px solid #666;
+        line-height: 15px;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        color: #999;
+}
+.CX2 .today .slotHeader * {
+        color: inherit;
+}
+.CX2 .event.fullday {
+        color: inherit;
+}
+.CX2 .slot .slotFooter {
+        display: none;
+}
+.CX2 .event {
+        border-left: #000000 solid;
+}
+.CX2 .event[data-calendar-name="Andre"],
+.CX2 .event[data-calendar-name="Andre Work"] {
+        /*color: #ce4138;*/
+        border-left: #9517ab solid;
+}
+.CX2 .event[data-calendar-name="Anja"],
+.CX2 .event[data-calendar-name="Anja Work"] {
+        /*color: #c632ff;*/
+        border-left: #d12138 solid;
+}
+.CX2 .event[data-calendar-name="Tobi"],
+.CX2 .event[data-calendar-name="Tobi Lernsax"],
+.CX2 .event[data-calendar-name="Tobi Shared"] {
+        /*color: #d2cf2a;*/
+        border-left: #d2cf2a solid;
+}
+.CX2 .event[data-calendar-name="Tanzkalender"] {
+        border-left: #4a9f16 solid;
+}
+
+.CX2 .event[data-busystatus="BUSY"] .eventTitle {
+        /* color: #c632ff; */
+}
+
+.CX2 .event[data-busystatus="OOF"] .eventTitle {
+        color: #4c4dba;
+}
+
+.CX2 .event[data-busystatus="FREE"] .eventTitle {
+        /* color: #444444; */
+}
+
+.CX2 .event[data-busystatus="TENTATIVE"] .eventTitle {
+        color: #444444;
+}
+
+/* GooglePhotos */
+#GPHOTO {
+  margin-top: 20px;
+}
+
+#GPHOTO_BACK {
+  background-size: contain;
+  filter: blue(50px) brightness(90%);
+}
+
+#GPHOTO_BACK.animated {
+  animation-name: trans;
+  animation-duration: 0.5s;
+}
+
+#GPHOTO_INFO {
+  display: none;
+}
+
+#SPOTIFY_BACKGROUND {
+  display: none;
+}
+
+.MMM-mqtt .value {
+        font-size: 10pt;
+}

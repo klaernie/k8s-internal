@@ -70,8 +70,8 @@ spec:
           configMap:
             name: xl
             items:
-              - key: config
+              - key: config.js
                 path: config.js.template
-              - key: css-custom
+              - key: custom.css
                 path: custom.css
 status: {}

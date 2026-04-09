@@ -6,9 +6,14 @@ resources:
   - 13_s-config.yaml
   - 14_s-mm.yaml
   - 15_s-svc.yaml
-  - 21_xl-config.yaml
   - 22_xl-mm.yaml
   - 23_xl-svc.yaml
   - secrets.enc.yaml
 
 namespace: magicmirror
+
+configMapGenerator:
+- name: xl
+  files:
+    - xl-config/config.js
+    - xl-config/custom.css
