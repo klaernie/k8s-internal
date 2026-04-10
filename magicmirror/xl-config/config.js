@@ -241,14 +241,25 @@ var config = {
 			},
 		},
 		{
-			module: "MMM-ImagesPhotos",
-			position: "top_center",
+			module: 'MMM-ImmichSlideShow',
+			position: 'top_center',
 			config: {
-				updateInterval: 1000 * 30,
-				maxWidth: "1800px",
-				maxHeight: "1000px",
-				opacity: 1.0,
-				timeFormat: "relative",
+				immichConfigs: [
+					{
+						apiKey: '${IMMICH_APIKEY}',
+						url: 'https://immich.ak-online.be',
+						timeout: 1000*10,
+						mode: 'album',
+						albumId: '75aa9e30-54dc-474c-88d6-71d338681ca3',
+						slideshowSpeed: 1000*30,
+					}
+				],
+				cyclicConfigs: true,
+				transitionImages: true,
+				transitions: ["opacity"],
+				width: "1800px",
+				height: "1000px",
+				backgroundSize: "contain",
 			}
 		},
 		{
