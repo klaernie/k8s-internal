@@ -69,9 +69,4 @@ spec:
         - name: config
           configMap:
             name: s
-            items:
-              - key: config
-                path: config.js
-              - key: css-custom
-                path: custom.css
 status: {}

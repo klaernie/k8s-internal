@@ -3,7 +3,6 @@ resources:
   - 01_pvc.yaml
   - 02_calserv.yaml
   - 04_vdirsyncer.yaml
-  - 13_s-config.yaml
   - 14_s-mm.yaml
   - 15_s-svc.yaml
   - 22_xl-mm.yaml
@@ -13,6 +12,10 @@ resources:
 namespace: magicmirror
 
 configMapGenerator:
+- name: s
+  files:
+    - s-config/config.js
+    - s-config/custom.css
 - name: xl
   files:
     - xl-config/config.js
