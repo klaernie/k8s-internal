@@ -24,11 +24,11 @@ var config = {
 			module: "weather",
 			position: "top_left",
 			config: {
-				type: "current",
 				weatherProvider: "openweathermap",
-				location: "Dresden, Germany",
-				locationID: "2935022",  //ID from http://bulk.openweathermap.org/sample/; unzip the gz file and find your city
-				apiKey: "${OWM_APIKEY}"
+				apiKey: "${OWM_APIKEY}",
+				type: "current",
+				lat: 51.047719400780146,
+				lon: 13.734994989024981,
 			}
 		},
 		{
