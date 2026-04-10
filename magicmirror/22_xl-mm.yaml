@@ -22,7 +22,7 @@ spec:
         kind: magic-mirror
     spec:
       containers:
-        - image: ghcr.io/klaernie/docker-magicmirror:v2.29.0
+        - image: ghcr.io/klaernie/docker-magicmirror:v2.35.0
           imagePullPolicy: Always
           name: mm
           resources: {}
@@ -37,10 +37,10 @@ spec:
               containerPort: 80
           volumeMounts:
             - name: config
-              mountPath: "/opt/magic_mirror/config/config.js.template"
-              subPath: config.js.template
+              mountPath: "/opt/magic_mirror/config/config.js"
+              subPath: config.js
             - name: config
-              mountPath: "/opt/magic_mirror/css/custom.css"
+              mountPath: "/opt/magic_mirror/config/custom.css"
               subPath: "custom.css"
             - name: nfs
               mountPath: "/opt/magic_mirror/modules"
@@ -71,7 +71,7 @@ spec:
             name: xl
             items:
               - key: config.js
-                path: config.js.template
+                path: config.js
               - key: custom.css
                 path: custom.css
 status: {}
