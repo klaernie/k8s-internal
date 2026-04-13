@@ -9,10 +9,6 @@
  * Changes to this files will be ignored by GIT. *
  *****************************************************/
 
-html {
-	cursor: auto;
-}
-
 body {
 	margin: 10px;
 	height: calc(100% - 20px);
