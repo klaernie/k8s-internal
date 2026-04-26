@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rustdesk-server
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: rustdesk
+  template:
+    metadata:
+      labels:
+        app: rustdesk
+    spec:
+      containers:
+        # id Server (HBBS)
+        - name: hbbs
+          image: rustdesk/rustdesk-server:latest
+          env:
+            - name: RELAY_HOST
+              value: "rustdesk.ak-online.be"
+          command: ["hbbs", "-r", "$(RELAY_HOST):21117", "-k", "_"]
+          volumeMounts:
+            - mountPath: /root
+              name: rustdesk-data
+          ports:
+            - containerPort: 21115
+            - containerPort: 21116
+              protocol: TCP
+            - containerPort: 21116
+              protocol: UDP
+            - containerPort: 21118
+
+        # Relay Server (HBBR)
+        - name: hbbr
+          image: rustdesk/rustdesk-server:latest
+          command: ["hbbr", "-k", "_"]
+          volumeMounts:
+            - mountPath: /root
+              name: rustdesk-data
+          ports:
+            - containerPort: 21117
+            - containerPort: 21119
+
+      volumes:
+        - name: rustdesk-data
+          persistentVolumeClaim:
+            claimName: rustdesk-pvc

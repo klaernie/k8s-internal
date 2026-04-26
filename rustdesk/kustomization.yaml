@@ -1,0 +1,7 @@
+resources:
+  - namespace.yaml
+  - persistentvolumeclaim-rustdesk-pvc.yaml
+  - deployment-rustdesk-server.yaml
+  - service-rustdesk-service.yaml
+
+namespace: rustdesk
