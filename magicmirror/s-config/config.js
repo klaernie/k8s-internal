@@ -29,6 +29,7 @@ var config = {
 				type: "current",
 				lat: 51.047719400780146,
 				lon: 13.734994989024981,
+				updateInterval: 30 * 60 * 1000,
 			}
 		},
 		{

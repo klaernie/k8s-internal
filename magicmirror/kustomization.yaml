@@ -20,3 +20,7 @@ configMapGenerator:
   files:
     - xl-config/config.js
     - xl-config/custom.css
+- name: hotpatch
+  files:
+    - hotpatch.sh
+    - 4092.patch

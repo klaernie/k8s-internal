@@ -1,0 +1,63 @@
+From 2fb3372ca92052d7df55b3690bf2db9b13b8dcfb Mon Sep 17 00:00:00 2001
+From: Kristjan ESPERANTO <35647502+KristjanESPERANTO@users.noreply.github.com>
+Date: Sun, 5 Apr 2026 20:30:58 +0200
+Subject: [PATCH] fix(weather): use stable instanceId to prevent duplicate
+ fetchers
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+During the server-side migration (PR #4032), the `instanceId` was built
+with `Date.now()`, making it unique per client reload. This was fine in
+the old browser-based architecture where reloads cleaned up everything
+automatically. But now the node_helper persists across reloads, so each
+reconnect created a new `HTTPFetcher` while the old one kept polling —
+silently multiplying API calls over time.
+
+The fix is simple: use `this.identifier` as the `instanceId`, which is
+already stable and unique per module slot. This is the same approach the
+Calendar module uses.
+
+On the node_helper side, when a provider already exists for the same
+`instanceId`, we now skip re-creation and just resend
+`WEATHER_INITIALIZED` so the client picks up where it left off.
+
+Fixes https://forum.magicmirror.builders/topic/20199
+---
+ defaultmodules/weather/node_helper.js | 7 ++++++-
+ defaultmodules/weather/weather.js     | 4 ++--
+ 2 files changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/defaultmodules/weather/node_helper.js b/defaultmodules/weather/node_helper.js
+index f9ea08c42a..cda81a5140 100644
+--- a/defaultmodules/weather/node_helper.js
++++ b/defaultmodules/weather/node_helper.js
+@@ -31,7 +31,12 @@ module.exports = NodeHelper.create({
+ 		Log.log(`Attempting to initialize provider ${identifier} for instance ${instanceId}`);
+
+ 		if (this.providers[instanceId]) {
+-			Log.log(`Weather provider ${identifier} already initialized for instance ${instanceId}`);
++			Log.log(`Weather provider ${identifier} already initialized for instance ${instanceId}, re-sending WEATHER_INITIALIZED`);
++			// Client may have restarted (e.g. page reload) - re-send so it recovers location name
++			this.sendSocketNotification("WEATHER_INITIALIZED", {
++				instanceId,
++				locationName: this.providers[instanceId].locationName
++			});
+ 			return;
+ 		}
+
+diff --git a/defaultmodules/weather/weather.js b/defaultmodules/weather/weather.js
+index 732958e6c8..d3fbeb13ac 100644
+--- a/defaultmodules/weather/weather.js
++++ b/defaultmodules/weather/weather.js
+@@ -110,8 +110,8 @@ Module.register("weather", {
+ 			this.config.showHumidity = this.config.showHumidity ? "wind" : "none";
+ 		}
+
+-		// All providers run server-side: generate unique instance ID and initialize via node_helper
+-		this.instanceId = `${this.identifier}_${Date.now()}`;
++		// All providers run server-side: use stable identifier so reconnects don't spawn duplicate HTTPFetchers
++		this.instanceId = this.identifier;
+
+ 		if (window.initWeatherTheme) window.initWeatherTheme(this);
+

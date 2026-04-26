@@ -26,6 +26,10 @@ spec:
           imagePullPolicy: Always
           name: mm
           resources: {}
+          command:
+            - /opt/hotpatch/hotpatch.sh
+            - node
+            - serveronly
           env:
             - name: TZ
               value: "Europe/Berlin"
@@ -42,6 +46,8 @@ spec:
             - name: config
               mountPath: "/opt/magic_mirror/config/custom.css"
               subPath: "custom.css"
+            - name: patch
+              mountPath: "/opt/hotpatch"
             - name: nfs
               mountPath: "/opt/magic_mirror/modules"
           readinessProbe:
@@ -69,9 +75,8 @@ spec:
         - name: config
           configMap:
             name: xl
-            items:
-              - key: config.js
-                path: config.js
-              - key: custom.css
-                path: custom.css
+        - name: patch
+          configMap:
+            name: hotpatch
+            defaultMode: 0o777
 status: {}
