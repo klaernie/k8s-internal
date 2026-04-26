@@ -9,6 +9,7 @@ resources:
   - abs
   - auth
   - elk
+  - gatus
   - grafana
   - grocy
   - immich
@@ -20,6 +21,7 @@ resources:
   - magicmirror
   - netbox
   - patchman
+  - rustdesk
   - vault
   - x11
   - zigbee2mqtt
