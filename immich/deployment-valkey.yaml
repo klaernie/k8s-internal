@@ -26,7 +26,7 @@ spec:
     spec:
       automountServiceAccountToken: true
       containers:
-      - image: docker.io/valkey/valkey:9.0.2-alpine
+      - image: docker.io/valkey/valkey:9.0.3-alpine
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:
