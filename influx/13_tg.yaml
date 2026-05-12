@@ -16,7 +16,7 @@ spec:
         app: telegraf
     spec:
       containers:
-        - image: telegraf:1.38.3
+        - image: telegraf:1.38.4
           name: telegraf
           env:
             - name: INFLUX_TOKEN
