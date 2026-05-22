@@ -1,0 +1,38 @@
+metrics: true
+storage:
+  type: postgres
+  path: ${PG_URI}
+  caching: true
+
+security:
+  oidc:
+    issuer-url: https://keycloak.ak-online.be/realms/master
+    redirect-url: https://gatus.ak-online.be/authorization-code/callback
+    client-id: gatus
+    client-secret: ${CLIENT_SECRET}
+    scopes:
+      - openid
+    sesseion-ttl: 30d
+
+ui:
+  dark-mode: true
+  default-sort-by: group
+
+alerting:
+  email:
+    from: gatus@ak-online.be
+    host: debs.ak-online.be
+    port: 25
+    to: kandre+gatus@ak-online.be
+    default-alert:
+      enabled: true
+      failure-threshold: 3
+      success-threshold: 2
+      send-on-resolved: true
+  discord:
+    webhook-url: ${DISCORD_WEBHOOK_URL}
+    default-alert:
+      enabled: true
+      failure-threshold: 3
+      success-threshold: 2
+      send-on-resolved: true

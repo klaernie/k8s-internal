@@ -1,0 +1,60 @@
+endpoints:
+  - name: ak-online.be
+    url: https://ak-online.be
+    group: websites
+    conditions:
+      - '[STATUS] == 200'
+      - '[CERTIFICATE_EXPIRATION] > 48h'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: bitcoins-vergleich.de
+    url: https://bitcoins-vergleich.de
+    group: websites
+    conditions:
+      - '[STATUS] == 200'
+      - '[CERTIFICATE_EXPIRATION] > 48h'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: brauerschranksysteme.de
+    url: https://brauerschranksysteme.de
+    group: websites
+    conditions:
+      - '[STATUS] == 200'
+      - '[CERTIFICATE_EXPIRATION] > 48h'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: seven-spremberg.de
+    url: https://seven-spremberg.de
+    group: websites
+    conditions:
+      - '[STATUS] == 200'
+      - '[CERTIFICATE_EXPIRATION] > 48h'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: trinkspieleapp.de
+    url: https://trinkspieleapp.de
+    group: websites
+    conditions:
+      - '[STATUS] == 200'
+      - '[CERTIFICATE_EXPIRATION] > 48h'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: studio-aurea.de
+    url: https://studio-aurea.de
+    group: websites
+    conditions:
+      - '[STATUS] == 200'
+      - '[CERTIFICATE_EXPIRATION] > 48h'
+    alerts:
+      - type: email
+      - type: discord

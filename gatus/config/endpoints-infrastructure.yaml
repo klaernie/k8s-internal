@@ -1,0 +1,63 @@
+endpoints:
+  - name: firewall one
+    url: icmp://fw1.ak-online.be
+    group: infrastructure
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: firewall two
+    url: icmp://fw2.ak-online.be
+    group: infrastructure
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: Cable Gateway
+    url: icmp://24.134.172.58
+    group: infrastructure
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: Cable Modem
+    url: icmp://cable.ak-online.be
+    group: infrastructure
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: Google DNS
+    url: icmp://8.8.8.8
+    group: infrastructure
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: zfs-nfs-quick
+    url: icmp://zfs-nfs-quick.ak-online.be
+    group: infrastructure
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: zfs-nfs-bulk
+    url: icmp://zfs-nfs-bulk.ak-online.be
+    group: infrastructure
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord

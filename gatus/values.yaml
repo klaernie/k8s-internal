@@ -1,0 +1,37 @@
+podSecurityContext:
+  seccompProfile:
+    type: RuntimeDefault
+  sysctls:
+    # Needed for ICMP to work without root privileges
+    - name: net.ipv4.ping_group_range
+      value: "0 65536"
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
+
+ingress:
+  enabled: true
+  ingressClassName: external
+  hosts:
+    - gatus.ak-online.be
+  tls:
+    - secretName: gatus-tls
+      hosts:
+        - gatus.ak-online.be
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+
+image:
+  tag: v5.35.0
+
+externalConfigMap: gatus
+secrets: true
+
+env:
+  PG_URI:
+    valueFrom:
+      secretKeyRef:
+        name: pg-gatus-app
+        key: uri
+  GATUS_CONFIG_PATH: /config

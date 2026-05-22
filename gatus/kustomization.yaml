@@ -4,3 +4,32 @@ resources:
   - db-backup-store.yaml
   - db-scheduledbackup.yaml
   - db.yaml
+
+helmCharts:
+  - releaseName: gatus
+    repo: https://twin.github.io/helm-charts
+    name: gatus
+    version: 1.5.0
+    skipTests: true
+    valuesFile: values.yaml
+
+configMapGenerator:
+  - name: gatus
+    files:
+      - config/config.yaml
+      - config/endpoints-infrastructure.yaml
+      - config/endpoints-websites.yaml
+      - config/endpoints-debs-mail.yaml
+      - config/endpoints-cmx-mail.yaml
+    options:
+      disableNameSuffixHash: true
+
+patches:
+- patch: |-
+    - op: remove
+      path: "/spec/template/spec/containers/0/envFrom/0"
+  target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: gatus
