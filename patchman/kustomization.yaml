@@ -25,4 +25,4 @@ helmCharts:
 
 images:
   - name: ghcr.io/klaernie/patchman
-    newTag: 3.0.10@sha256:ac7c875b7bd2414dcefdbd2e3749447acc6b6c9b3adfa19a3e0cbedad344ace1
+    newTag: 4.0.21@sha256:64383ba9531987289e7817cb0b7445ba54cb1226e1d9b57f1c9f052aa812d4cc
