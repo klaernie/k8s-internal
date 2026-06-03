@@ -5,6 +5,8 @@ resources:
   - db-scheduledbackup.yaml
   - db.yaml
 
+namespace: gatus
+
 helmCharts:
   - releaseName: gatus
     repo: https://twin.github.io/helm-charts
@@ -17,10 +19,14 @@ configMapGenerator:
   - name: gatus
     files:
       - config/config.yaml
-      - config/endpoints-infrastructure.yaml
-      - config/endpoints-websites.yaml
-      - config/endpoints-debs-mail.yaml
       - config/endpoints-cmx-mail.yaml
+      - config/endpoints-debs-mail.yaml
+      - config/endpoints-homeautomation.yaml
+      - config/endpoints-hosts.yaml
+      - config/endpoints-infrastructure.yaml
+      - config/endpoints-pve.yaml
+      - config/endpoints-services.yaml
+      - config/endpoints-websites.yaml
     options:
       disableNameSuffixHash: true
 

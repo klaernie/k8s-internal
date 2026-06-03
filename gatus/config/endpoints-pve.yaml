@@ -1,0 +1,73 @@
+endpoints:
+  - name: pve.ak-online.be
+    url: icmp://pve.ak-online.be
+    group: pve
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: pve2.ak-online.be
+    url: icmp://pve2.ak-online.be
+    group: pve
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: pve5.ak-online.be
+    url: icmp://pve5.ak-online.be
+    group: pve
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: pve6.ak-online.be
+    url: icmp://pve6.ak-online.be
+    group: pve
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: pve7.ak-online.be
+    url: icmp://pve7.ak-online.be
+    group: pve
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: pve8.ak-online.be
+    url: icmp://pve8.ak-online.be
+    group: pve
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: pve-backup.ak-online.be
+    url: icmp://pve-backup.ak-online.be
+    group: pve
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: cloud-pve1.ak-online.be
+    url: icmp://cloud-pve1.ak-online.be
+    group: pve
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+

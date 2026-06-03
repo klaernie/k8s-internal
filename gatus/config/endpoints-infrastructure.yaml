@@ -44,6 +44,44 @@ endpoints:
       - type: email
       - type: discord
 
+  - name: InfluxDB
+    url: http://db.influx.k8s.ak-online.be/ping
+    group: infrastructure
+    conditions:
+      - '[STATUS] == 204'
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: ns1
+    url: ns1.ak-online.be
+    dns:
+      query-name: ns1.ak-online.be
+      query-type: A
+    group: infrastructure
+    conditions:
+      - '[CONNECTED] == true'
+      - '[BODY] == 92.51.149.177'
+      - "[DNS_RCODE] == NOERROR"
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: ns2
+    url: ns2.ak-online.be
+    dns:
+      query-name: ns1.ak-online.be
+      query-type: A
+    group: infrastructure
+    conditions:
+      - '[CONNECTED] == true'
+      - '[BODY] == 92.51.149.177'
+      - "[DNS_RCODE] == NOERROR"
+    alerts:
+      - type: email
+      - type: discord
+
   - name: zfs-nfs-quick
     url: icmp://zfs-nfs-quick.ak-online.be
     group: infrastructure

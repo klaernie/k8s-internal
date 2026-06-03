@@ -1,7 +1,7 @@
 endpoints:
-  - name: ak-online.be
-    url: https://ak-online.be
-    group: websites
+  - name: family.trilium.cloud.ak-online.be
+    url: https://family.trilium.cloud.ak-online.be
+    group: services
     conditions:
       - '[STATUS] == 200'
       - '[CERTIFICATE_EXPIRATION] > 48h'
@@ -9,9 +9,9 @@ endpoints:
       - type: email
       - type: discord
 
-  - name: ip.ak-online.be
-    url: https://ip.ak-online.be
-    group: websites
+  - name: matrix.cloud.ak-online.be
+    url: https://matrix.cloud.ak-online.be
+    group: services
     conditions:
       - '[STATUS] == 200'
       - '[CERTIFICATE_EXPIRATION] > 48h'
@@ -19,9 +19,9 @@ endpoints:
       - type: email
       - type: discord
 
-  - name: bitcoins-vergleich.de
-    url: https://bitcoins-vergleich.de
-    group: websites
+  - name: vault.ak-online.be
+    url: https://vault.ak-online.be
+    group: services
     conditions:
       - '[STATUS] == 200'
       - '[CERTIFICATE_EXPIRATION] > 48h'
@@ -29,9 +29,9 @@ endpoints:
       - type: email
       - type: discord
 
-  - name: brauerschranksysteme.de
-    url: https://brauerschranksysteme.de
-    group: websites
+  - name: keycloak.ak-online.be
+    url: https://keycloak.ak-online.be
+    group: services
     conditions:
       - '[STATUS] == 200'
       - '[CERTIFICATE_EXPIRATION] > 48h'
@@ -39,9 +39,9 @@ endpoints:
       - type: email
       - type: discord
 
-  - name: seven-spremberg.de
-    url: https://seven-spremberg.de
-    group: websites
+  - name: immich.ak-online.be
+    url: https://immich.ak-online.be
+    group: services
     conditions:
       - '[STATUS] == 200'
       - '[CERTIFICATE_EXPIRATION] > 48h'
@@ -49,9 +49,9 @@ endpoints:
       - type: email
       - type: discord
 
-  - name: trinkspieleapp.de
-    url: https://trinkspieleapp.de
-    group: websites
+  - name: grafana.ak-online.be
+    url: https://grafana.ak-online.be
+    group: services
     conditions:
       - '[STATUS] == 200'
       - '[CERTIFICATE_EXPIRATION] > 48h'
@@ -59,12 +59,20 @@ endpoints:
       - type: email
       - type: discord
 
-  - name: studio-aurea.de
-    url: https://studio-aurea.de
-    group: websites
+  - name: s-mm.magicmirror.k8s.ak-online.be
+    url: http://s-mm.magicmirror.k8s.ak-online.be
+    group: services
     conditions:
       - '[STATUS] == 200'
-      - '[CERTIFICATE_EXPIRATION] > 48h'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: xl-mm.magicmirror.k8s.ak-online.be
+    url: http://xl-mm.magicmirror.k8s.ak-online.be
+    group: services
+    conditions:
+      - '[STATUS] == 200'
     alerts:
       - type: email
       - type: discord

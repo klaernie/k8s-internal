@@ -1,0 +1,36 @@
+endpoints:
+  - name: hive
+    url: icmp://hive.ak-online.be
+    group: hosts
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: mainframe
+    url: icmp://mainframe.ak-online.be
+    group: hosts
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: macy
+    url: icmp://macy.ak-online.be
+    group: hosts
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: nmia
+    url: icmp://nmia.ak-online.be
+    group: hosts
+    conditions:
+      - '[CONNECTED] == true'
+    alerts:
+      - type: email
+      - type: discord
