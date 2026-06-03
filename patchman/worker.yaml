@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: patchman-worker
-          image: ghcr.io/klaernie/patchman:3.0.10
+          image: ghcr.io/klaernie/patchman:4.0.21
           imagePullPolicy: Always
           env:
             - name: CELERY_REDIS_HOST

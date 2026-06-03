@@ -14,7 +14,7 @@ spec:
         spec:
           containers:
             - name: maintainer
-              image: ghcr.io/klaernie/patchman:3.0.10
+              image: ghcr.io/klaernie/patchman:4.0.21
               imagePullPolicy: Always
               args:
                 - maintenance
