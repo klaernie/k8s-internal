@@ -4,6 +4,7 @@ resources:
   - proxy-imessage.yaml
   - proxy-jellyfin.yaml
   - proxy-pve.yaml
+  - proxy-pve-backup.yaml
 
 namespace: ingress-nginx
 
