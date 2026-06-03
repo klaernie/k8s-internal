@@ -261,6 +261,7 @@ var config = {
 				width: "1800px",
 				height: "1000px",
 				backgroundSize: "contain",
+				backgroundColor: "none",
 			}
 		},
 		{
