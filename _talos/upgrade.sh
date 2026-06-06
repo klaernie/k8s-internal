@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x -e
+set -e
 
 source "$(dirname "$0")/definitions.sh" || exit 254
 
