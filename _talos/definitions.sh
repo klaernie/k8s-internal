@@ -15,7 +15,7 @@ export worker_nodes=(
 )
 
 # renovate: datasource=github-releases depName=talos packageName=siderolabs/talos
-export talosVersion=1.12.8
+export talosVersion=1.13.3
 
 # renovate: datasource=github-releases depName=talos-k8s packageName=siderolabs/kubelet
-export kubernetesVersion=1.33.3
+export kubernetesVersion=1.36.1
