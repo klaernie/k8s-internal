@@ -1,2 +1,3 @@
 resources:
   - proxy-apiserver.yaml
+  - daemonset-network-multitool.yaml

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: network-multitool
+  namespace: default
+spec:
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app.k8s.io: network-multitool
+  template:
+    metadata:
+      labels:
+        app.k8s.io: network-multitool
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - env:
+            - name: HTTP_PORT
+              value: '1180'
+            - name: HTTPS_PORT
+              value: '11443'
+          image: docker.io/wbitt/network-multitool
+          imagePullPolicy: Always
+          name: multitool
+          resources:
+            limits:
+              cpu: 100m
+              memory: 100Mi
+            requests:
+              cpu: 10m
+              memory: 50Mi
+          securityContext:
+            runAsUser: 0
+      restartPolicy: Always
+      securityContext: {}
+      terminationGracePeriodSeconds: 10
+      tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/control-plane
+          operator: Exists
+  updateStrategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate
