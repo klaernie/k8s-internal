@@ -3,5 +3,7 @@ resources:
   - persistentvolumeclaim-rustdesk-pvc.yaml
   - deployment-rustdesk-server.yaml
   - service-rustdesk.yaml
+  - service-rustdesk-com.yaml
+  - ingress-rustdesk.yaml
 
 namespace: rustdesk
