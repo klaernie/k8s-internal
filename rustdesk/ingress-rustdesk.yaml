@@ -20,8 +20,8 @@ spec:
           - backend:
               service:
                 name: rustdesk-com
-              port:
-                number: 443
+                port:
+                  number: 443
             path: '/(.*)'
             pathType: ImplementationSpecific
   tls:
