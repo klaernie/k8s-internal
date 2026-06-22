@@ -5,7 +5,7 @@ metadata:
   namespace: vault
 spec:
   imageName: ghcr.io/cloudnative-pg/postgresql:18.0-minimal-trixie
-  instances: 1
+  instances: 2
 
   bootstrap:
     # initdb:

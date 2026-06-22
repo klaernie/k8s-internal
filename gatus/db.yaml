@@ -4,7 +4,7 @@ metadata:
   name: pg-gatus
   namespace: gatus
 spec:
-  instances: 1
+  instances: 2
 
   imageCatalogRef:
     apiGroup: postgresql.cnpg.io
