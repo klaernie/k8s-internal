@@ -31,6 +31,9 @@ helmCharts:
           enabled: true
           externalTrafficPolicy: Local
           ipFamilyPolicy: PreferDualStack
+          ipFamilies:
+            - IPv4
+            - IPv6
         publishService:
           enabled: true
         metrics:
