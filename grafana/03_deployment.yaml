@@ -66,6 +66,10 @@ spec:
               name: grafana-pv
             - mountPath: /etc/grafana
               name: grafana-config
+            - mountPath: /var/lib/grafana/unified-search
+              name: unified-search
+            - mountPath: /usr/share/grafana/data/plugins-bundles/elasticsearch
+              name: es-plugin
       volumes:
         - name: grafana-pv
           persistentVolumeClaim:
@@ -73,3 +77,7 @@ spec:
         - name: grafana-config
           configMap:
             name: grafana-config
+        - name: unified-search
+          emptyDir: {}
+        - name: es-plugin
+          emptyDir: {}
