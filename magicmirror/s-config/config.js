@@ -94,49 +94,6 @@ var config = {
 						url: "http://calserv/TobiShared.ics",
 					},
 					{
-						name: "Tobi Lernsax",
-						url: "http://calserv/Lernsax.ics",
-						filter: (event) => {
-							if (event.title.startsWith("11:")) {
-								return false
-							}
-							if (event.title.startsWith("10:")) {
-								return false
-							}
-							if (event.title.startsWith("9S")) {
-								return false
-							}
-							if (event.title.startsWith("9:")) {
-								return false
-							}
-							if (event.title.startsWith("8S")) {
-								return false
-							}
-							if (event.title.startsWith("8:")) {
-								return false
-							}
-							if (event.title.startsWith("7S")) {
-								return false
-							}
-							if (event.title.startsWith("7:")) {
-								return false
-							}
-							if (event.title.startsWith("6S")) {
-								return false
-							}
-							if (event.title.startsWith("6:")) {
-								return false
-							}
-							if (event.title.startsWith("5S")) {
-								return false
-							}
-							if (event.title.startsWith("5:")) {
-								return false
-							}
-							return true
-						},
-					},
-					{
 						name: "Tanzkalender",
 						url: "http://calserv/Tanzkalender.ics",
 					},
