@@ -23,8 +23,22 @@ helmCharts:
     repo: oci://ghcr.io/netbox-community/netbox-chart
     releaseName: netbox
     namespace: netbox
-    version: 5.0.0-beta.65
+    version: 7.2.24
     valuesFile: values.yaml
     skipTests: true
 
 namespace: netbox
+
+patches:
+- patch: |-
+    - op: replace
+      path: "/spec/template/spec/containers/0/startupProbe/periodSeconds"
+      value: 30
+    - op: replace
+      path: "/spec/template/spec/containers/0/startupProbe/failureThreshold"
+      value: 30
+  target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: netbox
