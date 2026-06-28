@@ -45,7 +45,9 @@ exemptViewPermissions: []
 paginateCount: 50
 
 # Enable installed plugins. Add the name of each plugin to the list.
-plugins: ["netbox_topology_views", "netbox_proxbox"]
+plugins:
+#  - netbox_topology_views
+#  - netbox_proxbox
 
 # Plugins configuration settings. These settings are used by various plugins
 # that the user may have installed. Each key in the dictionary is the name of
@@ -55,24 +57,24 @@ pluginsConfig:
     enable_circuit_terminations: true
     draw_default_layout: true
     allow_coordinates_saving: true
-  netbox_proxbox:
-    proxmox:
-      domain: "pve.ak-online.be"
-      http_port: 8006
-      user: "root@pam"
-      token:
-        name: "netbox-proxbox"
-        # token value is provided by the secret
-      ssl: True
-    # netbox is extended by token
-    netbox:
-      domain: "netbox.netbox.svc.cluster.local"
-      http_port: 80
-      ssl: False
-      settings:
-        virtualmachine_role_id: 19
-        node_role_id: 20
-        site_id: 1
+# netbox_proxbox:
+#   proxmox:
+#     domain: "pve.ak-online.be"
+#     http_port: 8006
+#     user: "root@pam"
+#     token:
+#       name: "netbox-proxbox"
+#       # token value is provided by the secret
+#     ssl: True
+#   # netbox is extended by token
+#   netbox:
+#     domain: "netbox.netbox.svc.cluster.local"
+#     http_port: 80
+#     ssl: False
+#     settings:
+#       virtualmachine_role_id: 19
+#       node_role_id: 20
+#       site_id: 1
 
 # Time zone (default: UTC)
 timeZone: Europe/Berlin
