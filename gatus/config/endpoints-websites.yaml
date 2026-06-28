@@ -3,8 +3,8 @@ endpoints:
     url: https://ak-online.be
     group: websites
     conditions:
-      - '[STATUS] == 200'
-      - '[CERTIFICATE_EXPIRATION] > 48h'
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: email
       - type: discord
@@ -13,8 +13,8 @@ endpoints:
     url: https://ip.ak-online.be
     group: websites
     conditions:
-      - '[STATUS] == 200'
-      - '[CERTIFICATE_EXPIRATION] > 48h'
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: email
       - type: discord
@@ -23,8 +23,8 @@ endpoints:
     url: https://bitcoins-vergleich.de
     group: websites
     conditions:
-      - '[STATUS] == 200'
-      - '[CERTIFICATE_EXPIRATION] > 48h'
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: email
       - type: discord
@@ -33,8 +33,8 @@ endpoints:
     url: https://brauerschranksysteme.de
     group: websites
     conditions:
-      - '[STATUS] == 200'
-      - '[CERTIFICATE_EXPIRATION] > 48h'
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: email
       - type: discord
@@ -43,8 +43,8 @@ endpoints:
     url: https://seven-spremberg.de
     group: websites
     conditions:
-      - '[STATUS] == 200'
-      - '[CERTIFICATE_EXPIRATION] > 48h'
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: email
       - type: discord
@@ -53,8 +53,8 @@ endpoints:
     url: https://trinkspieleapp.de
     group: websites
     conditions:
-      - '[STATUS] == 200'
-      - '[CERTIFICATE_EXPIRATION] > 48h'
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: email
       - type: discord
@@ -63,8 +63,8 @@ endpoints:
     url: https://studio-aurea.de
     group: websites
     conditions:
-      - '[STATUS] == 200'
-      - '[CERTIFICATE_EXPIRATION] > 48h'
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: email
       - type: discord

@@ -23,14 +23,14 @@ spec:
       - "vchord.so"
 
   bootstrap:
-   # disable initdb, since we can restore from backup.
-   # For anybody starting afresh, comment out recovery: and uncomment initdb:
-   # initdb:
-   #   # TODO: Use managed extensions (pg 18)
-   #   postInitApplicationSQL:
-   #     # Commands based on: https://immich.app/docs/administration/postgres-standalone/#without-superuser-permission
-   #     - CREATE EXTENSION vchord CASCADE;
-   #     - CREATE EXTENSION earthdistance CASCADE;
+    # disable initdb, since we can restore from backup.
+    # For anybody starting afresh, comment out recovery: and uncomment initdb:
+    # initdb:
+    #   # TODO: Use managed extensions (pg 18)
+    #   postInitApplicationSQL:
+    #     # Commands based on: https://immich.app/docs/administration/postgres-standalone/#without-superuser-permission
+    #     - CREATE EXTENSION vchord CASCADE;
+    #     - CREATE EXTENSION earthdistance CASCADE;
     recovery:
       source: origin
 

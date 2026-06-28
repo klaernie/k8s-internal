@@ -30,15 +30,15 @@ helmCharts:
 namespace: netbox
 
 patches:
-- patch: |-
-    - op: replace
-      path: "/spec/template/spec/containers/0/startupProbe/periodSeconds"
-      value: 30
-    - op: replace
-      path: "/spec/template/spec/containers/0/startupProbe/failureThreshold"
-      value: 30
-  target:
-    group: apps
-    version: v1
-    kind: Deployment
-    name: netbox
+  - patch: |-
+      - op: replace
+        path: "/spec/template/spec/containers/0/startupProbe/periodSeconds"
+        value: 30
+      - op: replace
+        path: "/spec/template/spec/containers/0/startupProbe/failureThreshold"
+        value: 30
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: netbox

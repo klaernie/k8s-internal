@@ -31,11 +31,11 @@ configMapGenerator:
       disableNameSuffixHash: true
 
 patches:
-- patch: |-
-    - op: remove
-      path: "/spec/template/spec/containers/0/envFrom/0"
-  target:
-    group: apps
-    version: v1
-    kind: Deployment
-    name: gatus
+  - patch: |-
+      - op: remove
+        path: "/spec/template/spec/containers/0/envFrom/0"
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: gatus

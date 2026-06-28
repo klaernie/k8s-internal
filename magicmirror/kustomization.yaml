@@ -12,15 +12,15 @@ resources:
 namespace: magicmirror
 
 configMapGenerator:
-- name: s
-  files:
-    - s-config/config.js
-    - s-config/custom.css
-- name: xl
-  files:
-    - xl-config/config.js
-    - xl-config/custom.css
-- name: hotpatch
-  files:
-    - hotpatch.sh
-    #- 4092.patch
+  - name: s
+    files:
+      - s-config/config.js
+      - s-config/custom.css
+  - name: xl
+    files:
+      - xl-config/config.js
+      - xl-config/custom.css
+  - name: hotpatch
+    files:
+      - hotpatch.sh
+      #- 4092.patch

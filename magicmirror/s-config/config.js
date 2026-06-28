@@ -15,10 +15,10 @@ var config = {
 		{
 			module: "clock",
 			position: "top_left",
-			config:{
+			config: {
 				showWeek: true,
 				clockBold: true,
-			}
+			},
 		},
 		{
 			module: "weather",
@@ -30,22 +30,24 @@ var config = {
 				lat: 51.047719400780146,
 				lon: 13.734994989024981,
 				updateInterval: 30 * 60 * 1000,
-			}
+			},
 		},
 		{
-			module: 'MMM-CalendarExt2',
+			module: "MMM-CalendarExt2",
 			config: {
-				rotateInterval: 60*1000,
+				rotateInterval: 60 * 1000,
 				deduplicateEventsOn: [
-					"startDate", "endDate", "title",
+					"startDate",
+					"endDate",
+					"title",
 				],
-				scenes:[
+				scenes: [
 					{
 						name: "DEFAULT",
-						views: ["current","upcoming"],
+						views: ["current", "upcoming"],
 					},
 				],
-				views:[
+				views: [
 					{
 						name: "current",
 						mode: "current",
@@ -83,10 +85,13 @@ var config = {
 						name: "Tobi",
 						url: "http://calserv/TobiPrivate.ics",
 						filter: (event) => {
-							if (event.title == "Schule") {
-								return false
+							if (
+								event.title ==
+								"Schule"
+							) {
+								return false;
 							}
-							return true
+							return true;
 						},
 					},
 					{
@@ -101,15 +106,15 @@ var config = {
 			},
 		},
 		{
-			module: 'MMM-Cursor',
+			module: "MMM-Cursor",
 			config: {
-				timeout: 2500
-			}
-		}
-	]
-
+				timeout: 2500,
+			},
+		},
+	],
 };
 
 /*************** DO NOT EDIT THE LINE BELOW ***************/
-if (typeof module !== "undefined") {module.exports = config;}
-
+if (typeof module !== "undefined") {
+	module.exports = config;
+}

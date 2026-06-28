@@ -3,7 +3,7 @@ endpoints:
     url: tcp://cmx.ak-online.be:25
     group: cmx email
     conditions:
-       - "[CONNECTED] == true"
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -12,8 +12,8 @@ endpoints:
     url: tls://cmx.ak-online.be:465
     group: cmx email
     conditions:
-       - "[CONNECTED] == true"
-       - "[CERTIFICATE_EXPIRATION] > 48h"
+      - "[CONNECTED] == true"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: email
       - type: discord
@@ -22,8 +22,8 @@ endpoints:
     url: starttls://cmx.ak-online.be:587
     group: cmx email
     conditions:
-       - "[CONNECTED] == true"
-       - "[CERTIFICATE_EXPIRATION] > 48h"
+      - "[CONNECTED] == true"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: email
       - type: discord
@@ -32,7 +32,7 @@ endpoints:
     url: tcp://cmx.ak-online.be:143
     group: cmx email
     conditions:
-       - "[CONNECTED] == true"
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -41,8 +41,8 @@ endpoints:
     url: tls://cmx.ak-online.be:993
     group: cmx email
     conditions:
-       - "[CONNECTED] == true"
-       - "[CERTIFICATE_EXPIRATION] > 48h"
+      - "[CONNECTED] == true"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: email
       - type: discord

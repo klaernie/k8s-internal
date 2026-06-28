@@ -17,17 +17,17 @@ metadata:
 spec:
   ingressClassName: external
   rules:
-  - host: immich.ak-online.be
-    http:
-      paths:
-      - backend:
-          service:
-            name: immich-server
-            port:
-              number: 2283
-        path: /
-        pathType: Prefix
+    - host: immich.ak-online.be
+      http:
+        paths:
+          - backend:
+              service:
+                name: immich-server
+                port:
+                  number: 2283
+            path: /
+            pathType: Prefix
   tls:
-  - hosts:
-    - immich.ak-online.be
-    secretName: tls-immich
+    - hosts:
+        - immich.ak-online.be
+      secretName: tls-immich

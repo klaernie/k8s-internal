@@ -11,8 +11,8 @@ spec:
     # initdb:
     #   database: keycloak
     #   owner: keycloak
-   # recovery:
-   #   source: origin
+    # recovery:
+    #   source: origin
 
   plugins:
     - name: barman-cloud.cloudnative-pg.io

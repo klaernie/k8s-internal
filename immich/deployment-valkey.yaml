@@ -26,46 +26,46 @@ spec:
     spec:
       automountServiceAccountToken: true
       containers:
-      - image: docker.io/valkey/valkey:9.1.0-alpine
-        imagePullPolicy: IfNotPresent
-        livenessProbe:
-          exec:
-            command:
-            - sh
-            - -c
-            - valkey-cli ping | grep PONG
-          failureThreshold: 3
-          initialDelaySeconds: 30
-          periodSeconds: 10
-          timeoutSeconds: 5
-        name: main
-        ports:
-        - containerPort: 6379
-          name: redis
-          protocol: TCP
-        readinessProbe:
-          exec:
-            command:
-            - sh
-            - -c
-            - valkey-cli ping | grep PONG
-          failureThreshold: 3
-          initialDelaySeconds: 5
-          periodSeconds: 10
-          timeoutSeconds: 5
-        startupProbe:
-          exec:
-            command:
-            - sh
-            - -c
-            - valkey-cli ping | grep PONG
-          failureThreshold: 30
-          initialDelaySeconds: 0
-          periodSeconds: 10
-          timeoutSeconds: 5
-        volumeMounts:
-        - mountPath: /data
-          name: data
+        - image: docker.io/valkey/valkey:9.1.0-alpine
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - valkey-cli ping | grep PONG
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+          name: main
+          ports:
+            - containerPort: 6379
+              name: redis
+              protocol: TCP
+          readinessProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - valkey-cli ping | grep PONG
+            failureThreshold: 3
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 5
+          startupProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - valkey-cli ping | grep PONG
+            failureThreshold: 30
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 5
+          volumeMounts:
+            - mountPath: /data
+              name: data
       dnsPolicy: ClusterFirst
       enableServiceLinks: false
       hostIPC: false
@@ -73,6 +73,6 @@ spec:
       hostPID: false
       serviceAccountName: default
       volumes:
-      - name: data
-        persistentVolumeClaim:
-          claimName: valkey
+        - name: data
+          persistentVolumeClaim:
+            claimName: valkey

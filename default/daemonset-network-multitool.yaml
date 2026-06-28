@@ -17,9 +17,9 @@ spec:
       containers:
         - env:
             - name: HTTP_PORT
-              value: '1180'
+              value: "1180"
             - name: HTTPS_PORT
-              value: '11443'
+              value: "11443"
           image: docker.io/wbitt/network-multitool
           imagePullPolicy: Always
           name: multitool

@@ -4,7 +4,7 @@ metadata:
   name: immich-pv
 spec:
   accessModes:
-  - ReadWriteMany
+    - ReadWriteMany
   capacity:
     storage: 100Gi
   claimRef:

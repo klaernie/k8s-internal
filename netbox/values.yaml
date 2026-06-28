@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-#  repository: ghcr.io/klaernie/netbox
+  #  repository: ghcr.io/klaernie/netbox
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v3.7.8"
@@ -160,8 +160,7 @@ service:
 ingress:
   enabled: false
   className: ""
-  annotations:
-    {}
+  annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:

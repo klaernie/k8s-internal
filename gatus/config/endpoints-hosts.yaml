@@ -3,7 +3,7 @@ endpoints:
     url: icmp://hive.ak-online.be
     group: hosts
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -12,7 +12,7 @@ endpoints:
     url: icmp://mainframe.ak-online.be
     group: hosts
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -21,7 +21,7 @@ endpoints:
     url: icmp://macy.ak-online.be
     group: hosts
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -30,7 +30,7 @@ endpoints:
     url: icmp://nmia.ak-online.be
     group: hosts
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord

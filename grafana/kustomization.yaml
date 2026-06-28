@@ -7,8 +7,8 @@ resources:
   - 05_ingress.yaml
 
 configMapGenerator:
-    - name: grafana-config
-      files:
-        - config/grafana.ini
-      options:
-        disableNameSuffixHash: true
+  - name: grafana-config
+    files:
+      - config/grafana.ini
+    options:
+      disableNameSuffixHash: true

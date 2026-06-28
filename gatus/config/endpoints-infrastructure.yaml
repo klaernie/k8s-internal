@@ -3,7 +3,7 @@ endpoints:
     url: icmp://fw1.ak-online.be
     group: infrastructure
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -12,7 +12,7 @@ endpoints:
     url: icmp://fw2.ak-online.be
     group: infrastructure
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -21,7 +21,7 @@ endpoints:
     url: icmp://24.134.172.58
     group: infrastructure
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -30,7 +30,7 @@ endpoints:
     url: icmp://cable.ak-online.be
     group: infrastructure
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -39,7 +39,7 @@ endpoints:
     url: icmp://8.8.8.8
     group: infrastructure
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -48,8 +48,8 @@ endpoints:
     url: http://db.influx.k8s.ak-online.be/ping
     group: infrastructure
     conditions:
-      - '[STATUS] == 204'
-      - '[CONNECTED] == true'
+      - "[STATUS] == 204"
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -61,8 +61,8 @@ endpoints:
       query-type: A
     group: infrastructure
     conditions:
-      - '[CONNECTED] == true'
-      - '[BODY] == 92.51.149.177'
+      - "[CONNECTED] == true"
+      - "[BODY] == 92.51.149.177"
       - "[DNS_RCODE] == NOERROR"
     alerts:
       - type: email
@@ -75,8 +75,8 @@ endpoints:
       query-type: A
     group: infrastructure
     conditions:
-      - '[CONNECTED] == true'
-      - '[BODY] == 92.51.149.177'
+      - "[CONNECTED] == true"
+      - "[BODY] == 92.51.149.177"
       - "[DNS_RCODE] == NOERROR"
     alerts:
       - type: email
@@ -86,7 +86,7 @@ endpoints:
     url: icmp://zfs-nfs-quick.ak-online.be
     group: infrastructure
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -95,7 +95,7 @@ endpoints:
     url: icmp://zfs-nfs-bulk.ak-online.be
     group: infrastructure
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord

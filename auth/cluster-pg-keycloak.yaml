@@ -25,7 +25,6 @@ spec:
       parameters:
         barmanObjectName: rustfs
 
-
   storage:
     storageClass: zfs-quick
     size: 2Gi

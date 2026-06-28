@@ -3,7 +3,7 @@ endpoints:
     url: http://zigbee2mqtt.zigbee2mqtt.k8s.ak-online.be
     group: homeautomation
     conditions:
-      - '[STATUS] == 200'
+      - "[STATUS] == 200"
     alerts:
       - type: email
       - type: discord
@@ -12,8 +12,8 @@ endpoints:
     url: https://homeassistant.ak-online.be
     group: homeautomation
     conditions:
-      - '[STATUS] == 200'
-      - '[CERTIFICATE_EXPIRATION] > 48h'
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
     alerts:
       - type: email
       - type: discord
@@ -22,7 +22,7 @@ endpoints:
     url: icmp://esp-balcony.ak-online.be
     group: homeautomation
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -31,7 +31,7 @@ endpoints:
     url: icmp://esp-basement.ak-online.be
     group: homeautomation
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -40,7 +40,7 @@ endpoints:
     url: icmp://esp-kitchen.ak-online.be
     group: homeautomation
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -49,7 +49,7 @@ endpoints:
     url: icmp://h801-alpha.ak-online.be
     group: homeautomation
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -58,7 +58,7 @@ endpoints:
     url: icmp://h801-beta.ak-online.be
     group: homeautomation
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -67,7 +67,7 @@ endpoints:
     url: icmp://h801-gamma.ak-online.be
     group: homeautomation
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -76,7 +76,7 @@ endpoints:
     url: icmp://h801-hallway.ak-online.be
     group: homeautomation
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -85,7 +85,7 @@ endpoints:
     url: icmp://h801-tobi.ak-online.be
     group: homeautomation
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -94,7 +94,7 @@ endpoints:
     url: icmp://nsp-kitchen.ak-online.be
     group: homeautomation
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -103,7 +103,7 @@ endpoints:
     url: icmp://tobi-stripcontroller.ak-online.be
     group: homeautomation
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -112,7 +112,7 @@ endpoints:
     url: icmp://tuya3.ak-online.be
     group: homeautomation
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
@@ -121,8 +121,7 @@ endpoints:
     url: icmp://videoled.ak-online.be
     group: homeautomation
     conditions:
-      - '[CONNECTED] == true'
+      - "[CONNECTED] == true"
     alerts:
       - type: email
       - type: discord
-

@@ -13,16 +13,16 @@ spec:
         name: http
   ingressClassName: external
   rules:
-  - host: &host audiobookshelf.ak-online.be
-    http:
-      paths:
-      - backend:
-          service:
-            name: abs
-            port:
-              name: http
-        pathType: ImplementationSpecific
+    - host: &host audiobookshelf.ak-online.be
+      http:
+        paths:
+          - backend:
+              service:
+                name: abs
+                port:
+                  name: http
+            pathType: ImplementationSpecific
   tls:
-  - hosts:
-    - *host
-    secretName: abs-tls
+    - hosts:
+        - *host
+      secretName: abs-tls

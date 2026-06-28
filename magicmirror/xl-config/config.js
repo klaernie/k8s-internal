@@ -22,21 +22,21 @@ var config = {
 		{
 			module: "clock",
 			position: "top_left",
-			config:{
+			config: {
 				showWeek: true,
 				clockBold: true,
-			}
+			},
 		},
 		{
-			module: 'MMM-MotionEye',
-			position: 'top_left',
+			module: "MMM-MotionEye",
+			position: "top_left",
 			config: {
 				url: "http://hive.ak-online.be:8081/0/stream",
 				width: "700px",
 				autoHide: true,
 				id: 1,
-				debug: true
-			}
+				debug: true,
+			},
 		},
 		{
 			module: "weather",
@@ -48,11 +48,11 @@ var config = {
 				lat: 51.047719400780146,
 				lon: 13.734994989024981,
 				updateInterval: 30 * 60 * 1000,
-			}
+			},
 		},
 		{
-			module: 'MMM-GrafanaChart',
-			position: 'top_right',
+			module: "MMM-GrafanaChart",
+			position: "top_right",
 			config: {
 				url: "http://grafana.grafana.k8s.ak-online.be/d-solo/LunydlBWz/magic-mirror-graphs?orgId=1&refresh=5s&panelId=2&hideLogo=true",
 				protocol: "http",
@@ -64,11 +64,11 @@ var config = {
 				width: "100%",
 				height: "250px",
 				refreshInterval: 900,
-			}
+			},
 		},
 		{
-			module: 'MMM-GrafanaChart',
-			position: 'top_right',
+			module: "MMM-GrafanaChart",
+			position: "top_right",
 			config: {
 				url: "http://grafana.grafana.k8s.ak-online.be/d-solo/LunydlBWz/magic-mirror-graphs?orgId=1&refresh=5s&panelId=4&hideLogo=true",
 				protocol: "http",
@@ -80,11 +80,11 @@ var config = {
 				width: "100%",
 				height: "250px",
 				refreshInterval: 900,
-			}
+			},
 		},
 		{
-			module: 'MMM-GrafanaChart',
-			position: 'top_right',
+			module: "MMM-GrafanaChart",
+			position: "top_right",
 			config: {
 				url: "http://grafana.grafana.k8s.ak-online.be/d-solo/LunydlBWz/magic-mirror-graphs?orgId=1&refresh=5s&panelId=5&hideLogo=true",
 				protocol: "http",
@@ -96,22 +96,28 @@ var config = {
 				width: "100%",
 				height: "250px",
 				refreshInterval: 900,
-			}
+			},
 		},
 		{
-			module: 'MMM-CalendarExt2',
+			module: "MMM-CalendarExt2",
 			config: {
-				rotateInterval: 60*1000,
+				rotateInterval: 60 * 1000,
 				deduplicateEventsOn: [
-					"startDate", "endDate", "title",
+					"startDate",
+					"endDate",
+					"title",
 				],
-				scenes:[
+				scenes: [
 					{
 						name: "DEFAULT",
-						views: ["current","upcoming","Overview Private"],
+						views: [
+							"current",
+							"upcoming",
+							"Overview Private",
+						],
 					},
 				],
-				views:[
+				views: [
 					{
 						name: "current",
 						mode: "current",
@@ -181,10 +187,13 @@ var config = {
 						name: "Tobi",
 						url: "http://calserv/TobiPrivate.ics",
 						filter: (event) => {
-							if (event.title == "Schule") {
-								return false
+							if (
+								event.title ==
+								"Schule"
+							) {
+								return false;
 							}
-							return true
+							return true;
 						},
 					},
 					{
@@ -199,18 +208,18 @@ var config = {
 			},
 		},
 		{
-			module: 'MMM-ImmichSlideShow',
-			position: 'top_center',
+			module: "MMM-ImmichSlideShow",
+			position: "top_center",
 			config: {
 				immichConfigs: [
 					{
-						apiKey: '${IMMICH_APIKEY}',
-						url: 'https://immich.ak-online.be',
-						timeout: 1000*10,
-						mode: 'album',
-						albumId: '75aa9e30-54dc-474c-88d6-71d338681ca3',
-						slideshowSpeed: 1000*30,
-					}
+						apiKey: "${IMMICH_APIKEY}",
+						url: "https://immich.ak-online.be",
+						timeout: 1000 * 10,
+						mode: "album",
+						albumId: "75aa9e30-54dc-474c-88d6-71d338681ca3",
+						slideshowSpeed: 1000 * 30,
+					},
 				],
 				cyclicConfigs: true,
 				transitionImages: true,
@@ -219,17 +228,18 @@ var config = {
 				height: "1000px",
 				backgroundSize: "contain",
 				backgroundColor: "none",
-			}
+			},
 		},
 		{
-			module: 'MMM-Cursor',
+			module: "MMM-Cursor",
 			config: {
-				timeout: 2500
-			}
-		}
-	]
-
+				timeout: 2500,
+			},
+		},
+	],
 };
 
 /*************** DO NOT EDIT THE LINE BELOW ***************/
-if (typeof module !== "undefined") {module.exports = config;}
+if (typeof module !== "undefined") {
+	module.exports = config;
+}
