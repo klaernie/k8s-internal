@@ -19,7 +19,10 @@ spec:
           imagePullPolicy: Always
           image: ghcr.io/linuxserver/grocy:v4.2.0-ls250
           ports:
-            - containerPort: 9283
+            - name: http
+              containerPort: 80
+            - name: https
+              containerPort: 443
           volumeMounts:
             - name: db
               mountPath: /var/www/data
