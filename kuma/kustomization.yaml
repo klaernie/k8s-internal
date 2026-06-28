@@ -1,5 +1,4 @@
 resources:
   - ns.yaml
   - svc.yaml
-  - ca-bundle-cm.yaml
   - sts.yaml

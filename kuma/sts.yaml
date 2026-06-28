@@ -26,8 +26,6 @@ spec:
               value: "3001"
             - name: PORT
               value: "3001"
-            - name: NODE_EXTRA_CA_CERTS
-              value: /certs/ca-certificates.crt
           ports:
             - name: uptime-kuma
               containerPort: 3001
@@ -43,10 +41,6 @@ spec:
           #    drop: ["ALL"]
           #  seccompProfile:
           #    type: RuntimeDefault
-      volumes:
-        - name: ca-bundle-cm
-          configMap:
-            name: ca-bundle
 
   volumeClaimTemplates:
     - metadata:
