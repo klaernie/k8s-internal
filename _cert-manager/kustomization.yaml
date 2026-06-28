@@ -14,7 +14,7 @@ helmCharts:
       crds:
         enabled: true
       # make sure leader-election happens in cert-manager namespace, not kube-system
-      # the latter get's fouled by the kustomize namespace setting, see https://github.com/cert-manager/cert-manager/issues/6716
+      # the latter gets fouled by the kustomize namespace setting, see https://github.com/cert-manager/cert-manager/issues/6716
       global:
         leaderElection:
           namespace: cert-manager

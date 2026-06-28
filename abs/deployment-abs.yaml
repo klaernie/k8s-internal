@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       name: abs
-  # recreate instead of rolling updates, since running multiples of the pod may result in parallism trashing the sqlite DB
+  # recreate instead of rolling updates, since running multiples of the pod may result in parallelism trashing the sqlite DB
   strategy:
     type: Recreate
   template:
