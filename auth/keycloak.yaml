@@ -6,7 +6,7 @@ metadata:
 spec:
   db:
     vendor: postgres
-    url: jdbc:postgresql://pg-keycloak-rw.auth:5432/keycloak
+    url: jdbc:postgresql://pg-keycloak-rw.auth:5432/keycloak #gitleaks:allow
     usernameSecret:
       name: pg-keycloak-app
       key: username
