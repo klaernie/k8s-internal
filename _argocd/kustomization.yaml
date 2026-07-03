@@ -1,0 +1,45 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace-argocd.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+  - secrets.enc.yaml
+  - ingress-argocd.yaml
+
+namespace: argocd
+
+patches:
+  - patch: |
+      - op: add
+        path: /metadata/annotations
+        value:
+          # this annotation prevents the resource from being sent to the API server (essentially leaving it out)
+          config.kubernetes.io/local-config: "true"
+    target:
+      kind: Secret
+      name: argocd-secret
+  - path: configmap-argocd.yaml
+  - path: configmap-argocd-rbac-cm.yaml
+  - path: configmap-argocd-cmd-params-cm.yaml
+  - target:
+      kind: Deployment
+    patch: |
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: this-is-ignored
+      spec:
+        template:
+          metadata:
+            annotations:
+              reloader.stakater.com/auto: "true"
+
+  - target:
+      labelSelector: app.kubernetes.io/component=dex-server
+    patch: |
+      - op: add
+        path: /metadata/annotations
+        value:
+          # this annotation prevents the resource from being sent to the API server (essentially leaving it out)
+          config.kubernetes.io/local-config: "true"

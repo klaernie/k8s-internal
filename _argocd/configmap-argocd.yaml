@@ -1,0 +1,17 @@
+# this config is merged into the one provided by argocd's install.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  url: https://argocd.ak-online.be
+  admin.enabled: "false"
+  oidc.config: |
+    name: Keycloak
+    issuer: https://keycloak.ak-online.be/realms/master
+    clientID: argocd-home
+    clientSecret: $oidc.keycloak.clientSecret
+    refreshTokenThreshold: 2m
+    requestedScopes: ["openid", "profile", "email"]
+    enablePKCEAuthentication: true
+
