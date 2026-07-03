@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: zfs-provisioner
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/klaernie/k8s-internal.git
+    path: _zfs-provisioner
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: zfs-provisioner
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+      enabled: true
+    syncOptions:
+      - ServerSideApply=true

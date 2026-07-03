@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: elk
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/klaernie/k8s-internal.git
+    path: elk
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: elk
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+      enabled: true
+    syncOptions:
+      - ServerSideApply=true
