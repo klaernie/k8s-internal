@@ -20,7 +20,8 @@ spec:
       source: origin
 
   plugins:
-    - name: barman-cloud.cloudnative-pg.io
+    - enabled: true
+      name: barman-cloud.cloudnative-pg.io
       isWALArchiver: true
       parameters:
         barmanObjectName: rustfs
@@ -36,6 +37,8 @@ spec:
   externalClusters:
     - name: origin
       plugin:
+        enabled: true
+        isWALArchiver: true
         name: barman-cloud.cloudnative-pg.io
         parameters:
           barmanObjectName: rustfs
