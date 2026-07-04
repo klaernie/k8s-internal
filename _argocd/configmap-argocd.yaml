@@ -14,4 +14,4 @@ data:
     refreshTokenThreshold: 2m
     requestedScopes: ["openid", "profile", "email"]
     enablePKCEAuthentication: true
-
+  kustomize.buildOptions: --enable-helm
