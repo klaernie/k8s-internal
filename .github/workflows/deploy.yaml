@@ -34,10 +34,10 @@ jobs:
           kubectl-version: "latest"
           helm-version: v3.17.3
 
-      - name: deploy
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-        run: |
-          kubectl apply --server-side --force-conflicts -f '${{ steps.bake.outputs.manifestsBundle }}'
+      #- name: deploy
+      #  if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      #  run: |
+      #    kubectl apply --server-side --force-conflicts -f '${{ steps.bake.outputs.manifestsBundle }}'
 
       #- uses: Azure/k8s-deploy@v4
       #  with:
