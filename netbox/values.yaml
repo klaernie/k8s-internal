@@ -117,6 +117,10 @@ redis:
   replica:
     count: 0
 
+valkey:
+  # no need to run bundled valkey
+  enabled: false
+
 tasksRedis:
   database: 0
   ssl: false
