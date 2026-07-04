@@ -24,7 +24,7 @@ banner:
 
 # Display full traceback of errors that occur when applying database
 # migrations.
-dbWaitDebug: false
+dbWaitDebug: true
 
 # Email settings
 email:
