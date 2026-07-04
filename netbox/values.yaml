@@ -119,7 +119,7 @@ valkey:
   # no need to run bundled valkey
   enabled: false
 
-tasksRedis:
+tasksDatabase:
   database: 0
   ssl: false
   insecureSkipTlsVerify: false
@@ -129,7 +129,7 @@ tasksRedis:
   existingSecretName: netbox-redis
   existingSecretKey: redis-password
 
-cachingRedis:
+cachingDatabase:
   database: 1
   ssl: false
   insecureSkipTlsVerify: false
