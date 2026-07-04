@@ -82,6 +82,17 @@ endpoints:
       - type: email
       - type: discord
 
+  - name: RustFS mainframe
+    url: https://mainframe.ak-online.be:9000/
+    group: infrastructure
+    conditions:
+      - "[STATUS] == 200"
+      - "[CONNECTED] == true"
+      - "[CERTIFICATE_EXPIRATION] > 72h"
+    alerts:
+      - type: email
+      - type: discord
+
   - name: zfs-nfs-quick
     url: icmp://zfs-nfs-quick.ak-online.be
     group: infrastructure
