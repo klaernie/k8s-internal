@@ -13,4 +13,4 @@ resources:
   - matrix.yaml
   - trilium.yaml
 
-namesuffix: macy
+namesuffix: -macy
