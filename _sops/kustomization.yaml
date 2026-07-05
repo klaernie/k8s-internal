@@ -1,10 +1,8 @@
 resources:
   - 00_ns.yaml
-
-secretGenerator:
-  - name: age-key
-    files:
-      - key.txt
+  # why store the age-key inside a SopsSecret, that cannot be decrypted without the key?
+  # Because I can manually decrypt it and apply it, bootstrapping the system
+  - secrets.enc.yaml
 
 helmCharts:
   - name: sops-secrets-operator
