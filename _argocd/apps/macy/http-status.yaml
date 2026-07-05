@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: http-status
+spec:
+  project: macy
+  source:
+    repoURL: https://github.com/klaernie/k8s-macy.git
+    path: http-status
+    targetRevision: main
+  destination:
+    server: https://macy.ak-online.be:6443
+    namespace: http-status
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+      enabled: true
+    syncOptions:
+      - ServerSideApply=true

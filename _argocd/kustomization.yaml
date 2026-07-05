@@ -6,9 +6,10 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   - secrets.enc.yaml
   - ingress-argocd.yaml
-  - apps/internal
   - projects/internal.yaml
+  - apps/internal
   - projects/macy.yaml
+  - apps/macy
 
 namespace: argocd
 

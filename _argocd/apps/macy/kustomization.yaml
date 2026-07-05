@@ -1,0 +1,14 @@
+resources:
+  - _cert-manager.yaml
+  - _cnpg.yaml
+  - _external-dns.yaml
+  - _ingress-nginx.yaml
+  - _kilo.yaml
+  - _reloader.yaml
+  - _sops.yaml
+  - _velero.yaml
+  - bolcz.yaml
+  - hosted.yaml
+  - http-status.yaml
+  - matrix.yaml
+  - trilium.yaml
