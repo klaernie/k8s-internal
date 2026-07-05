@@ -7,6 +7,8 @@ resources:
   - secrets.enc.yaml
   - ingress-argocd.yaml
   - apps
+  - projects/internal.yaml
+  - projects/macy.yaml
 
 namespace: argocd
 

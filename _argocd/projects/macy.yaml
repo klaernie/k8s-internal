@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: macy
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: External Deployment to Macy
+  sourceRepos:
+    - '*'
+  destinations:
+    - server: https://macy.ak-online.be:6443
