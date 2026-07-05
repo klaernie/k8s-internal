@@ -11,3 +11,4 @@ spec:
     - '*'
   destinations:
     - server: https://macy.ak-online.be:6443
+      namespace: '*'
