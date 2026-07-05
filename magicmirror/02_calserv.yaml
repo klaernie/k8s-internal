@@ -4,6 +4,7 @@ metadata:
   name: calserv
   namespace: magicmirror
 spec:
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: calserv
