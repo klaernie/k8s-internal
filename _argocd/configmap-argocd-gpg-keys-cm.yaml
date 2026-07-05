@@ -5,7 +5,6 @@ metadata:
     app.kubernetes.io/name: argocd-gpg-keys-cm
     app.kubernetes.io/part-of: argocd
   name: argocd-gpg-keys-cm
-  namespace: argocd
 data:
   6528912C6687A3E2: |
     -----BEGIN PGP PUBLIC KEY BLOCK-----
