@@ -12,3 +12,5 @@ resources:
   - http-status.yaml
   - matrix.yaml
   - trilium.yaml
+
+namesuffix: macy
