@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gatus
+  name: cert-manager
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: gatus
+    path: _cert-manager
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: gatus
+    namespace: cert-manager
   syncPolicy:
     automated:
       prune: false

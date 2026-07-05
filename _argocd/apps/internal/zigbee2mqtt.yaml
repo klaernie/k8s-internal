@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ldap
+  name: zigbee2mqtt
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: ldap
+    path: zigbee2mqtt
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: ldap
+    namespace: zigbee2mqtt
   syncPolicy:
     automated:
       prune: false

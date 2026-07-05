@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-system
+  name: ingress-nginx
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: kube-system
+    path: ingress-nginx
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: ingress-nginx
   syncPolicy:
     automated:
       prune: false

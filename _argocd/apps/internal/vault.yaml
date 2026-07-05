@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: netbox
+  name: vault
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: netbox
+    path: vault
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: netbox
+    namespace: vault
   syncPolicy:
     automated:
       prune: false

@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: auth
+  name: immich
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: auth
+    path: immich
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: auth
+    namespace: immich
   syncPolicy:
     automated:
       prune: false

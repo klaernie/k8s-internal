@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: metallb-system
+  name: x11
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: _metallb-system
+    path: x11
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: metallb-system
+    namespace: x11
   syncPolicy:
     automated:
       prune: false

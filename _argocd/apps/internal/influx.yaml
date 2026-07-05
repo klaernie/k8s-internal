@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: zfs-provisioner
+  name: influx
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: _zfs-provisioner
+    path: influx
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: zfs-provisioner
+    namespace: influx
   syncPolicy:
     automated:
       prune: false

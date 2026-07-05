@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vault
+  name: patchman
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: vault
+    path: patchman
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: vault
+    namespace: patchman
   syncPolicy:
     automated:
       prune: false

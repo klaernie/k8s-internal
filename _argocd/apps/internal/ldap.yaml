@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: x11
+  name: ldap
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: x11
+    path: ldap
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: x11
+    namespace: ldap
   syncPolicy:
     automated:
       prune: false

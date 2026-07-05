@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rustdesk
+  name: magicmirror
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: rustdesk
+    path: magicmirror
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: rustdesk
+    namespace: magicmirror
   syncPolicy:
     automated:
       prune: false

@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: external-dns
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
     path: _external-dns

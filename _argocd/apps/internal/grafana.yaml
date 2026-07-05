@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sops
+  name: grafana
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: _sops
+    path: grafana
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: sops
+    namespace: grafana
   syncPolicy:
     automated:
       prune: false

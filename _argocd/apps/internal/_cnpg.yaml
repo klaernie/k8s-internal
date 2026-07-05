@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: cnpg
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
     path: _cnpg

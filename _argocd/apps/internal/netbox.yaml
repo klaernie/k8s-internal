@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kuma
+  name: netbox
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: kuma
+    path: netbox
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: kuma
+    namespace: netbox
   syncPolicy:
     automated:
       prune: false

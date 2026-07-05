@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: patchman
+  name: reloader
 spec:
-  project: default
+  project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: patchman
+    path: _reloader
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: patchman
+    namespace: reloader
   syncPolicy:
     automated:
       prune: false
