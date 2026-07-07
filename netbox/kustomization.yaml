@@ -47,6 +47,9 @@ patches:
         path: "/metadata/labels"
         value:
           reloader.stakater.com/auto: "true"
+      - op: replace
+        path: "/spec/revisionHistoryLimit"
+        value: 2
     target:
       group: apps
       version: v1
