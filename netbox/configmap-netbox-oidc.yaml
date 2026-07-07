@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: netbox
+  name: netbox-oidc
   namespace: netbox
 data:
   netbox-oidc.yaml: |
