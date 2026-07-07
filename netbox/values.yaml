@@ -103,6 +103,16 @@ extraConfig:
           path: netbox-oidc.yaml
       optional: false
 
+extraVolumes:
+  - name: sso-pipeline-roles
+    configMap:
+      name: sso-pipeline-roles
+extraVolumeMounts:
+  - name: sso-pipeline-roles
+    mountPath: /opt/netbox/netbox/netbox/sso_pipeline_roles.py
+    subPath: sso_pipeline_roles.py
+    readOnly: true
+
 existingSecret: netbox-app
 
 postgresql:
