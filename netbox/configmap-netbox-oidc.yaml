@@ -18,4 +18,4 @@ data:
       - admin
     REMOTE_AUTH_SUPERUSERS:
       - kandre
-
+    LOGLEVEL: DEBUG
