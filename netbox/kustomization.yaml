@@ -33,10 +33,10 @@ patches:
   - patch: |-
       - op: replace
         path: "/spec/template/spec/containers/0/startupProbe/periodSeconds"
-        value: 30
+        value: 10
       - op: replace
         path: "/spec/template/spec/containers/0/startupProbe/failureThreshold"
-        value: 30
+        value: 90
     target:
       group: apps
       version: v1
