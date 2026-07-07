@@ -7,6 +7,8 @@ image:
 superuser:
   existingSecret: netbox-admin
 
+changelogRetention: 0
+
 # Skip the netbox-docker startup scripts which can pre-populate objects into a
 # fresh NetBox installation. By default these do nothing, but they take a while
 # to run, so we skip them. See:
