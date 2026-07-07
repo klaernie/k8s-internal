@@ -42,3 +42,12 @@ patches:
       version: v1
       kind: Deployment
       name: netbox
+  - patch: |-
+      - op: add
+        path: "/metadata/labels"
+        value:
+          reloader.stakater.com/auto: "true"
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
