@@ -88,6 +88,12 @@ extraConfig:
         - key: proxbox.yaml
           path: proxbox.yaml
       optional: false
+  - configMap:
+      name: netbox-oidc
+      items:
+        - key: netbox-oidc.yaml
+          path: netbox-oidc.yaml
+      optional: false
   - secret:
       secretName: netbox-oidc
       items:

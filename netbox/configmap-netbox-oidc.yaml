@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: netbox
+  namespace: netbox
+data:
+  netbox-oidc.yaml: |
+    LOGIN_FORM_HIDDEN: 'true'
+    REMOTE_AUTH_BACKEND: social_core.backends.open_id_connect.OpenIdConnectAuth
+    SOCIAL_AUTH_BACKEND_ATTRS:
+      oidc:
+        - Keycloak
+        - login
+    SOCIAL_AUTH_OIDC_OIDC_ENDPOINT: 'https://keycloak.ak-online.be/realms/master'
+    SOCIAL_AUTH_OIDC_KEY: netbox
+    REMOTE_AUTH_GROUP_SYNC_ENABLED: true
+    REMOTE_AUTH_SUPERUSER_GROUPS: admin
+    DEBUG: true
+
