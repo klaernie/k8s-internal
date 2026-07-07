@@ -14,7 +14,8 @@ data:
     SOCIAL_AUTH_OIDC_OIDC_ENDPOINT: 'https://keycloak.ak-online.be/realms/master'
     SOCIAL_AUTH_OIDC_KEY: netbox
     REMOTE_AUTH_GROUP_SYNC_ENABLED: true
-    REMOTE_AUTH_SUPERUSER_GROUPS: admin
+    REMOTE_AUTH_SUPERUSER_GROUPS:
+      - admin
     REMOTE_AUTH_SUPERUSERS:
       - kandre
 
