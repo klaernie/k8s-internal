@@ -17,5 +17,4 @@ data:
     REMOTE_AUTH_SUPERUSER_GROUPS: admin
     REMOTE_AUTH_SUPERUSERS:
       - kandre
-    DEBUG: true
 
