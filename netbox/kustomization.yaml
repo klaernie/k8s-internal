@@ -45,7 +45,7 @@ patches:
       name: netbox
   - patch: |-
       - op: add
-        path: "/metadata/labels"
+        path: "/metadata/annotations"
         value:
           reloader.stakater.com/auto: "true"
       - op: replace
