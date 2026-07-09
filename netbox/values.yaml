@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/klaernie/netbox
+  repository: klaernie/netbox
   pullPolicy: Always
 
 superuser:
