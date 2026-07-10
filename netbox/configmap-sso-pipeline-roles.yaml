@@ -16,7 +16,7 @@ data:
       roles = []
       try:
         roles = response['resource_access'][client_id]['roles']
-        print "found oidc role "+role for role in roles
+        print "found oidc role "+role) for role in roles
       except KeyError:
         pass
       user.is_staff = (staff_role in roles)
