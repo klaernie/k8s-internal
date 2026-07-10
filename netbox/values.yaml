@@ -104,11 +104,11 @@ extraConfig:
       optional: false
 
 extraVolumes:
-  - name: sso-pipeline-roles
+  - name: netbox-oidc
     configMap:
-      name: sso-pipeline-roles
+      name: netbox-oidc
 extraVolumeMounts:
-  - name: sso-pipeline-roles
+  - name: netbox-oidc
     mountPath: /opt/netbox/netbox/netbox/sso_pipeline_roles.py
     subPath: sso_pipeline_roles.py
     readOnly: true

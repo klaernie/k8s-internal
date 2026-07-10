@@ -2,7 +2,6 @@ resources:
   - netbox-namespace.yaml
   - secrets.enc.yaml
   - configmap-netbox-oidc.yaml
-  - configmap-sso-pipeline-roles.yaml
 
 helmCharts:
   - name: redis
