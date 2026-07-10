@@ -17,6 +17,7 @@ data:
       roles = []
       try:
         roles = response['resource_access'][client_id]['roles']
+        print("response: ", response)
         for role in roles:
           print("found oidc role "+role)
       except KeyError:
