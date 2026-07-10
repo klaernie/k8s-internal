@@ -14,10 +14,11 @@ data:
       superuser_role = getattr(settings, 'SOCIAL_AUTH_SUPERUSER_ROLE', 'superuser')
       print("looking for superuser role: "+superuser_role)
 
+      print("oidc response: ", response)
+
       roles = []
       try:
         roles = response['resource_access'][client_id]['roles']
-        print("response: ", response)
         for role in roles:
           print("found oidc role "+role)
       except KeyError:
