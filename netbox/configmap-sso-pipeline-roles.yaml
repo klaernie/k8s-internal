@@ -12,11 +12,13 @@ data:
       client_id = getattr(settings, 'SOCIAL_AUTH_OIDC_KEY', None)
       staff_role = getattr(settings, 'SOCIAL_AUTH_STAFF_ROLE', 'staff')
       superuser_role = getattr(settings, 'SOCIAL_AUTH_SUPERUSER_ROLE', 'superuser')
+      print("looking for superuser role: "+superuser_role)
 
       roles = []
       try:
         roles = response['resource_access'][client_id]['roles']
-        print("found oidc role "+role) for role in roles
+        for role in roles:
+          print("found oidc role "+role)
       except KeyError:
         pass
       user.is_staff = (staff_role in roles)
