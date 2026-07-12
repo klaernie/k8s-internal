@@ -37,12 +37,17 @@ spec:
           volumeMounts:
             - name: proxbox-api
               mountPath: /data
+            - name: slash-dotlocal
+              mountPath: /.local
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       securityContext:
         runAsUser: 1000
         runAsNonRoot: true
       schedulerName: default-scheduler
+    volumes:
+      - name: slash-dotlocal
+        emptyDir: {}
   volumeClaimTemplates:
     - apiVersion: v1
       kind: PersistentVolumeClaim
