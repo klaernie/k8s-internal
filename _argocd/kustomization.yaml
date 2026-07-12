@@ -23,7 +23,7 @@ patches:
     target:
       kind: Secret
       name: argocd-secret
-  - path: configmap-argocd.yaml
+  - path: configmap-argocd-cm.yaml
   - path: configmap-argocd-rbac-cm.yaml
   - path: configmap-argocd-cmd-params-cm.yaml
   - path: configmap-argocd-gpg-keys-cm.yaml
