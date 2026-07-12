@@ -8,8 +8,7 @@ metadata:
 spec:
   revisionHistoryLimit: 2
   replicas: 1
-  updateStrategy:
-    type: RollingUpdate
+  updateStrategy: RollingUpdate
   selector:
     matchLabels:
       app: proxbox-api
@@ -35,7 +34,7 @@ spec:
             seccompProfile:
               type: RuntimeDefault
           volumeMounts:
-            - name: data
+            - name: proxbox-api
               mountPath: /data
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
