@@ -43,7 +43,9 @@ spec:
           #    type: RuntimeDefault
 
   volumeClaimTemplates:
-    - metadata:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
         name: kuma-data
       spec:
         accessModes: ["ReadWriteMany"]
