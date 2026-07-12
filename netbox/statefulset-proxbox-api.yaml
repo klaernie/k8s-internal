@@ -9,7 +9,7 @@ spec:
   revisionHistoryLimit: 2
   replicas: 1
   updateStrategy:
-    type: Recreate
+    type: RollingUpdate
   selector:
     matchLabels:
       app: proxbox-api
