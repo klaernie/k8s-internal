@@ -22,6 +22,9 @@ spec:
         - name: proxbox-api
           image: docker.io/emersonfelipesp/proxbox-api:latest
           imagePullPolicy: Always
+          env:
+            - name: PROXBOX_ALLOW_PLAINTEXT_CREDENTIALS
+              value: 1
           ports:
             - name: http
               containerPort: 8000
