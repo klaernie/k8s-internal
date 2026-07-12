@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: PROXBOX_ALLOW_PLAINTEXT_CREDENTIALS
-              value: 1
+              value: "1"
           ports:
             - name: http
               containerPort: 8000
