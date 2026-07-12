@@ -2,7 +2,7 @@ resources:
   - netbox-namespace.yaml
   - secrets.enc.yaml
   - configmap-netbox-oidc.yaml
-  - deployment-proxbox-api.yaml
+  - statefulset-proxbox-api.yaml
   - service-proxbox-api.yaml
 
 helmCharts:

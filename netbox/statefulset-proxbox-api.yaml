@@ -1,12 +1,14 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: proxbox-api
   namespace: netbox
   labels:
     app: proxbox-api
 spec:
+  revisionHistoryLimit: 2
   replicas: 1
+  updateStrategy: Recreate
   selector:
     matchLabels:
       app: proxbox-api
@@ -31,10 +33,24 @@ spec:
             allowPrivilegeEscalation: false
             seccompProfile:
               type: RuntimeDefault
+          volumeMounts:
+            - name: data
+              mountPath: /data
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       securityContext:
         runAsUser: 1000
         runAsNonRoot: true
       schedulerName: default-scheduler
-  revisionHistoryLimit: 2
+  volumeClaimTemplates:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: proxbox-api
+      spec:
+        accessModes: ["ReadWriteMany"]
+        volumeMode: Filesystem
+        resources:
+          requests:
+            storage: 1Gi
+        storageClassName: zfs-quick
