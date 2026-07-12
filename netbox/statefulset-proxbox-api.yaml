@@ -8,7 +8,8 @@ metadata:
 spec:
   revisionHistoryLimit: 2
   replicas: 1
-  updateStrategy: RollingUpdate
+  updateStrategy:
+    type: RollingUpdate
   selector:
     matchLabels:
       app: proxbox-api
