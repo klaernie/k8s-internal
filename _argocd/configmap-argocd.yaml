@@ -16,3 +16,6 @@ data:
     enablePKCEAuthentication: true
   kustomize.buildOptions: --enable-helm
   exec.enabled: "true"
+  resource.customizations.ignoreDifferences.postgresql.cnpg.io_Cluster: |
+    jsonPointers:
+      - /spec/bootstrap
