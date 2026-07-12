@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proxbox-api
+  namespace: netbox
+  labels:
+    app: proxbox-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proxbox-api
+  template:
+    metadata:
+      labels:
+        app: proxbox-api
+    spec:
+      containers:
+        - name: proxbox-api
+          image: docker.io/emersonfelipesp/proxbox-api:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          resources: {}
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      securityContext:
+        runAsUser: 1000
+        runAsNonRoot: true
+      schedulerName: default-scheduler
+  revisionHistoryLimit: 2
