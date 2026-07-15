@@ -26,7 +26,7 @@ helmCharts:
     repo: oci://ghcr.io/netbox-community/netbox-chart
     releaseName: netbox
     namespace: netbox
-    version: 8.3.34
+    version: 8.3.36
     valuesFile: values.yaml
     skipTests: true
 
