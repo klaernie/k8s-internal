@@ -225,7 +225,7 @@ ingress:
 
 # Configuration of Cron settings
 housekeeping:
-  enabled: true
+  enabled: false
 
 # Worker for Netbox
 # Only required for Netbox Jobs, e.g. Webhooks
