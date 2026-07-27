@@ -23,7 +23,8 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod
 
 image:
-  tag: v5.35.0
+  repository: klaernie/gatus
+  tag: experimental
 
 externalConfigMap: gatus
 secrets: true
