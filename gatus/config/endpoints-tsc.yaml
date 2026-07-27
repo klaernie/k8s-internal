@@ -1,0 +1,36 @@
+endpoints:
+  - name: videoplayer.ak-online.be
+    url: http://videoplayer.ak-online.be:8080
+    group: tsc
+    conditions:
+      - "[STATUS] == 200"
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: ap03-tbs-ls
+    url: icmp://ap03-tbs-ls.ak-online.be
+    group: tsc
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: ap04-ps
+    url: icmp://ap04-ps.ak-online.be
+    group: tsc
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: ap05-breakroom
+    url: icmp://ap05-breakroom.ak-online.be
+    group: tsc
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: email
+      - type: discord

@@ -26,6 +26,7 @@ configMapGenerator:
       - config/endpoints-infrastructure.yaml
       - config/endpoints-pve.yaml
       - config/endpoints-services.yaml
+      - config/endpoints-tsc.yaml
       - config/endpoints-websites.yaml
     options:
       disableNameSuffixHash: true
