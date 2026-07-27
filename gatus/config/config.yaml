@@ -31,6 +31,7 @@ alerting:
       send-on-resolved: true
   discord:
     webhook-url: ${DISCORD_WEBHOOK_URL}
+    title: "Gatus-Alert"
     default-alert:
       enabled: true
       failure-threshold: 3
