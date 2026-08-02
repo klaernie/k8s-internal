@@ -1,12 +1,18 @@
 resources:
-  - 00_ns.yaml
-  - 01_pvc.yaml
-  - 02_calserv.yaml
-  - 04_vdirsyncer.yaml
-  - 14_s-mm.yaml
-  - 15_s-svc.yaml
-  - 22_xl-mm.yaml
-  - 23_xl-svc.yaml
+  - namespace-magicmirror.yaml
+  - persistentvolumeclaim-magicmirror-data.yaml
+
+  - deployment-calserv.yaml
+  - service-calserv.yaml
+  - deployment-vdirsyncer.yaml
+
+  - certificate-s-mm.yaml
+  - deployment-s-mm.yaml
+  - service-s-mm.yaml
+
+  - deployment-xl-mm.yaml
+  - service-xl-mm.yaml
+
   - secrets.enc.yaml
 
 namespace: magicmirror
