@@ -38,7 +38,9 @@ spec:
             - secretRef:
                 name: secrets
           ports:
-            - name: web
+            - name: http
+              containerPort: 80
+            - name: https
               containerPort: 443
           volumeMounts:
             - name: config
@@ -57,7 +59,7 @@ spec:
             failureThreshold: 3
             httpGet:
               path: /
-              port: 443
+              port: https
               scheme: HTTPS
             initialDelaySeconds: 10
             periodSeconds: 30
@@ -69,7 +71,7 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             tcpSocket:
-              port: 443
+              port: https
             timeoutSeconds: 1
       volumes:
         - name: nfs
