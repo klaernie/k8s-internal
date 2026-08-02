@@ -1,7 +1,10 @@
 var config = {
 	address: "0.0.0.0",
-	port: 80,
+	port: 443,
 	ipWhitelist: [],
+	useHttps: true,
+	httpsCertificate: "/tls/tls.crt",
+	httpsPrivateKey: "/tls/tls.key",
 
 	language: "en",
 	timeFormat: 24,

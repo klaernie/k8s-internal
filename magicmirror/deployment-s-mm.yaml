@@ -47,6 +47,8 @@ spec:
             - name: config
               mountPath: "/opt/magic_mirror/config/custom.css"
               subPath: "custom.css"
+            - name: tls
+              mountPath: "/tls"
             - name: patch
               mountPath: "/opt/hotpatch"
             - name: nfs
@@ -80,4 +82,7 @@ spec:
           configMap:
             name: hotpatch
             defaultMode: 0o777
+        - name: tls
+          secret:
+            secretName: s-mm-tls
 status: {}
