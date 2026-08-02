@@ -10,6 +10,10 @@ var config = {
 
 	modules: [
 		{
+			module: "MMM-chromecast",
+			position: "top_right",
+		},
+		{
 			module: "alert",
 		},
 		{
