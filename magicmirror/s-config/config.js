@@ -12,10 +12,10 @@ var config = {
 	timezone: "Europe/Berlin",
 
 	modules: [
-		{
+		/*{
 			module: "MMM-chromecast",
 			position: "top_right",
-		},
+		},*/
 		{
 			module: "alert",
 		},
