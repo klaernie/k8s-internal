@@ -8,7 +8,7 @@ var config = {
 	timeFormat: 24,
 	units: "metric",
 	timezone: "Europe/Berlin",
-	logLevel: ["INFO", "LOG", "WARN", "ERROR"], // Add "DEBUG" for even more logging
+	logLevel: ["DEBUG", "INFO", "LOG", "WARN", "ERROR"], // Add "DEBUG" for even more logging
 
 	modules: [
 		{
