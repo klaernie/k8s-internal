@@ -217,7 +217,7 @@ var config = {
 						url: "https://immich.ak-online.be",
 						timeout: 1000 * 10,
 						mode: "album",
-						albumId: "75aa9e30-54dc-474c-88d6-71d338681ca3",
+						albumIds: ["75aa9e30-54dc-474c-88d6-71d338681ca3"],
 						slideshowSpeed: 1000 * 30,
 						maxImages: 15,
 					},
