@@ -219,6 +219,7 @@ var config = {
 						mode: "album",
 						albumIds: ["75aa9e30-54dc-474c-88d6-71d338681ca3"],
 						slideshowSpeed: 1000 * 30,
+						sortBy: "random",
 						maxImages: 15,
 					},
 				],
