@@ -27,4 +27,3 @@ resources:
   - vault.yaml
   - x11.yaml
   - zigbee2mqtt.yaml
-  - invalid.yaml
