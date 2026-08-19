@@ -8,6 +8,9 @@ helmCharts:
     version: 2.3.0
     namespace: zfs-provisioner
     valuesInline:
+      image:
+        tag: v1.6.0
+        pullPolicy: IfNotPresent
       env:
         ZFS_MOD: a=rwx
       storageClass:
