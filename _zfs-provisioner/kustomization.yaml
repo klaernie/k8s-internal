@@ -5,7 +5,7 @@ resources:
 helmCharts:
   - name: kubernetes-zfs-provisioner
     repo: https://ccremer.github.io/kubernetes-zfs-provisioner
-    version: 2.3.0
+    version: 2.4.0
     namespace: zfs-provisioner
     valuesInline:
       image:
