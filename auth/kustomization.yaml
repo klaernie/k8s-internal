@@ -11,7 +11,7 @@ resources:
 
   - certificate-keycloak.yaml
   # deploy keycloak operator
-  - github.com/keycloak/keycloak-k8s-resources/kubernetes?ref=26.7.2
+  - github.com/keycloak/keycloak-k8s-resources/kubernetes?ref=26.7.3
   # deploy the custom resource
   - keycloak.yaml
 namespace: auth
