@@ -37,3 +37,4 @@ spec:
             - --source=service
             - --fqdn-template={{.Name}}.{{.Namespace}}.k8s.ak-online.be
             - --domain-filter=k8s.ak-online.be
+            - --policy=sync
