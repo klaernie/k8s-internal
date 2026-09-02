@@ -6,7 +6,7 @@ spec:
   project: internal
   source:
     repoURL: https://github.com/klaernie/k8s-internal.git
-    path: kube-system
+    path: _kube-system
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc

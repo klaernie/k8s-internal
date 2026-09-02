@@ -3,6 +3,7 @@ resources:
   - _cert-manager.yaml
   - _cnpg.yaml
   - _external-dns.yaml
+  - _kube-system.yaml
   - _metallb-system.yaml
   - _reloader.yaml
   - _sops.yaml
@@ -17,7 +18,6 @@ resources:
   - immich.yaml
   - influx.yaml
   - ingress-nginx.yaml
-  - kube-system.yaml
   - kuma.yaml
   - ldap.yaml
   - magicmirror.yaml

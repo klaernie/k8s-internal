@@ -2,6 +2,7 @@ resources:
   - _cert-manager
   - _cnpg
   - _external-dns
+  - _kube-system
   - _metallb-system
   - _reloader
   - _sops
@@ -15,7 +16,6 @@ resources:
   - immich
   - influx
   - ingress-nginx/
-  - kube-system
   - kuma
   - ldap
   - magicmirror
