@@ -9,4 +9,4 @@ spec:
   storageClassName: zfs-bulk
   resources:
     requests:
-      storage: 300Gi
+      storage: 350Gi
