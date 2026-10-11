@@ -15,5 +15,8 @@ spec:
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
+  sourceNamespaces:
+    - argocd
+    - acd-macy
   orphanedResources:
     warn: true

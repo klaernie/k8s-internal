@@ -3,13 +3,14 @@ kind: Kustomization
 
 resources:
   - namespace-argocd.yaml
+  - namespace-acd-macy.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   - secrets.enc.yaml
   - ingress-argocd.yaml
   - projects/internal.yaml
-  - apps/internal
   - projects/macy.yaml
-  - apps/macy
+  - int-apps.yaml
+  - macy-apps.yaml
 
 namespace: argocd
 
