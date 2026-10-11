@@ -47,3 +47,20 @@ patches:
         value:
           # this annotation prevents the resource from being sent to the API server (essentially leaving it out)
           config.kubernetes.io/local-config: "true"
+
+  - patch: |-
+      - op: replace
+        path: "/spec/revisionHistoryLimit"
+        value: 1
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+  - patch: |-
+      - op: replace
+        path: "/spec/revisionHistoryLimit"
+        value: 1
+    target:
+      group: apps
+      version: v1
+      kind: StatefulSet
