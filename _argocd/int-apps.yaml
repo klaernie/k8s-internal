@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: int-apps
+  namespace: argocd
 spec:
   project: internal
   source:

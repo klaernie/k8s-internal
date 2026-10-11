@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# this is a separate directory to safely apply the namespace transformer, which would
+# rename one of the namespaces in ..
+# causing a name collision (since they both would be named the same then)
+
+resources:
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+namespace: argocd
