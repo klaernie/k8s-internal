@@ -1,6 +1,7 @@
 resources:
   - 10-cnpg-system-namespace.yaml
-  - github.com/cloudnative-pg/plugin-barman-cloud//manifest.yaml?ref=v0.9.0
+  # renovate: datasource=github-releases depName=plugin-barman-cloud packageName=cloudnative-pg/plugin-barman-cloud
+  - https://github.com/cloudnative-pg/plugin-barman-cloud/releases/download/v0.9.0/manifest.yaml
   - github.com/cloudnative-pg/artifacts//image-catalogs?ref=main
 
 helmCharts:
