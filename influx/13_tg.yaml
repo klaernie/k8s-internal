@@ -1,11 +1,15 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   namespace: influx
   name: telegraf
   annotations:
     reloader.stakater.com/auto: "true"
 spec:
+  replicas: 3
+  serviceName: telegraf
+  updateStrategy:
+    type: RollingUpdate
   selector:
     matchLabels:
       app: telegraf
@@ -54,6 +58,8 @@ spec:
               mountPath: /etc/telegraf/collectd_additional_types.db
               subPath: collectd_additional_types.db
               readOnly: true
+            - name: buffer
+              mountPath: /var/lib/telegraf/buffer
       volumes:
         - name: telegraf-config-volume
           configMap:
@@ -61,3 +67,15 @@ spec:
         - name: telegraf-secret-volume
           secret:
             secretName: telegraf
+  volumeClaimTemplates:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: buffer
+      spec:
+        accessModes:
+          - ReadWriteMany
+        resources:
+          requests:
+            storage: 2Gi
+        storageClassName: zfs-quick

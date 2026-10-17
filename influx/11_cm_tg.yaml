@@ -7,7 +7,8 @@ metadata:
 data:
   telegraf.conf: |
     [agent]
-      metric_buffer_limit = 1000000
+      buffer_strategy = "disk"
+      buffer_directory = "/var/lib/telegraf/buffer"
 
     [[inputs.socket_listener]]
       service_address = "udp://:25826"
