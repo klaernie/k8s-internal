@@ -1,5 +1,5 @@
 resources:
-  - https://github.com/kubernetes-sigs/metrics-server//manifests/overlays/release?ref=v0.9.0
+  - github.com/kubernetes-sigs/metrics-server//manifests/overlays/release?ref=v0.9.0
 
 patches:
   - target:

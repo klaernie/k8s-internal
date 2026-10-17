@@ -6,6 +6,6 @@ kind: Kustomization
 # causing a name collision (since they both would be named the same then)
 
 resources:
-  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+  - github.com/argoproj/argo-cd//manifests/cluster-install?ref=v3.5.5
 
 namespace: argocd
