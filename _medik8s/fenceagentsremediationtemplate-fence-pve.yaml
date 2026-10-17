@@ -1,0 +1,34 @@
+apiVersion: fence-agents-remediation.medik8s.io/v1alpha1
+kind: FenceAgentsRemediationTemplate
+metadata:
+  name: fence-pve
+  namespace: fence-agents-remediation
+spec:
+  template:
+    spec:
+      agent: fence_pve
+      remediationStrategy: OutOfServiceTaint
+      sharedSecretName: fence-pve-credentials
+      retrycount: 3
+      retryinterval: 5s
+      timeout: 60s
+      sharedparameters:
+        "--ip": "pve.ak-online.be"
+        "--action": "reboot"
+      nodeparameters:
+        talos-api01:
+          "--plug": "601"
+        talos-api02:
+          "--plug": "602"
+        talos-api03:
+          "--plug": "603"
+        talos-w01:
+          "--plug": "611"
+        talos-w02:
+          "--plug": "612"
+        talos-w03:
+          "--plug": "613"
+        talos-w04:
+          "--plug": "614"
+        talos-w05:
+          "--plug": "615"

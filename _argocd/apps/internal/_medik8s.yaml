@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: medik8s
+spec:
+  project: internal
+  source:
+    repoURL: https://github.com/klaernie/k8s-internal.git
+    path: _medik8s
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: fence-agents-remediation
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+      enabled: true
+    syncOptions:
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=true

@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - github.com/medik8s/node-healthcheck-operator//config/default?ref=v0.12.0
+  - github.com/medik8s/fence-agents-remediation//config/default?ref=v0.8.0
+  - secrets.enc.yaml
+  - fenceagentsremediationtemplate-fence-pve.yaml
+  - nodehealthcheck-nhc-fence-pve.yaml

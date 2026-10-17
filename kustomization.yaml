@@ -3,6 +3,7 @@ resources:
   - _cnpg
   - _external-dns
   - _kube-system
+  - _medik8s
   - _metallb-system
   - _reloader
   - _sops
