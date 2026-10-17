@@ -4,6 +4,7 @@ metadata:
   name: vault
   namespace: vault
 spec:
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: vault
