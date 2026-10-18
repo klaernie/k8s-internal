@@ -92,6 +92,7 @@ patches:
           verbs:
             - get
             - list
+            - watch
     target:
       kind: ClusterRole
       name: fence-agents-remediation-manager-role
