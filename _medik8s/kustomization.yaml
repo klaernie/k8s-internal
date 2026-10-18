@@ -80,3 +80,18 @@ patches:
         name: fence-agents-remediation-mutating-webhook-configuration
         annotations:
           cert-manager.io/inject-ca-from: fence-agents-remediation/fence-agents-remediation-serving-cert
+
+  - patch: |-
+      - op: add
+        path: /rules/-
+        value:
+          apiGroups:
+            - ""
+          resources:
+            - secrets
+          verbs:
+            - get
+            - list
+    target:
+      kind: ClusterRole
+      name: node-healthcheck-manager-role
