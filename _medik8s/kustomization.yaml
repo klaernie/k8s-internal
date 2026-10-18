@@ -46,7 +46,7 @@ patches:
             containers:
               - name: manager
                 # renovate: datasource=github-releases depName=fence-agents-remediation packageName=medik8s/fence-agents-remediation
-                image: quay.io/medik8s/fence-agents-remediation-operator:v0.8.0
+                image: ghcr.io/klaernie/fence-agents-remediation-operator:v0.8.0
                 volumeMounts:
                   - mountPath: /tmp/k8s-webhook-server/serving-certs
                     name: cert
