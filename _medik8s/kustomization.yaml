@@ -23,7 +23,7 @@ patches:
             containers:
               - name: manager
                 # renovate: datasource=github-releases depName=node-healthcheck-operator packageName=medik8s/node-healthcheck-operator
-                image: quay.io/medik8s/node-healthcheck-operator:v0.12.0
+                image: quay.io/medik8s/node-healthcheck-operator:v5.8.0
                 volumeMounts:
                   - mountPath: /tmp/k8s-webhook-server/serving-certs
                     name: cert
