@@ -94,4 +94,4 @@ patches:
             - list
     target:
       kind: ClusterRole
-      name: node-healthcheck-manager-role
+      name: fence-agents-remediation-manager-role
