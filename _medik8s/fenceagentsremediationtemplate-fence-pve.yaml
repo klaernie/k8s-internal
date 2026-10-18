@@ -16,19 +16,12 @@ spec:
         "--ip": "pve.ak-online.be"
         "--action": "reboot"
       nodeparameters:
-        talos-api01:
-          "--plug": "601"
-        talos-api02:
-          "--plug": "602"
-        talos-api03:
-          "--plug": "603"
-        talos-w01:
-          "--plug": "611"
-        talos-w02:
-          "--plug": "612"
-        talos-w03:
-          "--plug": "613"
-        talos-w04:
-          "--plug": "614"
-        talos-w05:
-          "--plug": "615"
+        --plug:
+          talos-api01: "601"
+          talos-api02: "602"
+          talos-api03: "603"
+          talos-w01: "611"
+          talos-w02: "612"
+          talos-w03: "613"
+          talos-w04: "614"
+          talos-w05: "615"
