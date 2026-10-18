@@ -1,7 +1,8 @@
 resources:
   - namespace.yaml
-  - cluster-issuer.yaml
   - secret.enc.yaml
+  - clusterissuer-letsencrypt-prod.yaml
+  - clusterissuer-selfsigned.yaml
 
 helmCharts:
   - name: cert-manager
