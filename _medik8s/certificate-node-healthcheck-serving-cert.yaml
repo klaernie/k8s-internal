@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: node-healthcheck-serving-cert
+  namespace: node-healthcheck-operator-system
+spec:
+  dnsNames:
+    - node-healthcheck-webhook-service.node-healthcheck-operator-system.svc
+    - node-healthcheck-webhook-service.node-healthcheck-operator-system.svc.cluster.local
+  issuerRef:
+    kind: ClusterIssuer
+    name: selfsigned
+  secretName: node-healthcheck-webhook-server-cert

@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: fence-agents-remediation-serving-cert
+  namespace: fence-agents-remediation
+spec:
+  dnsNames:
+    - fence-agents-remediation-webhook-service.fence-agents-remediation.svc
+    - fence-agents-remediation-webhook-service.fence-agents-remediation.svc.cluster.local
+  issuerRef:
+    kind: ClusterIssuer
+    name: selfsigned
+  secretName: fence-agents-remediation-webhook-server-cert

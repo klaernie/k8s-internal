@@ -4,6 +4,79 @@ kind: Kustomization
 resources:
   - github.com/medik8s/node-healthcheck-operator//config/default?ref=v0.12.0
   - github.com/medik8s/fence-agents-remediation//config/default?ref=v0.8.0
+  - certificate-fence-agents-remediation-serving-cert.yaml
+  - certificate-node-healthcheck-serving-cert.yaml
   - secrets.enc.yaml
   - fenceagentsremediationtemplate-fence-pve.yaml
   - nodehealthcheck-nhc-fence-pve.yaml
+
+patches:
+  - patch: |
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: node-healthcheck-controller-manager
+        namespace: node-healthcheck-operator-system
+      spec:
+        template:
+          spec:
+            containers:
+              - name: manager
+                # renovate: datasource=github-releases depName=node-healthcheck-operator packageName=medik8s/node-healthcheck-operator
+                image: quay.io/medik8s/node-healthcheck-operator:v0.12.0
+                volumeMounts:
+                  - mountPath: /tmp/k8s-webhook-server/serving-certs
+                    name: cert
+                    readOnly: true
+            volumes:
+              - name: cert
+                secret:
+                  defaultMode: 420
+                  secretName: node-healthcheck-webhook-server-cert
+
+  - patch: |
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: fence-agents-remediation-controller-manager
+        namespace: fence-agents-remediation
+      spec:
+        template:
+          spec:
+            containers:
+              - name: manager
+                # renovate: datasource=github-releases depName=fence-agents-remediation packageName=medik8s/fence-agents-remediation
+                image: quay.io/medik8s/fence-agents-remediation-operator:v0.8.0
+                volumeMounts:
+                  - mountPath: /tmp/k8s-webhook-server/serving-certs
+                    name: cert
+                    readOnly: true
+            volumes:
+              - name: cert
+                secret:
+                  defaultMode: 420
+                  secretName: fence-agents-remediation-webhook-server-cert
+
+  - patch: |
+      apiVersion: admissionregistration.k8s.io/v1
+      kind: ValidatingWebhookConfiguration
+      metadata:
+        name: node-healthcheck-validating-webhook-configuration
+        annotations:
+          cert-manager.io/inject-ca-from: node-healthcheck-operator-system/node-healthcheck-serving-cert
+
+  - patch: |
+      apiVersion: admissionregistration.k8s.io/v1
+      kind: ValidatingWebhookConfiguration
+      metadata:
+        name: fence-agents-remediation-validating-webhook-configuration
+        annotations:
+          cert-manager.io/inject-ca-from: fence-agents-remediation/fence-agents-remediation-serving-cert
+
+  - patch: |
+      apiVersion: admissionregistration.k8s.io/v1
+      kind: MutatingWebhookConfiguration
+      metadata:
+        name: fence-agents-remediation-mutating-webhook-configuration
+        annotations:
+          cert-manager.io/inject-ca-from: fence-agents-remediation/fence-agents-remediation-serving-cert
