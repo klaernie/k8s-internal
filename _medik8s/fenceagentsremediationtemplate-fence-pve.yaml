@@ -13,8 +13,9 @@ spec:
       retryinterval: 5s
       timeout: 60s
       sharedparameters:
-        "--ip": "pve.ak-online.be"
-        "--action": "reboot"
+        --ip: "pve.ak-online.be"
+        --action: "reboot"
+        --pve-node-auto: "true"
       nodeparameters:
         --plug:
           talos-api01: "601"
