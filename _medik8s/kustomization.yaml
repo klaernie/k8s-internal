@@ -93,6 +93,16 @@ patches:
             - get
             - list
             - watch
+      - op: add
+        path: /rules/-
+        value:
+          apiGroups:
+          - ""
+          resources:
+          - events
+          verbs:
+          - create
+          - patch
     target:
       kind: ClusterRole
       name: fence-agents-remediation-manager-role
