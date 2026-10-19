@@ -11,11 +11,11 @@ spec:
       sharedSecretName: fence-pve-credentials
       retrycount: 3
       retryinterval: 5s
-      timeout: 60s
+      timeout: 1m0s
       sharedparameters:
         --ip: "pve.ak-online.be"
         --action: "reboot"
-        --pve-node-auto: --pve-node-auto
+        --pve-node-auto: ""
       nodeparameters:
         --plug:
           talos-api01: "601"
