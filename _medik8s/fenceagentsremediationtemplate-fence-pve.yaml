@@ -15,7 +15,7 @@ spec:
       sharedparameters:
         --ip: "pve.ak-online.be"
         --action: "reboot"
-        --pve-node-auto: "true"
+        --pve-node-auto: --pve-node-auto
       nodeparameters:
         --plug:
           talos-api01: "601"
