@@ -1,0 +1,57 @@
+name: "Rebuild FAR operator image"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/build-medik8s-fence-agent-remediation-operator.yaml
+      - _medik8s/rebuild-fence-agents-image/**
+  pull_request:
+    paths:
+      - .github/workflows/build-medik8s-fence-agent-remediation-operator.yaml
+      - _medik8s/rebuild-fence-agents-image/**
+  workflow_dispatch:
+
+permissions:
+  content: read-all
+  packages: write
+
+jobs:
+  build:
+    runs-on: "ubuntu-latest"
+    name: "Create image"
+    steps:
+      - name: Check out the Repo
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Get base Version
+        id: baseversion
+        shell: bash
+        # This searches for a base version (tag) in the Dockerfile and export this as an output
+        # furthermore it also count up the number of commits since this Dockerfile was introduced
+        # in order to determine our version postfix
+        run: |
+          cd _medik8s/rebuild-fence-agents-image/
+          baseversion=$(grep FROM Dockerfile | cut -d : -f2 | cut -d@ -f1)
+          echo "baseversion=$baseversion" >> "$GITHUB_OUTPUT"
+          echo "commitcount=$(git rev-list 639e7538af706f7789795de6d369a37a192fad3c..HEAD --count)" >> "$GITHUB_OUTPUT"
+
+      - name: Login to internal Artifactory
+        uses: docker/login-action@v4.6.0
+        if: ${{ github.event_name != 'pull_request' }}
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v6
+        with:
+          context: _medik8s/rebuild-fence-agents-image/
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ghcr.io/${{ github.repository_owner }}/fence-agents-remediation-operator:${{steps.baseversion.outputs.baseversion}}-${{steps.baseversion.outputs.commitcount}}
