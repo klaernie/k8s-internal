@@ -8,13 +8,13 @@ metadata:
 spec:
   description: External Deployment to Macy
   sourceRepos:
-    - '*'
+    - "*"
   destinations:
     - server: https://macy.ak-online.be:6443
-      namespace: '*'
+      namespace: "*"
   clusterResourceWhitelist:
-    - group: '*'
-      kind: '*'
+    - group: "*"
+      kind: "*"
   sourceNamespaces:
     - argocd
     - acd-macy

@@ -29,7 +29,12 @@
   "packageRules": [
     {
       "groupName": "elk-stack",
-      "matchPackageNames": ["elastic/elasticsearch", "elastic/logstash", "elastic/kibana", "elastic/beats"]
+      "matchPackageNames": [
+        "elastic/elasticsearch",
+        "elastic/logstash",
+        "elastic/kibana",
+        "elastic/beats"
+      ]
     },
     {
       "matchPackageNames": ["elastic/beats"],
