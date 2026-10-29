@@ -4,7 +4,7 @@ export default {
 	extends: ["stylelint-config-standard"],
 	rules: {
 		"selector-class-pattern": [
-			"^(?:CX2|[a-z][a-z0-9]*(?:-[a-z0-9]+)*)$",
+			"^(?:CX2|eventTitle|eventTime|eventCount_0|eventSub|slotContent|slotHeader|slotFooter|[a-z][a-z0-9]*(?:-[a-z0-9]+)*)$",
 			{
 				message: (selector) =>
 					`Expected class selector "${selector}" to be kebab-case`,
