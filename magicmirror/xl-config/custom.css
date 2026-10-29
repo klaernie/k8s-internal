@@ -57,6 +57,7 @@ body {
 
 .CX2 .slot .event {
 	background: none;
+	border-left: #000 solid;
 }
 
 .CX2 .slot .slotHeader {
@@ -82,10 +83,6 @@ body {
 
 .CX2 .slot .slotFooter {
 	display: none;
-}
-
-.CX2 .event {
-	border-left: #000 solid;
 }
 
 .CX2 .event[data-calendar-name="Andre"],
