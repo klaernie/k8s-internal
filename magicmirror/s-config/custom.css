@@ -95,11 +95,3 @@ body {
 .CX2 .event[data-busystatus="TENTATIVE"] .eventTitle {
 	color: #444444;
 }
-
-#SPOTIFY_BACKGROUND {
-	display: none;
-}
-
-.MMM-mqtt .value {
-	font-size: 10pt;
-}

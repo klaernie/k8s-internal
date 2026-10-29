@@ -116,30 +116,3 @@ body {
 .CX2 .event[data-busystatus="TENTATIVE"] .eventTitle {
 	color: #444444;
 }
-
-/* GooglePhotos */
-#GPHOTO {
-	margin-top: 20px;
-}
-
-#GPHOTO_BACK {
-	background-size: contain;
-	filter: blue(50px) brightness(90%);
-}
-
-#GPHOTO_BACK.animated {
-	animation-name: trans;
-	animation-duration: 0.5s;
-}
-
-#GPHOTO_INFO {
-	display: none;
-}
-
-#SPOTIFY_BACKGROUND {
-	display: none;
-}
-
-.MMM-mqtt .value {
-	font-size: 10pt;
-}
