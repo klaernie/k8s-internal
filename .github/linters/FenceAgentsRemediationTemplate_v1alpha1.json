@@ -64,10 +64,7 @@
                 "remediationStrategy": {
                   "default": "ResourceDeletion",
                   "description": "RemediationStrategy is the remediation method for unhealthy nodes.\nCurrently, it could be either \"OutOfServiceTaint\" or \"ResourceDeletion\".\nResourceDeletion will iterate over all pods related to the unhealthy node and delete them.\nOutOfServiceTaint will add the out-of-service taint which is a new well-known taint \"node.kubernetes.io/out-of-service\"\nthat enables automatic deletion of pv-attached pods on failed nodes, \"out-of-service\" taint is only supported on clusters with k8s version 1.26+ or OCP/OKD version 4.13+.",
-                  "enum": [
-                    "ResourceDeletion",
-                    "OutOfServiceTaint"
-                  ],
+                  "enum": ["ResourceDeletion", "OutOfServiceTaint"],
                   "type": "string"
                 },
                 "retrycount": {
@@ -99,23 +96,17 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "agent"
-              ],
+              "required": ["agent"],
               "type": "object",
               "additionalProperties": false
             }
           },
-          "required": [
-            "spec"
-          ],
+          "required": ["spec"],
           "type": "object",
           "additionalProperties": false
         }
       },
-      "required": [
-        "template"
-      ],
+      "required": ["template"],
       "type": "object",
       "additionalProperties": false
     },
@@ -152,11 +143,7 @@
               },
               "status": {
                 "description": "status of the condition, one of True, False, Unknown.",
-                "enum": [
-                  "True",
-                  "False",
-                  "Unknown"
-                ],
+                "enum": ["True", "False", "Unknown"],
                 "type": "string"
               },
               "type": {
@@ -177,9 +164,7 @@
             "additionalProperties": false
           },
           "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "type"
-          ],
+          "x-kubernetes-list-map-keys": ["type"],
           "x-kubernetes-list-type": "map"
         },
         "validationFailed": {

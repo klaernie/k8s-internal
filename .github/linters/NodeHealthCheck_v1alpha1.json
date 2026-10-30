@@ -66,11 +66,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "order",
-              "remediationTemplate",
-              "timeout"
-            ],
+            "required": ["order", "remediationTemplate", "timeout"],
             "type": "object",
             "additionalProperties": false
           },
@@ -175,10 +171,7 @@
                     "x-kubernetes-list-type": "atomic"
                   }
                 },
-                "required": [
-                  "key",
-                  "operator"
-                ],
+                "required": ["key", "operator"],
                 "type": "object",
                 "additionalProperties": false
               },
@@ -235,19 +228,12 @@
                 "type": "string"
               }
             },
-            "required": [
-              "duration",
-              "status",
-              "type"
-            ],
+            "required": ["duration", "status", "type"],
             "type": "object",
             "additionalProperties": false
           },
           "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "type",
-            "status"
-          ],
+          "x-kubernetes-list-map-keys": ["type", "status"],
           "x-kubernetes-list-type": "map"
         }
       },
@@ -287,11 +273,7 @@
               },
               "status": {
                 "description": "status of the condition, one of True, False, Unknown.",
-                "enum": [
-                  "True",
-                  "False",
-                  "Unknown"
-                ],
+                "enum": ["True", "False", "Unknown"],
                 "type": "string"
               },
               "type": {
@@ -312,9 +294,7 @@
             "additionalProperties": false
           },
           "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "type"
-          ],
+          "x-kubernetes-list-map-keys": ["type"],
           "x-kubernetes-list-type": "map"
         },
         "healthyNodes": {
@@ -420,26 +400,19 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "resource",
-                    "started"
-                  ],
+                  "required": ["resource", "started"],
                   "type": "object",
                   "additionalProperties": false
                 },
                 "type": "array"
               }
             },
-            "required": [
-              "name"
-            ],
+            "required": ["name"],
             "type": "object",
             "additionalProperties": false
           },
           "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "name"
-          ],
+          "x-kubernetes-list-map-keys": ["name"],
           "x-kubernetes-list-type": "map"
         }
       },
