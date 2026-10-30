@@ -8,12 +8,12 @@ metadata:
 spec:
   description: Internal Deployment
   sourceRepos:
-    - '*'
+    - "*"
   destinations:
     - server: https://kubernetes.default.svc
-      namespace: '*'
+      namespace: "*"
   clusterResourceWhitelist:
-    - group: '*'
-      kind: '*'
+    - group: "*"
+      kind: "*"
   orphanedResources:
     warn: true
