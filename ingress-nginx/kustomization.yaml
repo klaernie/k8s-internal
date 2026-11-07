@@ -18,7 +18,7 @@ helmCharts:
     valuesInline:
       controller:
         name: external
-        replicaCount: 3
+        replicaCount: 1
         minAvailable: 1
         resources:
           limits:
