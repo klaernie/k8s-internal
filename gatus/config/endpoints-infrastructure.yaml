@@ -110,3 +110,39 @@ endpoints:
     alerts:
       - type: email
       - type: discord
+
+  - name: sw-hp-office-main
+    url: icmp://sw-hp-office-main.ak-online.be
+    group: infrastructure
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: sw-hp-office-core
+    url: icmp://sw-hp-office-core.ak-online.be
+    group: infrastructure
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: sw-hp-livingroom
+    url: icmp://sw-hp-livingroom.ak-online.be
+    group: infrastructure
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: email
+      - type: discord
+
+  - name: sw-hp-basement
+    url: icmp://sw-hp-basement.ak-online.be
+    group: infrastructure
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: email
+      - type: discord
