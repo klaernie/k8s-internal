@@ -9,7 +9,7 @@ helmCharts:
     repo: https://isindir.github.io/sops-secrets-operator/
     releaseName: sops
     namespace: sops
-    version: 0.30.0
+    version: 0.30.1
     includeCRDs: true
     valuesInline:
       securityContext:
