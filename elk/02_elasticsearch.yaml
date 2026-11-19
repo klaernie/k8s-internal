@@ -7,7 +7,7 @@ spec:
   # renovate: datasource=github-releases depName=elasticsearch packageName=elastic/elasticsearch
   version: 9.5.6
   nodeSets:
-    - name: gen2
+    - name: gen1
       count: 3
       config:
         node.store.allow_mmap: false
@@ -19,5 +19,5 @@ spec:
               - ReadWriteOnce
             resources:
               requests:
-                storage: 75Gi
+                storage: 20Gi
             storageClassName: zfs-bulk
