@@ -1,4 +1,4 @@
-FROM quay.io/medik8s/fence-agents-remediation-operator:v0.8.0
+FROM quay.io/medik8s/fence-agents-remediation-operator:v99.9.9
 USER root
 RUN	set -e -x \
 	&& curl https://raw.githubusercontent.com/ClusterLabs/fence-agents/refs/heads/main/agents/pve/fence_pve.py \
