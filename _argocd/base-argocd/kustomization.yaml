@@ -7,5 +7,6 @@ kind: Kustomization
 
 resources:
   - github.com/argoproj/argo-cd//manifests/cluster-install?ref=v3.6.2
+  - github.com/argoproj/argo-cd//examples/k8s-rbac/argocd-server-applications?ref=v3.6.2
 
 namespace: argocd
